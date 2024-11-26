@@ -95,6 +95,7 @@ public class GenProManager : MonoBehaviour
         GenerateStairs();
 
         GenerateLockedDoors(4);
+        GenerateFriends();
         DebugDisplayMap();
     }
 
@@ -167,6 +168,27 @@ public class GenProManager : MonoBehaviour
                     mansionMap[x, y].isLockedRight = true;
                     mansionMap[x + 1, y].isLockedLeft = true;
                 }
+            }
+        }
+    }
+
+
+    private void GenerateFriends()
+    {
+        int friendCount = 0;
+        int delay = 0;
+        
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                if (delay >= 0)
+                {
+                    delay--;
+                    continue;
+                }
+                
+                List<Room> pathToStart = GetPath(new Vector2Int(x, y), currentPos);
             }
         }
     }

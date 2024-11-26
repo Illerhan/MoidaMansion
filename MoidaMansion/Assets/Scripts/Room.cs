@@ -8,6 +8,7 @@ public class Room
     public bool connectedUp;
     public bool connectedDown;
     public bool isStart;
+    public bool hasFriend;
     public bool isLockedLeft;
     public bool isLockedRight;
     public Vector2Int coord;
