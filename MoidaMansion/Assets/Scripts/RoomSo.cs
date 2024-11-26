@@ -5,5 +5,5 @@ using UnityEngine;
 public class RoomSo : ScriptableObject
 {
     [field: SerializeField] public RoomType RoomType { get; private set; }
-    [field: SerializeField] public List<Sprite> RoomSprites { get; private set; } = new();
+    [field: SerializeField] public List<ObjectSo> RoomObjects { get; private set; } = new();
 }
