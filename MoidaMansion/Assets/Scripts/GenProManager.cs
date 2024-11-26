@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -52,11 +53,21 @@ public class GenProManager : MonoBehaviour
                 }
                 if (mansionMap[x, y].connectedLeft)
                 {
-                    Instantiate(pathPrefabDebug, new Vector3(x - 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
+                    GameObject path = Instantiate(pathPrefabDebug, new Vector3(x - 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
+                    
+                    if (mansionMap[x, y].isLockedLeft)
+                    {
+                        path.GetComponent<SpriteRenderer>().color = Color.blue;
+                    }
                 }
                 if (mansionMap[x, y].connectedRight)
                 {
-                    Instantiate(pathPrefabDebug, new Vector3(x + 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
+                    GameObject path = Instantiate(pathPrefabDebug, new Vector3(x + 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
+                    
+                    if (mansionMap[x, y].isLockedRight)
+                    {
+                        path.GetComponent<SpriteRenderer>().color = Color.blue;
+                    }
                 }
             }
         }
@@ -71,6 +82,7 @@ public class GenProManager : MonoBehaviour
             for (int x = 0; x < 4; x++)
             {
                 mansionMap[x, y] = new Room();
+                mansionMap[x, y].coord = new Vector2Int(x, y);
             }
         }
         
@@ -117,4 +129,42 @@ public class GenProManager : MonoBehaviour
             mansionMap[stairsIndex, y + 1].connectedDown = true;
         }
     }
+
+    private void GenerateLockedDoors()
+    {
+        
+    }
+    
+    
+    #region Pathfinding
+
+    public void GetDistanceBetweenRooms(Vector2Int start, Vector2Int end)
+    {
+        List<Room> openList = new List<Room>();
+        List<Room> closedList = new List<Room>();
+
+        openList.Add(mansionMap[start.x, start.y]);
+        
+        while (openList.Count != 0)
+        {
+            Room currentRoom = openList[0];
+
+            if (currentRoom.coord == end)
+                break;
+
+            for (int x = -1; x <= 1; x += 2)
+            {
+                for (int y = -1; y <= 1; y += 2)
+                {
+                    if (x < 0 || x > 3 || y < 0 || y > 2) continue;
+                    if (openList.Contains(mansionMap[x, y]) || closedList.Contains(mansionMap[x, y])) continue;
+                    
+                    openList.Add(mansionMap[x, y]);
+                }
+            }
+            
+        }
+    }
+    
+    #endregion
 }

@@ -10,6 +10,8 @@ public class Room
     public bool isStart;
     public bool isLockedLeft;
     public bool isLockedRight;
+    public Vector2Int coord;
+    public Room previous;
 
 }
 
