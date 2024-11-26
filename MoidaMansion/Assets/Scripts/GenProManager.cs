@@ -94,6 +94,7 @@ public class GenProManager : MonoBehaviour
         GenerateDoorConnections();
         GenerateStairs();
 
+        GenerateLockedDoors(4);
         DebugDisplayMap();
     }
 
@@ -121,6 +122,7 @@ public class GenProManager : MonoBehaviour
                 if (mansionMap[stairsIndex, y].isStart) continue;
                 if (mansionMap[stairsIndex, y].connectedUp) continue;
                 if (mansionMap[stairsIndex, y].connectedDown) continue;
+                if (mansionMap[stairsIndex, y + 1].isStart) continue;
 
                 break;
             }
@@ -130,15 +132,49 @@ public class GenProManager : MonoBehaviour
         }
     }
 
-    private void GenerateLockedDoors()
+    private void GenerateLockedDoors(int minDist)
     {
+        int lockedPathCount = 0;
+        int delay = 0;
         
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                if (lockedPathCount >= 2) return;
+
+                if (delay >= 0)
+                {
+                    delay--;
+                    continue;
+                }
+                
+                List<Room> pathToStart = GetPath(new Vector2Int(x, y), currentPos);
+
+                if (pathToStart.Count < minDist) continue;
+                if (pathToStart[1].coord.x == x) continue;
+
+                lockedPathCount++;
+                delay = 4;
+
+                if (pathToStart[1].coord.x < x)
+                {
+                    mansionMap[x, y].isLockedLeft = true;
+                    mansionMap[x - 1, y].isLockedRight = true;
+                }
+                else
+                {
+                    mansionMap[x, y].isLockedRight = true;
+                    mansionMap[x + 1, y].isLockedLeft = true;
+                }
+            }
+        }
     }
     
     
     #region Pathfinding
 
-    public void GetDistanceBetweenRooms(Vector2Int start, Vector2Int end)
+    public List<Room> GetPath(Vector2Int start, Vector2Int end)
     {
         List<Room> openList = new List<Room>();
         List<Room> closedList = new List<Room>();
@@ -148,22 +184,71 @@ public class GenProManager : MonoBehaviour
         while (openList.Count != 0)
         {
             Room currentRoom = openList[0];
-
+            
             if (currentRoom.coord == end)
-                break;
+                return GetFinalPath(start, currentRoom);
 
-            for (int x = -1; x <= 1; x += 2)
+            if (currentRoom.coord.x > 0 && currentRoom.connectedLeft && !currentRoom.isLockedLeft)
             {
-                for (int y = -1; y <= 1; y += 2)
+                if (!openList.Contains(mansionMap[currentRoom.coord.x - 1, currentRoom.coord.y]) &&
+                    !closedList.Contains(mansionMap[currentRoom.coord.x - 1, currentRoom.coord.y]))
                 {
-                    if (x < 0 || x > 3 || y < 0 || y > 2) continue;
-                    if (openList.Contains(mansionMap[x, y]) || closedList.Contains(mansionMap[x, y])) continue;
-                    
-                    openList.Add(mansionMap[x, y]);
+                    openList.Add(mansionMap[currentRoom.coord.x - 1, currentRoom.coord.y]);
+                    mansionMap[currentRoom.coord.x - 1, currentRoom.coord.y].previous = currentRoom;
+                }
+            }
+            if (currentRoom.coord.x < 3 && currentRoom.connectedRight && !currentRoom.isLockedRight)
+            {
+                if (!openList.Contains(mansionMap[currentRoom.coord.x + 1, currentRoom.coord.y]) &&
+                    !closedList.Contains(mansionMap[currentRoom.coord.x + 1, currentRoom.coord.y]))
+                {
+                    openList.Add(mansionMap[currentRoom.coord.x + 1, currentRoom.coord.y]);
+                    mansionMap[currentRoom.coord.x + 1, currentRoom.coord.y].previous = currentRoom;
+                }
+            }
+            if (currentRoom.coord.y > 0 && currentRoom.connectedDown)
+            {
+                if (!openList.Contains(mansionMap[currentRoom.coord.x, currentRoom.coord.y - 1]) &&
+                    !closedList.Contains(mansionMap[currentRoom.coord.x, currentRoom.coord.y - 1]))
+                {
+                    openList.Add(mansionMap[currentRoom.coord.x, currentRoom.coord.y - 1]);
+                    mansionMap[currentRoom.coord.x, currentRoom.coord.y - 1].previous = currentRoom;
+                }
+            }
+            if (currentRoom.coord.y < 2 && currentRoom.connectedUp)
+            {
+                if (!openList.Contains(mansionMap[currentRoom.coord.x, currentRoom.coord.y + 1]) &&
+                    !closedList.Contains(mansionMap[currentRoom.coord.x, currentRoom.coord.y + 1]))
+                {
+                    openList.Add(mansionMap[currentRoom.coord.x, currentRoom.coord.y + 1]);
+                    mansionMap[currentRoom.coord.x, currentRoom.coord.y + 1].previous = currentRoom;
                 }
             }
             
+            openList.RemoveAt(0);
+            closedList.Add(currentRoom);
         }
+
+        return new List<Room>();
+    }
+
+    private List<Room> GetFinalPath(Vector2Int start, Room endRoom)
+    {
+        List<Room> path = new List<Room>();
+        Room currentRoom = endRoom;
+
+        while (true)
+        {
+            path.Add(currentRoom);
+
+            if (currentRoom.coord == start)
+                break;
+
+            currentRoom = currentRoom.previous;
+        }
+        
+        path.Reverse();
+        return path;
     }
     
     #endregion
