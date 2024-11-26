@@ -17,5 +17,16 @@ public class Room
 
 public enum RoomType
 {
-    
+    None,
+    Entrance,
+    Laboratory,
+    Bedroom,
+    Void,
+    Study,
+    Storage,
+    Kitchen,
+    Dressing,
+    Toilet,
+    Boiler,
+    Library
 }
