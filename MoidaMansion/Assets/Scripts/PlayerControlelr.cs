@@ -1,14 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem.iOS;
-using UnityEngine.UI;
-using Vector3 = System.Numerics.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
