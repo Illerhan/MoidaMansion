@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEditorInternal;
@@ -9,15 +11,16 @@ using UnityEngine.UI;
 using Vector3 = System.Numerics.Vector3;
 
 public class PlayerController : MonoBehaviour
-
 {
-    [SerializeField]
-    private InventoryManager inventoryManager;
-    [SerializeField]
-    private RoomDisplayManager roomDisplayManager;
+    [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private RoomDisplayManager roomDisplayManager;
     
     Vector2Int _position = new (0, 0);
     private Room _currentRoom;
+    private int currentInspectIndex;
+    private List<SpriteRenderer> inspectedSpriteRenderers;
+    private bool isInspecting;
+    private Coroutine currentCoroutine;
 
 
     private void Start()
@@ -56,6 +59,10 @@ public class PlayerController : MonoBehaviour
             _position += new Vector2Int(direction, 0);
         Debug.Log("New position = " + _position);
         
+        // Si le joueur était en train de fouiller
+        if(currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        
         // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
@@ -63,8 +70,62 @@ public class PlayerController : MonoBehaviour
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
     }
-    
 
+
+    public void InspectItem()
+    {
+        if (isInspecting)
+        {
+            currentInspectIndex++;
+            if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
+                currentInspectIndex = 0;
+        }
+        else
+        {
+            currentInspectIndex = 0;
+        }
+        
+        // Missing : get sprites
+        
+        if(currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        
+        currentCoroutine = StartCoroutine(InspectObjectCoroutine());
+    }
+
+    private IEnumerator InspectObjectCoroutine()
+    {
+        int currentCounter = 0;
+        
+        while (true)
+        {
+            if (currentCounter >= 10)
+            {
+                break;
+            }
+            
+            for (int i = 0; i < inspectedSpriteRenderers.Count; i++)
+            {
+                inspectedSpriteRenderers[i].gameObject.SetActive(false);
+            }
+        
+            yield return new WaitForSeconds(0.5f);
+
+            currentCounter++;
+        
+            for (int i = 0; i < inspectedSpriteRenderers.Count; i++)
+            {
+                inspectedSpriteRenderers[i].gameObject.SetActive(true);
+            }
+        
+            yield return new WaitForSeconds(0.5f);
+            
+            currentCounter++;
+        }
+        
+        
+        Debug.Log("C'est fouillé");
+    }
 
     // void inspectItem(itemToInspect)
     // {

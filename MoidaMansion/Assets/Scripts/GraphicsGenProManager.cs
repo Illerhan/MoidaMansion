@@ -6,6 +6,8 @@ public class GraphicsGenProManager : MonoBehaviour
 
     [Header("Parameters")] 
     [SerializeField] private DoorListSo doorList;
+    [SerializeField] private ObjectSo stairsUp;
+    [SerializeField] private ObjectSo stairsDown;
     [SerializeField] private RoomSo entranceSo;
     [SerializeField] private RoomSo librarySo;
     
@@ -54,6 +56,25 @@ public class GraphicsGenProManager : MonoBehaviour
                 {
                     map[x, y].leftDoor = doorList.LeftDoors[previous];
                     map[x, y].rightDoor = doorList.RightDoors[doorList.RightDoors.Count - 1];
+                }
+            }
+        }
+    }
+    
+    public void GenerateStairs(Room[,] map)
+    {
+        int previous = 0;
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                if (map[x, y].connectedUp)
+                {
+                    map[x, y].stairs = stairsUp;
+                }
+                if (map[x, y].connectedDown)
+                {
+                    map[x, y].stairs = stairsDown;
                 }
             }
         }
