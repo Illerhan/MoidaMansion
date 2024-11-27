@@ -17,13 +17,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a88c7e365c0259d4986f9fc3495566ef, type: 2}
   - {fileID: 11400000, guid: a1a55f3548487b74db3eaa3509aafd24, type: 2}
   - {fileID: 11400000, guid: 211b814a5687c2b4c94193bd027edf77, type: 2}
-  - {fileID: 11400000, guid: 0bb8e94e634041a46b2d824af4aac09b, type: 2}
+  - {fileID: 11400000, guid: dbc92e34c1e4a5b4b84ec93a30cde352, type: 2}
   <RightDoors>k__BackingField:
   - {fileID: 11400000, guid: f54753a7dc9bce7498912adc9d0ca348, type: 2}
   - {fileID: 11400000, guid: bfc3353c830a8cc4aadf7ac02367434c, type: 2}
   - {fileID: 11400000, guid: 9f1f04b2f3d61364f874772fd67169b8, type: 2}
   - {fileID: 11400000, guid: e604124a8b8d37f488f375fea5c0f533, type: 2}
-  - {fileID: 11400000, guid: 0bb8e94e634041a46b2d824af4aac09b, type: 2}
+  - {fileID: 11400000, guid: b21a2828422aef441a05b8fa7f987a7f, type: 2}
   <Stairs>k__BackingField:
   - {fileID: 11400000, guid: 55908e01143c513449b8bc5812eab661, type: 2}
   - {fileID: 11400000, guid: 37d1153f31389224197cad4bddeb544b, type: 2}

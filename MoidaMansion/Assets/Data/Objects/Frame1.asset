@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc703a97320bb7045877a74c066218eb, type: 3}
-  m_Name: RoomBackground2
+  m_Name: Frame1
   m_EditorClassIdentifier: 
-  <CanBeSearched>k__BackingField: 0
+  <CanBeSearched>k__BackingField: 1
   <RoomSprites>k__BackingField:
-  - {fileID: 21300000, guid: 86ee3f53392782046841ba0066c91dea, type: 3}
-  - {fileID: 21300000, guid: 1a8d6010a040c3e4fb7d65cd0c110c45, type: 3}
-  - {fileID: 21300000, guid: cd0b0cfd45b2af24a8ac8d96fde61340, type: 3}
-  - {fileID: 21300000, guid: 728b5e015b50e1544b682a2553662527, type: 3}
+  - {fileID: 21300000, guid: 4bcc59105f9b7c84abc1be2a0f97e502, type: 3}
