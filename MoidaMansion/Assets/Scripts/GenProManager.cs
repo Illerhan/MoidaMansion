@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -61,6 +62,15 @@ public class GenProManager : MonoBehaviour
                     room.GetComponent<SpriteRenderer>().color = Color.green;
                 }
 
+                if (mansionMap[x, y].hasKey)
+                {
+                    Instantiate(keyPrefabDebug, new Vector3(x, y, 0), Quaternion.Euler(0, 0, 0));
+                }
+                if (mansionMap[x, y].hasFullCode)
+                {
+                    Instantiate(codePrefabDebug, new Vector3(x, y, 0), Quaternion.Euler(0, 0, 0));
+                } 
+
 
                 if (mansionMap[x, y].connectedUp)
                 {
@@ -73,19 +83,44 @@ public class GenProManager : MonoBehaviour
                 if (mansionMap[x, y].connectedLeft)
                 {
                     GameObject path = Instantiate(pathPrefabDebug, new Vector3(x - 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
-                    
                     if (mansionMap[x, y].isLockedLeft)
                     {
-                        path.GetComponent<SpriteRenderer>().color = Color.blue;
+                        if (mansionMap[x - 1, y].isKeyLocked)
+                        {
+                            path.GetComponent<SpriteRenderer>().color = Color.yellow;
+                        }
+                        
+                        if (mansionMap[x - 1, y].isCodeLocked)
+                        {
+                            path.GetComponent<SpriteRenderer>().color = Color.magenta;
+                        }
+                        
+                        if (mansionMap[x - 1, y].isSecretLocked)
+                        {
+                            path.GetComponent<SpriteRenderer>().color = Color.blue;
+                        }
                     }
                 }
                 if (mansionMap[x, y].connectedRight)
                 {
                     GameObject path = Instantiate(pathPrefabDebug, new Vector3(x + 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
-                    
+
                     if (mansionMap[x, y].isLockedRight)
                     {
-                        path.GetComponent<SpriteRenderer>().color = Color.blue;
+                        if (mansionMap[x + 1, y].isKeyLocked)
+                        {
+                            path.GetComponent<SpriteRenderer>().color = Color.yellow;
+                        }
+                    
+                        if (mansionMap[x + 1, y].isCodeLocked)
+                        {
+                            path.GetComponent<SpriteRenderer>().color = Color.magenta;
+                        }
+                    
+                        if (mansionMap[x + 1, y].isSecretLocked)
+                        {
+                            path.GetComponent<SpriteRenderer>().color = Color.blue;
+                        }
                     }
                 }
             }
@@ -178,8 +213,8 @@ public class GenProManager : MonoBehaviour
         GenerateLockedDoors(4);
         GenerateFriends();
         
-        //ChooseLocks();
-        //GenerateLockAndKeys();
+        ChooseLocks();
+        GenerateKeys();
         
         DebugDisplayMap();
     }
@@ -221,41 +256,79 @@ public class GenProManager : MonoBehaviour
     private void GenerateLockedDoors(int minDist)
     {
         int lockedPathCount = 0;
-        int delay = 0;
+        int antiCrashCounter = 0;
         
-        for (int y = 0; y < 3; y++)
+        while (lockedPathCount < 2)
         {
-            for (int x = 0; x < 4; x++)
+            antiCrashCounter++;
+            if (antiCrashCounter > 5000)
             {
-                if (lockedPathCount >= 2) return;
+                Debug.Log("AAARRGGG");
+                break;
+            }
+            
+            Vector2Int roomPosition = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
+            List<Room> pathToStart = GetPath(new Vector2Int(roomPosition.x, roomPosition.y), currentPos);
+            
+            if (pathToStart.Count < minDist)
+            {
+                if (lockedPathCount == 0) continue;
+                if (pathToStart.Count != 0) continue;
+                pathToStart = GetPath(lockedRooms[1].coord, currentPos);
+                
+                List<Room> path1 = GetPath(lockedRooms[1].coord, roomPosition);
+                List<Room> path2 = GetPath(lockedRooms[0].coord, roomPosition);
 
-                if (delay >= 0)
+                if (path1.Count < 2 && path2.Count < 2)
                 {
-                    delay--;
                     continue;
                 }
-                
-                List<Room> pathToStart = GetPath(new Vector2Int(x, y), currentPos);
 
-                if (pathToStart.Count < minDist) continue;
-                if (pathToStart[1].coord.x == x) continue;
-
-                lockedRooms[lockedPathCount] = mansionMap[currentPos.x, currentPos.y];
-                
-                lockedPathCount++;
-                delay = 4;
-
-                if (pathToStart[1].coord.x < x)
+            }
+            else
+            {
+                if (lockedPathCount != 0)
                 {
-                    mansionMap[x, y].isLockedLeft = true;
-                    mansionMap[x - 1, y].isLockedRight = true;
-                }
-                else
-                {
-                    mansionMap[x, y].isLockedRight = true;
-                    mansionMap[x + 1, y].isLockedLeft = true;
+                    List<Room> pathPreviousLock = GetPath(lockedRooms[1].coord, currentPos);
+
+                    if (pathPreviousLock.Contains(mansionMap[roomPosition.x, roomPosition.y]))
+                    {
+                        continue;
+                    }
+                    
+                    List<Room> path1 = GetPath(lockedRooms[1].coord, roomPosition);
+                    List<Room> path2 = GetPath(lockedRooms[0].coord, roomPosition);
+
+                    if (path1.Count < 3 && path2.Count < 3)
+                    {
+                        continue;
+                    }
                 }
             }
+
+            if (pathToStart.Count != 0)
+            {
+                if (pathToStart[1].coord.x == roomPosition.x) continue;
+            }
+
+            lockedRooms[lockedPathCount * 2] = mansionMap[roomPosition.x, roomPosition.y];
+                
+            if (pathToStart[1].coord.x < roomPosition.x)
+            {
+                mansionMap[roomPosition.x, roomPosition.y].isLockedLeft = true;
+                mansionMap[roomPosition.x - 1, roomPosition.y].isLockedRight = true;
+                    
+                lockedRooms[lockedPathCount * 2 + 1] = mansionMap[roomPosition.x - 1, roomPosition.y];
+            }
+            else
+            {
+                mansionMap[roomPosition.x, roomPosition.y].isLockedRight = true;
+                mansionMap[roomPosition.x + 1, roomPosition.y].isLockedLeft = true;
+                    
+                lockedRooms[lockedPathCount * 2 + 1] = mansionMap[roomPosition.x + 1, roomPosition.y];
+            }
+            
+            lockedPathCount++;
         }
     }
 
@@ -307,7 +380,7 @@ public class GenProManager : MonoBehaviour
         {
             while (true)
             {
-                int lockIndex = Random.Range(0, 3);
+                int lockIndex = Random.Range(0, 2);
 
                 if (lockIndex != bannedIndex)
                 {
@@ -316,12 +389,18 @@ public class GenProManager : MonoBehaviour
                     {
                         case 0 :
                             lockTypes[i] = LockType.Code;
+                            lockedRooms[i * 2].isCodeLocked = true;
+                            lockedRooms[i * 2 + 1].isCodeLocked = true;
                             break;
                         case 1 :
                             lockTypes[i] = LockType.Key;
+                            lockedRooms[i * 2].isKeyLocked = true;
+                            lockedRooms[i * 2 + 1].isKeyLocked = true;
                             break;
                         case 2 :
                             lockTypes[i] = LockType.Secret;
+                            lockedRooms[i * 2].isSecretLocked = true;
+                            lockedRooms[i * 2 + 1].isSecretLocked = true;
                             break;
                     }
 
@@ -331,47 +410,73 @@ public class GenProManager : MonoBehaviour
         }
     }
 
-    private void GenerateLockAndKeys()
+    private void GenerateKeys()
     {
         Vector2Int previousKeyPos = new Vector2Int(-1, -1);
         
         for (int i = 0; i < 2; i++)
         {
+            int antiCrashCounter = 0;
+            
             while (true)
             {
+                antiCrashCounter ++;
+                if (antiCrashCounter > 150) break;
+                
                 Vector2Int roomPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
 
                 if (previousKeyPos != new Vector2Int(-1, -1))
                 {
-                    List<Room> pathToStart = GetPath(previousKeyPos, roomPos);
+                    List<Room> pathToPrevious = GetPath(previousKeyPos, roomPos);
+                    List<Room> pathToUnlockedLock = GetPath(lockedRooms[0].coord, roomPos);
 
-                    if (pathToStart.Count == 0)
+                    if (pathToPrevious.Count != 0) continue;
+                    if (pathToUnlockedLock.Count == 0) continue;
+
+                    switch (lockTypes[i])
                     {
-                        
+                        case LockType.Code :
+                            mansionMap[roomPos.x, roomPos.y].hasFullCode = true;
+                            break;
+                            
+                        case LockType.Key :
+                            mansionMap[roomPos.x, roomPos.y].hasKey = true;
+                            break;
+                            
+                        case LockType.Secret :
+                            mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
+                            break;
                     }
+                        
+                    break;
                 }
                 else
                 {
                     List<Room> pathToStart = GetPath(currentPos, roomPos);
-                    if (pathToStart.Count > 1)
-                    {
-                        previousKeyPos = roomPos;
+                    List<Room> pathToLockedRoom = GetPath(lockedRooms[1].coord, roomPos);
+                    
+                    if (pathToStart.Count <= 1) continue;
+                    if (pathToLockedRoom.Count == 0) continue;
+                    
+                    previousKeyPos = roomPos;
 
-                        switch (lockTypes[i])
-                        {
-                            case LockType.Code :
-                                mansionMap[roomPos.x, roomPos.y].hasFullCode = true;
-                                break;
-                            
-                            case LockType.Key :
-                                mansionMap[roomPos.x, roomPos.y].hasKey = true;
-                                break;
-                            
-                            case LockType.Secret :
-                                mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
-                                break;
-                        }
+                    switch (lockTypes[i])
+                    {
+                        case LockType.Code :
+                            mansionMap[roomPos.x, roomPos.y].hasFullCode = true;
+                            break;
+                        
+                        case LockType.Key :
+                            mansionMap[roomPos.x, roomPos.y].hasKey = true;
+                            break;
+                        
+                        case LockType.Secret :
+                            mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
+                            break;
                     }
+                    
+                    break;
+                    
                 }
             }
         }
