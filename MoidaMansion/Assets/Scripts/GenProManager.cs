@@ -21,8 +21,8 @@ public class GenProManager : MonoBehaviour
     [Header("Private Infos")]
     private Room[,] mansionMap = new Room[4, 3];
     private Vector2Int currentPos;
-    private LockType firstLockType;
-    private LockType secondLockType;
+    private LockType[] lockTypes = new LockType[2];
+    private Room[] lockedRooms = new Room[4];
 
     [Header("References")] 
     [SerializeField] private GameObject roomPrefabDebug;
@@ -178,8 +178,8 @@ public class GenProManager : MonoBehaviour
         GenerateLockedDoors(4);
         GenerateFriends();
         
-        ChooseLocks();
-        GenerateLockAndKeys();
+        //ChooseLocks();
+        //GenerateLockAndKeys();
         
         DebugDisplayMap();
     }
@@ -240,6 +240,8 @@ public class GenProManager : MonoBehaviour
                 if (pathToStart.Count < minDist) continue;
                 if (pathToStart[1].coord.x == x) continue;
 
+                lockedRooms[lockedPathCount] = mansionMap[currentPos.x, currentPos.y];
+                
                 lockedPathCount++;
                 delay = 4;
 
@@ -299,53 +301,80 @@ public class GenProManager : MonoBehaviour
     
     private void ChooseLocks()
     {
-        int lockIndex = Random.Range(0, 3);
-        switch (lockIndex)
+        int bannedIndex = -1;
+        
+        for (int i = 0; i < 2; i++)
         {
-            case 0 :
-                firstLockType = LockType.Code;
-                break;
-            
-            case 1 :
-                firstLockType = LockType.Key;
-                break;
-            
-            case 2 :
-                firstLockType = LockType.Secret;
-                break;
-        }
-
-        int lockIndex2 = 0;
-        while (true)
-        {
-            lockIndex2 = Random.Range(0, 3);
-
-            if (lockIndex2 != lockIndex)
+            while (true)
             {
-                break;
+                int lockIndex = Random.Range(0, 3);
+
+                if (lockIndex != bannedIndex)
+                {
+                    bannedIndex = lockIndex;
+                    switch (lockIndex)
+                    {
+                        case 0 :
+                            lockTypes[i] = LockType.Code;
+                            break;
+                        case 1 :
+                            lockTypes[i] = LockType.Key;
+                            break;
+                        case 2 :
+                            lockTypes[i] = LockType.Secret;
+                            break;
+                    }
+
+                    break;
+                }
             }
         }
-        
-        switch (lockIndex2)
-        {
-            case 0 :
-                firstLockType = LockType.Code;
-                break;
-            
-            case 1 :
-                firstLockType = LockType.Key;
-                break;
-            
-            case 2 :
-                firstLockType = LockType.Secret;
-                break;
-        }
-
     }
 
     private void GenerateLockAndKeys()
     {
+        Vector2Int previousKeyPos = new Vector2Int(-1, -1);
         
+        for (int i = 0; i < 2; i++)
+        {
+            while (true)
+            {
+                Vector2Int roomPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
+
+                if (previousKeyPos != new Vector2Int(-1, -1))
+                {
+                    List<Room> pathToStart = GetPath(previousKeyPos, roomPos);
+
+                    if (pathToStart.Count == 0)
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    List<Room> pathToStart = GetPath(currentPos, roomPos);
+                    if (pathToStart.Count > 1)
+                    {
+                        previousKeyPos = roomPos;
+
+                        switch (lockTypes[i])
+                        {
+                            case LockType.Code :
+                                mansionMap[roomPos.x, roomPos.y].hasFullCode = true;
+                                break;
+                            
+                            case LockType.Key :
+                                mansionMap[roomPos.x, roomPos.y].hasKey = true;
+                                break;
+                            
+                            case LockType.Secret :
+                                mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
+                                break;
+                        }
+                    }
+                }
+            }
+        }
     }
     
     # endregion

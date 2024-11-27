@@ -18,6 +18,7 @@ public class Room
     public bool hasFriend;
     public bool hasFullCode;
     public bool hasCodePart;
+    public bool hasSecretPath;
     
     [Header("Others")]
     public bool isStart;
