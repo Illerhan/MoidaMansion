@@ -13,18 +13,27 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private InventoryManager inventoryManager;
-
-    private static GenProManager _genMangager;
-    Vector2 _position = new (0, 0);
-    private Room _currentRoom = _genMangager.GetCurrentRoom();
     
+    Vector2Int _position = new (0, 0);
+    private Room _currentRoom;
+
+
+    private void Start()
+    {
+        _currentRoom = GenProManager.Instance.GetCurrentRoom();
+        _position = _currentRoom.coord;
+    }
+
     public void SwitchLevel()
     {
         if (_currentRoom.connectedDown)
-            _position += new Vector2(0, -1);
+            _position += new Vector2Int(0, -1);
         if (_currentRoom.connectedUp)
-            _position += new Vector2(0, -1);
+            _position += new Vector2Int(0, 1);
         Debug.Log("New position = " + _position);
+        
+        GenProManager.Instance.ChangeCurrentRoom(_position);
+        _currentRoom = GenProManager.Instance.GetCurrentRoom();
     }
     
     public void SwitchRoom(int direction)
@@ -33,12 +42,15 @@ public class PlayerController : MonoBehaviour
         {
             if (_position.x < 3 && _currentRoom.connectedRight && !_currentRoom.isLockedRight)
             {
-                _position += new Vector2(direction, 0);
+                _position += new Vector2Int(direction, 0);
             }
         }
         else if(_position.x > 0 && _currentRoom.connectedLeft && !_currentRoom.isLockedLeft)
-            _position += new Vector2(direction, 0);
+            _position += new Vector2Int(direction, 0);
         Debug.Log("New position = " + _position);
+        
+        GenProManager.Instance.ChangeCurrentRoom(_position);
+        _currentRoom = GenProManager.Instance.GetCurrentRoom();
     }
     
 

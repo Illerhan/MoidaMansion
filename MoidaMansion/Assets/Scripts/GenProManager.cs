@@ -16,6 +16,9 @@ public class GenProManager : MonoBehaviour
 {
     public static GenProManager Instance;
 
+    [Header("Parameters")] 
+    [SerializeField] private bool debugPrint;
+    
     [Header("Public Infos")]
     [HideInInspector] public Vector2Int[] friendPositions = new Vector2Int[3];
     
@@ -26,6 +29,7 @@ public class GenProManager : MonoBehaviour
     private Room[] lockedRooms = new Room[4];
 
     [Header("References")] 
+    [SerializeField] private GraphicsGenProManager graphicsGenProManager;
     [SerializeField] private GameObject roomPrefabDebug;
     [SerializeField] private GameObject pathPrefabDebug;
     [SerializeField] private GameObject keyPrefabDebug;
@@ -38,12 +42,9 @@ public class GenProManager : MonoBehaviour
             Instance = this;
         else 
             Destroy(gameObject);
-    }
-
-    private void Start()
-    {
+        
         GenerateMansion();
-        GraphicsGenProManager.Instance.GenerateRoomDoors(mansionMap);
+        graphicsGenProManager.GenerateRoomDoors(mansionMap);
     }
     
     
@@ -217,7 +218,8 @@ public class GenProManager : MonoBehaviour
         ChooseLocks();
         GenerateKeys();
         
-        DebugDisplayMap();
+        if(debugPrint)
+            DebugDisplayMap();
     }
 
     private void GenerateDoorConnections()
