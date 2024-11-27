@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public enum LockType
+{
+    Key,
+    Code,
+    Secret
+}
+
+
 public class GenProManager : MonoBehaviour
 {
     public static GenProManager Instance;
@@ -13,10 +21,14 @@ public class GenProManager : MonoBehaviour
     [Header("Private Infos")]
     private Room[,] mansionMap = new Room[4, 3];
     private Vector2Int currentPos;
+    private LockType firstLockType;
+    private LockType secondLockType;
 
     [Header("References")] 
     [SerializeField] private GameObject roomPrefabDebug;
     [SerializeField] private GameObject pathPrefabDebug;
+    [SerializeField] private GameObject keyPrefabDebug;
+    [SerializeField] private GameObject codePrefabDebug;
     
     
     private void Awake()
@@ -156,7 +168,6 @@ public class GenProManager : MonoBehaviour
             }
         }
         
-        
         Vector2Int startPos = new Vector2Int(Random.Range(0, 4), 1);
         currentPos = startPos;
         mansionMap[startPos.x, startPos.y].isStart = true;
@@ -166,6 +177,10 @@ public class GenProManager : MonoBehaviour
 
         GenerateLockedDoors(4);
         GenerateFriends();
+        
+        ChooseLocks();
+        GenerateLockAndKeys();
+        
         DebugDisplayMap();
     }
 
@@ -242,7 +257,6 @@ public class GenProManager : MonoBehaviour
         }
     }
 
-
     private void GenerateFriends()
     {
         int friendCount = 0;
@@ -281,22 +295,57 @@ public class GenProManager : MonoBehaviour
                 friendCount++;
             }
         }
-        
-        int delay = 0;
-        
-        for (int y = 0; y < 3; y++)
+    }
+    
+    private void ChooseLocks()
+    {
+        int lockIndex = Random.Range(0, 3);
+        switch (lockIndex)
         {
-            for (int x = 0; x < 4; x++)
+            case 0 :
+                firstLockType = LockType.Code;
+                break;
+            
+            case 1 :
+                firstLockType = LockType.Key;
+                break;
+            
+            case 2 :
+                firstLockType = LockType.Secret;
+                break;
+        }
+
+        int lockIndex2 = 0;
+        while (true)
+        {
+            lockIndex2 = Random.Range(0, 3);
+
+            if (lockIndex2 != lockIndex)
             {
-                if (delay >= 0)
-                {
-                    delay--;
-                    continue;
-                }
-                
-                List<Room> pathToStart = GetPath(new Vector2Int(x, y), currentPos);
+                break;
             }
         }
+        
+        switch (lockIndex2)
+        {
+            case 0 :
+                firstLockType = LockType.Code;
+                break;
+            
+            case 1 :
+                firstLockType = LockType.Key;
+                break;
+            
+            case 2 :
+                firstLockType = LockType.Secret;
+                break;
+        }
+
+    }
+
+    private void GenerateLockAndKeys()
+    {
+        
     }
     
     # endregion

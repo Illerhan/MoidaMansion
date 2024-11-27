@@ -2,17 +2,27 @@ using UnityEngine;
 
 public class Room
 {
-    [Header("Public Infos")] 
+    [Header("Room connections")] 
     public bool connectedLeft;
     public bool connectedRight;
     public bool connectedUp;
     public bool connectedDown;
-    public bool isStart;
-    public bool hasFriend;
     public bool isLockedLeft;
     public bool isLockedRight;
-    public Vector2Int coord;
-    public Room previous;
+    public bool isKeyLocked;
+    public bool isCodeLocked;
+    public bool isSecretLocked;
+
+    [Header("Room Contained Elements")] 
+    public bool hasKey;
+    public bool hasFriend;
+    public bool hasFullCode;
+    public bool hasCodePart;
+    
+    [Header("Others")]
+    public bool isStart;
+    public Vector2Int coord;    // Needed for pathfinding
+    public Room previous;    // Needed for pathfinding
 
 }
 
