@@ -17,7 +17,7 @@ public class GenProManager : MonoBehaviour
     public static GenProManager Instance;
 
     [Header("Public Infos")]
-    public Vector2Int[] friendPositions = new Vector2Int[3];
+    [HideInInspector] public Vector2Int[] friendPositions = new Vector2Int[3];
     
     [Header("Private Infos")]
     private Room[,] mansionMap = new Room[4, 3];
@@ -43,6 +43,7 @@ public class GenProManager : MonoBehaviour
     private void Start()
     {
         GenerateMansion();
+        GraphicsGenProManager.Instance.GenerateRoomDoors(mansionMap);
     }
     
     
