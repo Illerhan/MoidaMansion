@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     Button rightButton;
-    Vector2 _position = new Vector2(0, 0);
+
+    [SerializeField]
+    private InventoryManager inventoryManager;
+    Vector2 _position = new (0, 0);
     
     public void SwitchLevel(int doorDirection)
     {
@@ -32,7 +35,8 @@ public class PlayerController : MonoBehaviour
         if(_position.x > 0)
             _position += new Vector2(direction, 0);
         
-        Debug.Log("hello guys");
+        Debug.Log("New position = " + _position);
+       
     }
 
     // void inspectItem(itemToInspect)
@@ -45,6 +49,12 @@ public class PlayerController : MonoBehaviour
     //         // wrongSearch ++ ( for the Monsta spawn systeme)
     //     if (itemToInspect.isFriend) ;
     //         // Display friend found + dialogue
-    //         // Add friend to the inventory
+    //         inventoryManager.FoundingFriend(friendName);
+    //     if (itemToInspect.isLockedKey)
+    //          if(inventory.key == true).
+    //              open
+    //     if (itemToInspect.isLockedCode)
+    //          if(inventory.code == 3).
+    //              open
     // }
 }
