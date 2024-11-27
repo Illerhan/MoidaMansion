@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc703a97320bb7045877a74c066218eb, type: 3}
-  m_Name: EmptyObject
+  m_Name: LeftKeyLock1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 0
   <RoomSprites>k__BackingField:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 7f67bb8a4afa64848bf945a4c2ba0e42, type: 3}
