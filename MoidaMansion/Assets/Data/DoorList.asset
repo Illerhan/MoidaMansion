@@ -24,3 +24,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9f1f04b2f3d61364f874772fd67169b8, type: 2}
   - {fileID: 11400000, guid: e604124a8b8d37f488f375fea5c0f533, type: 2}
   - {fileID: 11400000, guid: 0bb8e94e634041a46b2d824af4aac09b, type: 2}
+  <Stairs>k__BackingField:
+  - {fileID: 11400000, guid: 55908e01143c513449b8bc5812eab661, type: 2}
+  - {fileID: 11400000, guid: 37d1153f31389224197cad4bddeb544b, type: 2}

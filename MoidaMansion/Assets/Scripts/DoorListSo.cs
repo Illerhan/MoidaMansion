@@ -6,4 +6,6 @@ public class DoorListSo : ScriptableObject
 {
     [field: SerializeField] public List<ObjectSo> LeftDoors { get; private set; } = new();
     [field: SerializeField] public List<ObjectSo> RightDoors { get; private set; } = new();
+    
+    [field: SerializeField] public List<ObjectSo> Stairs { get; private set; } = new();
 }

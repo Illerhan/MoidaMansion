@@ -1148,6 +1148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorList: {fileID: 11400000, guid: f3a36a174bc6d424da2f28061212ec1e, type: 2}
+  stairsUp: {fileID: 11400000, guid: 55908e01143c513449b8bc5812eab661, type: 2}
+  stairsDown: {fileID: 11400000, guid: 37d1153f31389224197cad4bddeb544b, type: 2}
   entranceSo: {fileID: 11400000, guid: 451457b398c3b9241bcce265684de2a3, type: 2}
   librarySo: {fileID: 11400000, guid: 4cff33e8f0911e745b935e4fc6035d55, type: 2}
 --- !u!114 &1935087239

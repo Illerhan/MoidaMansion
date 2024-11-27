@@ -6,8 +6,6 @@ public class GraphicsGenProManager : MonoBehaviour
 
     [Header("Parameters")] 
     [SerializeField] private DoorListSo doorList;
-    [SerializeField] private ObjectSo stairsUp;
-    [SerializeField] private ObjectSo stairsDown;
     [SerializeField] private RoomSo entranceSo;
     [SerializeField] private RoomSo librarySo;
     
@@ -68,13 +66,15 @@ public class GraphicsGenProManager : MonoBehaviour
         {
             for (int x = 0; x < 4; x++)
             {
+                map[x, y].stairs = null;
+                
                 if (map[x, y].connectedUp)
                 {
-                    map[x, y].stairs = stairsUp;
+                    map[x, y].stairs = doorList.Stairs[0];
                 }
                 if (map[x, y].connectedDown)
                 {
-                    map[x, y].stairs = stairsDown;
+                    map[x, y].stairs = doorList.Stairs[1];
                 }
             }
         }

@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
         // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
+        
+        roomDisplayManager.Room = _currentRoom;
+        roomDisplayManager.DisplayRoom();
     }
     
     public void SwitchRoom(int direction)

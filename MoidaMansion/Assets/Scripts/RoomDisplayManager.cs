@@ -18,6 +18,10 @@ public class RoomDisplayManager : MonoBehaviour
 
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
+            spriteRenderer.gameObject.SetActive(false);
+        }
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        {
             if (objectSoIndex < Room.roomSo.RoomObjects.Count)
             {
                 spriteRenderer.sprite = Room.roomSo.RoomObjects[objectSoIndex].RoomSprites[spriteIndex];
@@ -49,6 +53,20 @@ public class RoomDisplayManager : MonoBehaviour
                 spriteIndex++;
                 
                 if (spriteIndex >= Room.rightDoor.RoomSprites.Count)
+                {
+                    spriteIndex = 0;
+                    objectSoIndex++;
+                }
+            }
+            else if (objectSoIndex == Room.roomSo.RoomObjects.Count + 2)
+            {
+                if (Room.stairs == null) continue;
+                
+                spriteRenderer.sprite = Room.stairs.RoomSprites[spriteIndex];
+                spriteRenderer.gameObject.SetActive(true);
+                spriteIndex++;
+                
+                if (spriteIndex >= Room.stairs.RoomSprites.Count)
                 {
                     spriteIndex = 0;
                     objectSoIndex++;
