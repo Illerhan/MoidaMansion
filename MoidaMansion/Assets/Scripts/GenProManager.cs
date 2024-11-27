@@ -31,6 +31,54 @@ public class GenProManager : MonoBehaviour
     {
         GenerateMansion();
     }
+    
+    
+    private void DebugDisplayMap()
+    {
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                GameObject room = Instantiate(roomPrefabDebug, new Vector3(x, y, 0), Quaternion.Euler(0, 0, 0));
+                if (mansionMap[x, y].isStart)
+                {
+                    room.GetComponent<SpriteRenderer>().color = Color.red;
+                }
+                if (mansionMap[x, y].hasFriend)
+                {
+                    room.GetComponent<SpriteRenderer>().color = Color.green;
+                }
+
+
+                if (mansionMap[x, y].connectedUp)
+                {
+                    Instantiate(pathPrefabDebug, new Vector3(x, y + 0.5f, 0), Quaternion.Euler(0, 0, 90));
+                }
+                if (mansionMap[x, y].connectedDown)
+                {
+                    Instantiate(pathPrefabDebug, new Vector3(x, y - 0.5f, 0), Quaternion.Euler(0, 0, 90));
+                }
+                if (mansionMap[x, y].connectedLeft)
+                {
+                    GameObject path = Instantiate(pathPrefabDebug, new Vector3(x - 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
+                    
+                    if (mansionMap[x, y].isLockedLeft)
+                    {
+                        path.GetComponent<SpriteRenderer>().color = Color.blue;
+                    }
+                }
+                if (mansionMap[x, y].connectedRight)
+                {
+                    GameObject path = Instantiate(pathPrefabDebug, new Vector3(x + 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
+                    
+                    if (mansionMap[x, y].isLockedRight)
+                    {
+                        path.GetComponent<SpriteRenderer>().color = Color.blue;
+                    }
+                }
+            }
+        }
+    }
 
 
     #region Public Functions
@@ -94,55 +142,8 @@ public class GenProManager : MonoBehaviour
     #endregion
     
     
-
-    private void DebugDisplayMap()
-    {
-        for (int y = 0; y < 3; y++)
-        {
-            for (int x = 0; x < 4; x++)
-            {
-                GameObject room = Instantiate(roomPrefabDebug, new Vector3(x, y, 0), Quaternion.Euler(0, 0, 0));
-                if (mansionMap[x, y].isStart)
-                {
-                    room.GetComponent<SpriteRenderer>().color = Color.red;
-                }
-                if (mansionMap[x, y].hasFriend)
-                {
-                    room.GetComponent<SpriteRenderer>().color = Color.green;
-                }
-
-
-                if (mansionMap[x, y].connectedUp)
-                {
-                    Instantiate(pathPrefabDebug, new Vector3(x, y + 0.5f, 0), Quaternion.Euler(0, 0, 90));
-                }
-                if (mansionMap[x, y].connectedDown)
-                {
-                    Instantiate(pathPrefabDebug, new Vector3(x, y - 0.5f, 0), Quaternion.Euler(0, 0, 90));
-                }
-                if (mansionMap[x, y].connectedLeft)
-                {
-                    GameObject path = Instantiate(pathPrefabDebug, new Vector3(x - 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
-                    
-                    if (mansionMap[x, y].isLockedLeft)
-                    {
-                        path.GetComponent<SpriteRenderer>().color = Color.blue;
-                    }
-                }
-                if (mansionMap[x, y].connectedRight)
-                {
-                    GameObject path = Instantiate(pathPrefabDebug, new Vector3(x + 0.5f, y, 0), Quaternion.Euler(0, 0, 0));
-                    
-                    if (mansionMap[x, y].isLockedRight)
-                    {
-                        path.GetComponent<SpriteRenderer>().color = Color.blue;
-                    }
-                }
-            }
-        }
-    }
+    #region Mansion Generation Functions
     
-
     private void GenerateMansion()
     {
         mansionMap = new Room[4, 3];
@@ -297,6 +298,8 @@ public class GenProManager : MonoBehaviour
             }
         }
     }
+    
+    # endregion
     
     
     #region Pathfinding
