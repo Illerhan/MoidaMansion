@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RoomDisplayManager : MonoBehaviour
 {
-    public Room Room;
+    public Room Room { get; set; }
     [SerializeField] private List<SpriteRenderer> spriteRenderers;
 
     private void Start()

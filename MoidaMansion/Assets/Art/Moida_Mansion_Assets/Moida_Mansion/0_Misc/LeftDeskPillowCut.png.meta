@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: a406715bcacc4e443884819ef4af97f4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6193696570977361934
+    second: LeftDeskPillowCut_0
+  - first:
+      213: 5222589127671867032
+    second: LeftDeskPillowCut_1
+  - first:
+      213: 6211176385542997522
+    second: LeftDeskPillowCut_2
+  - first:
+      213: -3520800019539270344
+    second: LeftDeskPillowCut_3
+  - first:
+      213: 6944544261510185728
+    second: LeftDeskPillowCut_4
+  - first:
+      213: -7036187837864523175
+    second: LeftDeskPillowCut_5
+  - first:
+      213: -2711155095136421932
+    second: LeftDeskPillowCut_6
+  - first:
+      213: -8636355064235379687
+    second: LeftDeskPillowCut_7
+  - first:
+      213: -53605041539619078
+    second: LeftDeskPillowCut_8
+  - first:
+      213: -4183464627774889870
+    second: LeftDeskPillowCut_9
+  - first:
+      213: 6421973259793366000
+    second: LeftDeskPillowCut_10
+  - first:
+      213: -5002957894026157878
+    second: LeftDeskPillowCut_11
+  - first:
+      213: 5567451868057616759
+    second: LeftDeskPillowCut_12
+  - first:
+      213: -8516664100517736150
+    second: LeftDeskPillowCut_13
+  - first:
+      213: 8432228268534329388
+    second: LeftDeskPillowCut_14
+  - first:
+      213: -5506030505973553159
+    second: LeftDeskPillowCut_15
+  - first:
+      213: 8644116831309884894
+    second: LeftDeskPillowCut_16
+  - first:
+      213: 1982052985481534408
+    second: LeftDeskPillowCut_17
+  - first:
+      213: -3172948994043471881
+    second: LeftDeskPillowCut_18
+  - first:
+      213: 191082964140563533
+    second: LeftDeskPillowCut_19
+  - first:
+      213: 888469792559309628
+    second: LeftDeskPillowCut_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 178
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ffd658c8c19b0aa0800000000000000
+      internalID: -6193696570977361934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_1
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 190
+        width: 27
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896e2b2242d5a7840800000000000000
+      internalID: 5222589127671867032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_2
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 191
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 216c591b308823650800000000000000
+      internalID: 6211176385542997522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 191
+        width: 24
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8356c26490b932fc0800000000000000
+      internalID: -3520800019539270344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_4
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 190
+        width: 59
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 003ca4a463aff5060800000000000000
+      internalID: 6944544261510185728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_5
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 191
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a4927d0707a5e90800000000000000
+      internalID: -7036187837864523175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_6
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 116
+        width: 20
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d737672eca006ad0800000000000000
+      internalID: -2711155095136421932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_7
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 146
+        width: 7
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 914ba1293d0852880800000000000000
+      internalID: -8636355064235379687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 179
+        width: 39
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af66cdcaf7e814ff0800000000000000
+      internalID: -53605041539619078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_9
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 179
+        width: 36
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270e013061951f5c0800000000000000
+      internalID: -4183464627774889870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_10
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 179
+        width: 31
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb7a0b97ae6f1950800000000000000
+      internalID: 6421973259793366000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_11
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 179
+        width: 38
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac0a55c5d4ce19ab0800000000000000
+      internalID: -5002957894026157878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_12
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 114
+        width: 7
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771c8a3f9ff834d40800000000000000
+      internalID: 5567451868057616759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_13
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 110
+        width: 18
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a219151bf1bbec980800000000000000
+      internalID: -8516664100517736150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_14
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 149
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c20fef23fea450570800000000000000
+      internalID: 8432228268534329388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_15
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 147
+        width: 34
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f76bf05d66a693b0800000000000000
+      internalID: -5506030505973553159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_16
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 147
+        width: 49
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd6337a57216f770800000000000000
+      internalID: 8644116831309884894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_17
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 148
+        width: 50
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb11ad50baa18b10800000000000000
+      internalID: 1982052985481534408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_18
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 97
+        width: 10
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f71b9f63bb67f3d0800000000000000
+      internalID: -3172948994043471881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_19
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 110
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c1a3881fcd6a200800000000000000
+      internalID: 191082964140563533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftDeskPillowCut_20
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 96
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c33a92ba19a745c00800000000000000
+      internalID: 888469792559309628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LeftDeskPillowCut_0: -6193696570977361934
+      LeftDeskPillowCut_1: 5222589127671867032
+      LeftDeskPillowCut_10: 6421973259793366000
+      LeftDeskPillowCut_11: -5002957894026157878
+      LeftDeskPillowCut_12: 5567451868057616759
+      LeftDeskPillowCut_13: -8516664100517736150
+      LeftDeskPillowCut_14: 8432228268534329388
+      LeftDeskPillowCut_15: -5506030505973553159
+      LeftDeskPillowCut_16: 8644116831309884894
+      LeftDeskPillowCut_17: 1982052985481534408
+      LeftDeskPillowCut_18: -3172948994043471881
+      LeftDeskPillowCut_19: 191082964140563533
+      LeftDeskPillowCut_2: 6211176385542997522
+      LeftDeskPillowCut_20: 888469792559309628
+      LeftDeskPillowCut_3: -3520800019539270344
+      LeftDeskPillowCut_4: 6944544261510185728
+      LeftDeskPillowCut_5: -7036187837864523175
+      LeftDeskPillowCut_6: -2711155095136421932
+      LeftDeskPillowCut_7: -8636355064235379687
+      LeftDeskPillowCut_8: -53605041539619078
+      LeftDeskPillowCut_9: -4183464627774889870
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
