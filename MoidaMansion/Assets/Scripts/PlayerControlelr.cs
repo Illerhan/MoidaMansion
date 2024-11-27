@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.iOS;
@@ -11,15 +12,18 @@ public class PlayerController : MonoBehaviour
 
 {
     [SerializeField]
-    Button rightButton;
-
-    [SerializeField]
     private InventoryManager inventoryManager;
+
+    private static GenProManager _genMangager;
     Vector2 _position = new (0, 0);
+    private Room _currentRoom = _genMangager.GetCurrentRoom();
     
-    public void SwitchLevel(int doorDirection)
+    public void SwitchLevel()
     {
-        _position += new Vector2(0, doorDirection);
+        if (_currentRoom.connectedDown)
+            _position += new Vector2(0, -1);
+        if (_currentRoom.connectedUp)
+            _position += new Vector2(0, -1);
         Debug.Log("New position = " + _position);
     }
     
@@ -27,17 +31,17 @@ public class PlayerController : MonoBehaviour
     {
         if (direction > 0)
         {
-            if (_position.x < 3)
+            if (_position.x < 3 && _currentRoom.connectedRight && !_currentRoom.isLockedRight)
             {
                 _position += new Vector2(direction, 0);
-            }else return;
-        }else
-        if(_position.x > 0)
+            }
+        }
+        else if(_position.x > 0 && _currentRoom.connectedLeft && !_currentRoom.isLockedLeft)
             _position += new Vector2(direction, 0);
-        
         Debug.Log("New position = " + _position);
-       
     }
+    
+
 
     // void inspectItem(itemToInspect)
     // {
