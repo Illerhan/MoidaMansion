@@ -8,9 +8,11 @@ public class GenProManager : MonoBehaviour
     public static GenProManager Instance;
 
     [Header("Public Infos")]
-    public Room[,] mansionMap = new Room[4, 3];
     public Vector2Int[] friendPositions = new Vector2Int[3];
-    public Vector2Int currentPos;
+    
+    [Header("Private Infos")]
+    private Room[,] mansionMap = new Room[4, 3];
+    private Vector2Int currentPos;
 
     [Header("References")] 
     [SerializeField] private GameObject roomPrefabDebug;
@@ -31,6 +33,68 @@ public class GenProManager : MonoBehaviour
     }
 
 
+    #region Public Functions
+
+    /// <summary>
+    /// Gets the data of a room at the given coordinates
+    /// </summary>
+    public Room GetRoom(Vector2Int coordinates)
+    {
+        if (coordinates.x < 0 || coordinates.x > 3 || coordinates.y < 0 || coordinates.y > 2)
+        {
+            Debug.LogWarning("Coordinates Out of Range");
+            return null;
+        }
+        
+        return mansionMap[coordinates.x, coordinates.y];
+    }
+
+    /// <summary>
+    /// Returns true if the room at the given coordinates is a dead end 
+    /// </summary>
+    public bool VerifyIsInDeadEnd(Vector2Int coordinates)
+    {
+        int connectionCount = 0;
+
+        if (mansionMap[coordinates.x, coordinates.y].connectedLeft)
+            connectionCount++;
+        if (mansionMap[coordinates.x, coordinates.y].connectedRight)
+            connectionCount++;
+        if (mansionMap[coordinates.x, coordinates.y].connectedUp)
+            connectionCount++;
+        if (mansionMap[coordinates.x, coordinates.y].connectedDown)
+            connectionCount++;
+
+        return connectionCount == 1;
+    }
+
+    /// <summary>
+    /// Changes the coordinates of the room where the player is
+    /// </summary>
+    public void ChangeCurrentRoom(Vector2Int newRoomCoordinates)
+    {
+        if (newRoomCoordinates.x < 0 || newRoomCoordinates.x > 3 || newRoomCoordinates.y < 0 ||
+            newRoomCoordinates.y > 2)
+        {
+            Debug.LogWarning("New room coordinates out of range");
+            return;
+        }
+        
+        currentPos = newRoomCoordinates;
+    }
+
+    /// <summary>
+    /// Returns the data of the room where the player is
+    /// </summary>
+    public Room GetCurrentRoom()
+    {
+        return mansionMap[currentPos.x, currentPos.y];
+    }
+
+    #endregion
+    
+    
+
     private void DebugDisplayMap()
     {
         for (int y = 0; y < 3; y++)
@@ -42,6 +106,11 @@ public class GenProManager : MonoBehaviour
                 {
                     room.GetComponent<SpriteRenderer>().color = Color.red;
                 }
+                if (mansionMap[x, y].hasFriend)
+                {
+                    room.GetComponent<SpriteRenderer>().color = Color.green;
+                }
+
 
                 if (mansionMap[x, y].connectedUp)
                 {
@@ -176,6 +245,42 @@ public class GenProManager : MonoBehaviour
     private void GenerateFriends()
     {
         int friendCount = 0;
+        int antiCrashCounter = 0;
+
+        while (friendCount != 3)
+        {
+            antiCrashCounter++;
+            if (antiCrashCounter > 150)
+            {
+                Debug.Log("Not Enough friends");
+                break;
+            }
+            
+            Vector2Int location = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
+            bool locationValidated = true;
+
+            if (mansionMap[location.x, location.y].isStart || mansionMap[location.x, location.y].hasFriend)
+                continue;
+
+            for (int i = 0; i < friendCount; i++)
+            {
+                List<Room> path = GetPath(location, friendPositions[i]);
+
+                if (path.Count != 0)
+                {
+                    locationValidated = false;
+                    break;
+                }
+            }
+
+            if (locationValidated)
+            {
+                friendPositions[friendCount] = location;
+                mansionMap[location.x, location.y].hasFriend = true;
+                friendCount++;
+            }
+        }
+        
         int delay = 0;
         
         for (int y = 0; y < 3; y++)
