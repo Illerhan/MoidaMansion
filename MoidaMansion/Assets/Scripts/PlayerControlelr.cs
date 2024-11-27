@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private InventoryManager inventoryManager;
+    [SerializeField]
+    private RoomDisplayManager roomDisplayManager;
     
     Vector2Int _position = new (0, 0);
     private Room _currentRoom;
@@ -20,8 +22,12 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        // We setup the variables
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
         _position = _currentRoom.coord;
+        
+        roomDisplayManager.Room = _currentRoom;
+        roomDisplayManager.DisplayRoom();
     }
 
     public void SwitchLevel()
@@ -32,6 +38,7 @@ public class PlayerController : MonoBehaviour
             _position += new Vector2Int(0, 1);
         Debug.Log("New position = " + _position);
         
+        // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
     }
@@ -49,8 +56,12 @@ public class PlayerController : MonoBehaviour
             _position += new Vector2Int(direction, 0);
         Debug.Log("New position = " + _position);
         
+        // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
+        
+        roomDisplayManager.Room = _currentRoom;
+        roomDisplayManager.DisplayRoom();
     }
     
 
