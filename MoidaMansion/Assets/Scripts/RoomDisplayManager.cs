@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomDisplayManager : MonoBehaviour
 {
-    public RoomSo RoomSo;
+    public Room Room;
     [SerializeField] private List<SpriteRenderer> spriteRenderers;
 
     private void Start()
@@ -19,13 +18,37 @@ public class RoomDisplayManager : MonoBehaviour
 
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
-            if (objectSoIndex < RoomSo.RoomObjects.Count)
+            if (objectSoIndex < Room.roomSo.RoomObjects.Count)
             {
-                spriteRenderer.sprite = RoomSo.RoomObjects[objectSoIndex].RoomSprites[spriteIndex];
+                spriteRenderer.sprite = Room.roomSo.RoomObjects[objectSoIndex].RoomSprites[spriteIndex];
                 spriteRenderer.gameObject.SetActive(true);
                 spriteIndex++;
                 
-                if (spriteIndex >= RoomSo.RoomObjects[objectSoIndex].RoomSprites.Count)
+                if (spriteIndex >= Room.roomSo.RoomObjects[objectSoIndex].RoomSprites.Count)
+                {
+                    spriteIndex = 0;
+                    objectSoIndex++;
+                }
+            }
+            else if (objectSoIndex == Room.roomSo.RoomObjects.Count)
+            {
+                spriteRenderer.sprite = Room.leftDoor.RoomSprites[spriteIndex];
+                spriteRenderer.gameObject.SetActive(true);
+                spriteIndex++;
+                
+                if (spriteIndex >= Room.leftDoor.RoomSprites.Count)
+                {
+                    spriteIndex = 0;
+                    objectSoIndex++;
+                }
+            }
+            else if (objectSoIndex == Room.roomSo.RoomObjects.Count + 1)
+            {
+                spriteRenderer.sprite = Room.rightDoor.RoomSprites[spriteIndex];
+                spriteRenderer.gameObject.SetActive(true);
+                spriteIndex++;
+                
+                if (spriteIndex >= Room.rightDoor.RoomSprites.Count)
                 {
                     spriteIndex = 0;
                     objectSoIndex++;

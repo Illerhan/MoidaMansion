@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc9dce73ab8df34e89535705a49547c, type: 3}
+  m_Name: DoorList
+  m_EditorClassIdentifier: 
+  <LeftDoors>k__BackingField:
+  - {fileID: 11400000, guid: e23884b023608874fbd5280c6d26aa9e, type: 2}
+  - {fileID: 11400000, guid: a88c7e365c0259d4986f9fc3495566ef, type: 2}
+  - {fileID: 11400000, guid: a1a55f3548487b74db3eaa3509aafd24, type: 2}
+  - {fileID: 11400000, guid: 211b814a5687c2b4c94193bd027edf77, type: 2}
+  <RightDoors>k__BackingField:
+  - {fileID: 11400000, guid: f54753a7dc9bce7498912adc9d0ca348, type: 2}
+  - {fileID: 11400000, guid: bfc3353c830a8cc4aadf7ac02367434c, type: 2}
+  - {fileID: 11400000, guid: 9f1f04b2f3d61364f874772fd67169b8, type: 2}
+  - {fileID: 11400000, guid: e604124a8b8d37f488f375fea5c0f533, type: 2}
