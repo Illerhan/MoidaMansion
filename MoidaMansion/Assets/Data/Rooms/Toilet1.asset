@@ -16,3 +16,7 @@ MonoBehaviour:
   <RoomObjects>k__BackingField:
   - {fileID: 11400000, guid: 339384fedfea02443a8cc0e471bc94e4, type: 2}
   - {fileID: 11400000, guid: 30a490c3606bc6448a89722d7426685f, type: 2}
+  - {fileID: 11400000, guid: 15f9b85a5fa017346b44dfcb683dab50, type: 2}
+  - {fileID: 11400000, guid: f1693a94027f86745a5b444f23b3396b, type: 2}
+  - {fileID: 11400000, guid: 83cf9bcd368f12c4ebb1f9fa842063eb, type: 2}
+  - {fileID: 11400000, guid: d776acdb99ff15147a7da404c2161e06, type: 2}
