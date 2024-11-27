@@ -2367,16 +2367,15 @@ MonoBehaviour:
   possibleRooms:
   - {fileID: 11400000, guid: 4cff33e8f0911e745b935e4fc6035d55, type: 2}
   - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
-  - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
+  - {fileID: 11400000, guid: e7d7b242d704997449cf72a80cd0b051, type: 2}
+  - {fileID: 11400000, guid: e7d7b242d704997449cf72a80cd0b051, type: 2}
+  - {fileID: 11400000, guid: 6eff5cc8b894e944ea8c3dd7ec839291, type: 2}
+  - {fileID: 11400000, guid: 0c19abebb51f5324eb1f72d49e6a2dbd, type: 2}
+  - {fileID: 11400000, guid: 8e6e044a88f709b41b1666b91d17a71d, type: 2}
+  - {fileID: 11400000, guid: 0dbc27d07808b3c4886a69393558484d, type: 2}
+  - {fileID: 11400000, guid: 95017aa1e037bf948b9b2b6e2fcb7a0d, type: 2}
+  - {fileID: 11400000, guid: 0b033d071b26e0a4ea4a09e1e6bc1072, type: 2}
+  - {fileID: 11400000, guid: 94a2f65c51647984d828e6593a88409f, type: 2}
   entranceSo: {fileID: 11400000, guid: 451457b398c3b9241bcce265684de2a3, type: 2}
 --- !u!114 &1935087239
 MonoBehaviour:
