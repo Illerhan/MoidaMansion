@@ -46,6 +46,7 @@ public class GenProManager : MonoBehaviour
         GenerateMansion();
         graphicsGenProManager.GenerateRoomTypes(mansionMap);
         graphicsGenProManager.GenerateRoomDoors(mansionMap);
+        graphicsGenProManager.GenerateStairs(mansionMap);
     }
     
     

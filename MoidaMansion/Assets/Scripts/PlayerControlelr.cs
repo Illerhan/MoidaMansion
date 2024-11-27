@@ -77,11 +77,15 @@ public class PlayerController : MonoBehaviour
         if (isInspecting)
         {
             currentInspectIndex++;
+            if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
+                currentInspectIndex = 0;
         }
         else
         {
             currentInspectIndex = 0;
         }
+        
+        // Missing : get sprites
         
         if(currentCoroutine != null)
             StopCoroutine(currentCoroutine);

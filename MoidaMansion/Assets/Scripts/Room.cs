@@ -23,6 +23,7 @@ public class Room
     [Header("Doors")]
     public ObjectSo leftDoor;
     public ObjectSo rightDoor;
+    public ObjectSo stairs;
     
     [Header("Others")]
     public RoomSo roomSo;
