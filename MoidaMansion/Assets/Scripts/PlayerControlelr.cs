@@ -79,16 +79,28 @@ public class PlayerController : MonoBehaviour
     {
         if (isInspecting)
         {
+            for(int i = 0; i < inspectedSpriteRenderers.Count; i++){
+                inspectedSpriteRenderers[i].gameObject.SetActive(true);
+            }
+            
             currentInspectIndex++;
             if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
                 currentInspectIndex = 0;
+
+            while (!_currentRoom.roomSo.RoomObjects[currentInspectIndex].CanBeSearched)
+            {
+                currentInspectIndex++;
+                if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
+                    currentInspectIndex = 0;
+            }
         }
         else
         {
             currentInspectIndex = 0;
+            isInspecting = true;
         }
         
-        // Missing : get sprites
+        inspectedSpriteRenderers = roomDisplayManager.packedSpriteRenderers[currentInspectIndex];
         
         if(currentCoroutine != null)
             StopCoroutine(currentCoroutine);

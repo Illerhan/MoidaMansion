@@ -5,6 +5,7 @@ public class RoomDisplayManager : MonoBehaviour
 {
     public Room Room { get; set; }
     [SerializeField] private List<SpriteRenderer> spriteRenderers;
+    public List<List<SpriteRenderer>> packedSpriteRenderers { get; set; }
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class RoomDisplayManager : MonoBehaviour
     {
         int objectSoIndex = 0;
         int spriteIndex = 0;
+        packedSpriteRenderers = new List<List<SpriteRenderer>>();
 
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
@@ -24,6 +26,14 @@ public class RoomDisplayManager : MonoBehaviour
         {
             if (objectSoIndex < Room.roomSo.RoomObjects.Count)
             {
+                // We pack the sprite renderers for la fouille
+                if (objectSoIndex >= packedSpriteRenderers.Count)
+                {
+                    packedSpriteRenderers.Add(new List<SpriteRenderer>());
+                }
+                packedSpriteRenderers[packedSpriteRenderers.Count - 1].Add(spriteRenderer);
+                
+                
                 spriteRenderer.sprite = Room.roomSo.RoomObjects[objectSoIndex].RoomSprites[spriteIndex];
                 spriteRenderer.gameObject.SetActive(true);
                 spriteIndex++;
