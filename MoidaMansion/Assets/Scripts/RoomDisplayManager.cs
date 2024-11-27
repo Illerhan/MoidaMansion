@@ -23,6 +23,7 @@ public class RoomDisplayManager : MonoBehaviour
         packedSpriteRenderers = new List<List<SpriteRenderer>>();
         
         ActualiseRemovableItems();
+        UIManager.Instance.DisplayText(Room.roomSo.name);
 
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
