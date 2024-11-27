@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GraphicsGenProManager : MonoBehaviour
@@ -6,8 +8,8 @@ public class GraphicsGenProManager : MonoBehaviour
 
     [Header("Parameters")] 
     [SerializeField] private DoorListSo doorList;
+    [SerializeField] private List<RoomSo> possibleRooms;
     [SerializeField] private RoomSo entranceSo;
-    [SerializeField] private RoomSo librarySo;
     
     private void Awake()
     {
@@ -23,10 +25,14 @@ public class GraphicsGenProManager : MonoBehaviour
         {
             for (int x = 0; x < 4; x++)
             {
-                if(Random.Range(0, 2) == 0)
+                if(map[x, y].isStart)
                     map[x, y].roomSo = entranceSo;
                 else
-                    map[x, y].roomSo = librarySo;
+                {
+                    int pickedIndex = Random.Range(0, possibleRooms.Count);
+                    map[x, y].roomSo = possibleRooms[pickedIndex];
+                    possibleRooms.RemoveAt(pickedIndex);
+                }
             }
         }
     }

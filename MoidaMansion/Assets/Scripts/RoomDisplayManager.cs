@@ -7,6 +7,10 @@ public class RoomDisplayManager : MonoBehaviour
     [SerializeField] private List<SpriteRenderer> spriteRenderers;
     public List<List<SpriteRenderer>> packedSpriteRenderers { get; set; }
 
+    [Header("RemovableItems")] 
+    [SerializeField] private SpriteRenderer leftKeyLock;
+    [SerializeField] private SpriteRenderer rightKeyLock;
+
     private void Start()
     {
         DisplayRoom();
@@ -17,6 +21,8 @@ public class RoomDisplayManager : MonoBehaviour
         int objectSoIndex = 0;
         int spriteIndex = 0;
         packedSpriteRenderers = new List<List<SpriteRenderer>>();
+        
+        ActualiseRemovableItems();
 
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
@@ -87,5 +93,11 @@ public class RoomDisplayManager : MonoBehaviour
                 spriteRenderer.gameObject.SetActive(false);
             }
         }
+    }
+
+    private void ActualiseRemovableItems()
+    {
+        leftKeyLock.enabled = Room.isLockedLeft;
+        rightKeyLock.enabled = Room.isLockedRight;
     }
 }
