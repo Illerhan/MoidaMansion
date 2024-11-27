@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
     private Dictionary<String, bool> foundFriends = new Dictionary<string, bool>();
     private int _code = 0;
-    private bool _key;
+    private bool _key = false;
     
     public void FoundingFriend(String name)
     {
@@ -16,7 +16,7 @@ public class InventoryManager : MonoBehaviour
 
     bool HasFullCode()
     {
-        if (_code == 0)
+        if (_code == 3)
             return true;
         return false;
     }

@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1dfdea58eca2374cb529168eb059b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomSo: {fileID: 11400000, guid: 451457b398c3b9241bcce265684de2a3, type: 2}
+  RoomSo: {fileID: 11400000, guid: 4cff33e8f0911e745b935e4fc6035d55, type: 2}
   spriteRenderers:
   - {fileID: 36225002}
   - {fileID: 1270225500}
