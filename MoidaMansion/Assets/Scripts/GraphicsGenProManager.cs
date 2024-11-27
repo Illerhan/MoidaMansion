@@ -61,7 +61,6 @@ public class GraphicsGenProManager : MonoBehaviour
     
     public void GenerateStairs(Room[,] map)
     {
-        int previous = 0;
         for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 4; x++)
