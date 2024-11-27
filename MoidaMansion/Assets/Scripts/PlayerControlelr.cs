@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private RoomDisplayManager roomDisplayManager;
+    [SerializeField] private ProgressBar searchProgressBar;
     
     Vector2Int _position = new (0, 0);
     private Room _currentRoom;
@@ -111,10 +112,12 @@ public class PlayerController : MonoBehaviour
     private IEnumerator InspectObjectCoroutine()
     {
         int currentCounter = 0;
+        searchProgressBar.DisplayProgress(0);
+        
         
         while (true)
         {
-            if (currentCounter >= 10)
+            if (currentCounter >= 13)
             {
                 break;
             }
@@ -124,21 +127,23 @@ public class PlayerController : MonoBehaviour
                 inspectedSpriteRenderers[i].gameObject.SetActive(false);
             }
         
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4f);
 
             currentCounter++;
+            searchProgressBar.DisplayProgress(currentCounter);
         
             for (int i = 0; i < inspectedSpriteRenderers.Count; i++)
             {
                 inspectedSpriteRenderers[i].gameObject.SetActive(true);
             }
         
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4f);
             
             currentCounter++;
+            searchProgressBar.DisplayProgress(currentCounter);
         }
         
-        
+        searchProgressBar.DisplayProgress(0);
         Debug.Log("C'est fouillé");
     }
 
