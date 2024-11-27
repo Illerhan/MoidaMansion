@@ -4,8 +4,10 @@ public class GraphicsGenProManager : MonoBehaviour
 {
     public static GraphicsGenProManager Instance;
 
-    [Header("Parameters")] [SerializeField]
-    private DoorListSo doorList;
+    [Header("Parameters")] 
+    [SerializeField] private DoorListSo doorList;
+    [SerializeField] private RoomSo entranceSo;
+    [SerializeField] private RoomSo librarySo;
     
     private void Awake()
     {
@@ -15,6 +17,20 @@ public class GraphicsGenProManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public void GenerateRoomTypes(Room[,] map)
+    {
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                if(Random.Range(0, 2) == 0)
+                    map[x, y].roomSo = entranceSo;
+                else
+                    map[x, y].roomSo = librarySo;
+            }
+        }
+    }
+    
     public void GenerateRoomDoors(Room[,] map)
     {
         int previous = 0;
@@ -24,18 +40,20 @@ public class GraphicsGenProManager : MonoBehaviour
             {
                 if (x == 0)
                 {
-                    previous = Random.Range(0, doorList.RightDoors.Count);
+                    map[x, y].leftDoor = doorList.LeftDoors[doorList.LeftDoors.Count - 1];
+                    previous = Random.Range(0, doorList.RightDoors.Count - 1);
                     map[x, y].rightDoor = doorList.RightDoors[previous];
                 }
                 else if (x != 3)
                 {
-                    map[x, y].leftDoor = doorList.RightDoors[previous];
-                    previous = Random.Range(0, doorList.RightDoors.Count);
+                    map[x, y].leftDoor = doorList.LeftDoors[previous];
+                    previous = Random.Range(0, doorList.RightDoors.Count - 1);
                     map[x, y].rightDoor = doorList.RightDoors[previous];
                 }
                 else
                 {
-                    map[x, y].leftDoor = doorList.RightDoors[previous];
+                    map[x, y].leftDoor = doorList.LeftDoors[previous];
+                    map[x, y].rightDoor = doorList.RightDoors[doorList.RightDoors.Count - 1];
                 }
             }
         }

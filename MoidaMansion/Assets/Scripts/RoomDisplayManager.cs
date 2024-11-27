@@ -15,6 +15,8 @@ public class RoomDisplayManager : MonoBehaviour
     {
         int objectSoIndex = 0;
         int spriteIndex = 0;
+        
+        Debug.Log(Room.leftDoor.name);
 
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
