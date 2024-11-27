@@ -19,12 +19,16 @@ public class Room
     public bool hasFullCode;
     public bool hasCodePart;
     public bool hasSecretPath;
+
+    [Header("Doors")]
+    public ObjectSo leftDoor;
+    public ObjectSo rightDoor;
     
     [Header("Others")]
+    public RoomSo roomSo;
     public bool isStart;
     public Vector2Int coord;    // Needed for pathfinding
     public Room previous;    // Needed for pathfinding
-
 }
 
 public enum RoomType
