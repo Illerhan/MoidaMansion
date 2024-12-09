@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 5087d81c2f7980d48a32bb996e3170ef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6239607068485469283
+    second: LeftCurvedDesk_0
+  - first:
+      213: 4072657139016710332
+    second: LeftCurvedDesk_1
+  - first:
+      213: -5912860336047556668
+    second: LeftCurvedDesk_2
+  - first:
+      213: -1013014787622099072
+    second: LeftCurvedDesk_3
+  - first:
+      213: -6406396624375240458
+    second: LeftCurvedDesk_4
+  - first:
+      213: -2271828259287298956
+    second: LeftCurvedDesk_5
+  - first:
+      213: -6430696611693014891
+    second: LeftCurvedDesk_6
+  - first:
+      213: 3136548302978241163
+    second: LeftCurvedDesk_7
+  - first:
+      213: 5061170234633450258
+    second: LeftCurvedDesk_8
+  - first:
+      213: -6014625863119918259
+    second: LeftCurvedDesk_9
+  - first:
+      213: -4207952983746558997
+    second: LeftCurvedDesk_10
+  - first:
+      213: 4867528456329595305
+    second: LeftCurvedDesk_11
+  - first:
+      213: 6269143830464080957
+    second: LeftCurvedDesk_12
+  - first:
+      213: 236383141583802120
+    second: LeftCurvedDesk_13
+  - first:
+      213: 3589198333135766381
+    second: LeftCurvedDesk_14
+  - first:
+      213: -8928929637233293638
+    second: LeftCurvedDesk_15
+  - first:
+      213: 5512404699134509090
+    second: LeftCurvedDesk_16
+  - first:
+      213: -6042377810290850115
+    second: LeftCurvedDesk_17
+  - first:
+      213: -8356645001073639438
+    second: LeftCurvedDesk_18
+  - first:
+      213: 5867703370607921102
+    second: LeftCurvedDesk_19
+  - first:
+      213: 4595798526792595288
+    second: LeftCurvedDesk_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LeftCurvedDesk_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 178
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364c717e199879650800000000000000
+      internalID: 6239607068485469283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_1
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 190
+        width: 27
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8bc0f071cf48830800000000000000
+      internalID: 4072657139016710332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_2
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 191
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c7736f1adc41fda0800000000000000
+      internalID: -5912860336047556668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 191
+        width: 24
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0872197fa6c01f1f0800000000000000
+      internalID: -1013014787622099072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_4
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 190
+        width: 59
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f82ad17638e717a0800000000000000
+      internalID: -6406396624375240458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_5
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 191
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c8c7e1c38d870e0800000000000000
+      internalID: -2271828259287298956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_6
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 142
+        width: 17
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 590dab1c08391c6a0800000000000000
+      internalID: -6430696611693014891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_7
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 154
+        width: 7
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b825fdb3012478b20800000000000000
+      internalID: 3136548302978241163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_8
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 146
+        width: 7
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2137b1f5383ec3640800000000000000
+      internalID: 5061170234633450258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_9
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 179
+        width: 39
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4b2cd3f4a1c78ca0800000000000000
+      internalID: -6014625863119918259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_10
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 179
+        width: 36
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be3cd345e095a95c0800000000000000
+      internalID: -4207952983746558997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_11
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 179
+        width: 31
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a981ad775fec8340800000000000000
+      internalID: 4867528456329595305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 179
+        width: 38
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ca4a43919700750800000000000000
+      internalID: 6269143830464080957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_13
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 152
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f4ef0073dc74300800000000000000
+      internalID: 236383141583802120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_14
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 154
+        width: 39
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d634bfa1ed46fc130800000000000000
+      internalID: 3589198333135766381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_15
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 153
+        width: 51
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6804c6dc1161480800000000000000
+      internalID: -8928929637233293638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_16
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 151
+        width: 53
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2204b1e2edeff7c40800000000000000
+      internalID: 5512404699134509090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_17
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 116
+        width: 7
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db649ea3569252ca0800000000000000
+      internalID: -6042377810290850115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 114
+        width: 7
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ff36fc95ab370c80800000000000000
+      internalID: -8356645001073639438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_19
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 96
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec7827c80254e6150800000000000000
+      internalID: 5867703370607921102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCurvedDesk_20
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 100
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8577cb8196e87cf30800000000000000
+      internalID: 4595798526792595288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LeftCurvedDesk_0: 6239607068485469283
+      LeftCurvedDesk_1: 4072657139016710332
+      LeftCurvedDesk_10: -4207952983746558997
+      LeftCurvedDesk_11: 4867528456329595305
+      LeftCurvedDesk_12: 6269143830464080957
+      LeftCurvedDesk_13: 236383141583802120
+      LeftCurvedDesk_14: 3589198333135766381
+      LeftCurvedDesk_15: -8928929637233293638
+      LeftCurvedDesk_16: 5512404699134509090
+      LeftCurvedDesk_17: -6042377810290850115
+      LeftCurvedDesk_18: -8356645001073639438
+      LeftCurvedDesk_19: 5867703370607921102
+      LeftCurvedDesk_2: -5912860336047556668
+      LeftCurvedDesk_20: 4595798526792595288
+      LeftCurvedDesk_3: -1013014787622099072
+      LeftCurvedDesk_4: -6406396624375240458
+      LeftCurvedDesk_5: -2271828259287298956
+      LeftCurvedDesk_6: -6430696611693014891
+      LeftCurvedDesk_7: 3136548302978241163
+      LeftCurvedDesk_8: 5061170234633450258
+      LeftCurvedDesk_9: -6014625863119918259
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
