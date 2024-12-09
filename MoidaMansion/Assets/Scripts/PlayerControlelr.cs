@@ -139,6 +139,13 @@ public class PlayerController : MonoBehaviour
         {
             currentInspectIndex = 0;
             isInspecting = true;
+            
+            while (!_currentRoom.roomSo.RoomObjects[currentInspectIndex].CanBeSearched)
+            {
+                currentInspectIndex++;
+                if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
+                    currentInspectIndex = 0;
+            }
         }
         
         inspectedSpriteRenderers = roomDisplayManager.packedSpriteRenderers[currentInspectIndex];
@@ -194,6 +201,16 @@ public class PlayerController : MonoBehaviour
                 break;
             
             case ItemType.Friend :
+                if (GenProManager.Instance.codeLockedLocation == _position)
+                {
+                    if (!inventoryManager.HasFullCode())
+                    {
+                        break;
+                    }
+                    inventoryManager.UseCode();
+                    GenProManager.Instance.codeLockedLocation = new Vector2Int(-1, -1);
+                }
+                
                 inventoryManager.FoundFriend();
                 break;
             

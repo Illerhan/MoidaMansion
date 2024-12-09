@@ -474,7 +474,7 @@ public class GenProManager : MonoBehaviour
         {
             while (true)
             {
-                int lockIndex = Random.Range(0, 2);
+                int lockIndex = Random.Range(0, 3);
 
                 if (lockIndex != bannedIndex)
                 {

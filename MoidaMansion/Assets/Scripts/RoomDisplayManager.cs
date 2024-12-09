@@ -7,6 +7,8 @@ public class RoomDisplayManager : MonoBehaviour
     [SerializeField] private List<SpriteRenderer> spriteRenderers;
     public List<List<SpriteRenderer>> packedSpriteRenderers { get; set; }
 
+    [HideInInspector] public SpriteRenderer displayedCode;
+
     [Header("RemovableItems")] 
     [SerializeField] private SpriteRenderer leftKeyLock;
     [SerializeField] private SpriteRenderer rightKeyLock;
@@ -106,6 +108,7 @@ public class RoomDisplayManager : MonoBehaviour
         code1.enabled = false;
         code2.enabled = false;
         code3.enabled = false;
+        displayedCode = null;
         
         if (Room.isKeyLocked)
         {
@@ -132,10 +135,17 @@ public class RoomDisplayManager : MonoBehaviour
             if (lockedObject.name == "LeftCloset1")
             {
                 code3.enabled = true;
+                displayedCode = code3;
             } 
             else if (lockedObject.name == "ToiletFurniture1")
             {
                 code3.enabled = true;
+                displayedCode = code3;
+            }
+            else if (lockedObject.name == "RightFurniture1")
+            {
+                code1.enabled = true;
+                displayedCode = code1;
             }
         } 
     }

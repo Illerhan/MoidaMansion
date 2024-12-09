@@ -51,13 +51,6 @@ public class InventoryManager : MonoBehaviour
         friendCount++;
     }
 
-    bool HasFullCode()
-    {
-        if (_code == 3)
-            return true;
-        return false;
-    }
-
     // Used when picking up a code piece or full code to display
     void codeDisplay()
     {
@@ -75,6 +68,19 @@ public class InventoryManager : MonoBehaviour
         Code1.SetActive(true);
         Code2.SetActive(true);
         Code3.SetActive(true);
+    }
+
+    public bool HasFullCode()
+    {
+        return _code == 3;
+    }
+
+    public void UseCode()
+    {
+        _code = 0;
+        Code1.SetActive(false);
+        Code2.SetActive(false);
+        Code3.SetActive(false);
     }
     
     public void FoundKey()
