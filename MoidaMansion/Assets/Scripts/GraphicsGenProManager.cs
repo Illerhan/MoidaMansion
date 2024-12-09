@@ -9,6 +9,7 @@ public class GraphicsGenProManager : MonoBehaviour
     [Header("Parameters")] 
     [SerializeField] private DoorListSo doorList;
     public List<RoomSo> possibleRooms;
+    public List<int> bannedIndexes;
     [SerializeField] private RoomSo entranceSo;
     
     private void Awake()
@@ -30,8 +31,15 @@ public class GraphicsGenProManager : MonoBehaviour
                 else
                 {
                     int pickedIndex = Random.Range(0, possibleRooms.Count);
+                    while (bannedIndexes.Contains(pickedIndex))
+                    {
+                        pickedIndex = Random.Range(0, possibleRooms.Count);
+                    }
+                    
                     map[x, y].roomSo = possibleRooms[pickedIndex];
-                    possibleRooms.RemoveAt(pickedIndex);
+                    
+                    bannedIndexes.Add(pickedIndex);
+                    //possibleRooms.RemoveAt(pickedIndex);
                 }
             }
         }

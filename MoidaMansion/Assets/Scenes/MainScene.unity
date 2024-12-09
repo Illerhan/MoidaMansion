@@ -4351,7 +4351,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   roomDisplayManager: {fileID: 336534272}
   searchProgressBar: {fileID: 265634256}
-  minimap: {fileID: 0}
+  minimap: {fileID: 1850753379}
 --- !u!114 &1840993187
 MonoBehaviour:
   m_ObjectHideFlags: 0

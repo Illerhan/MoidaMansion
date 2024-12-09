@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ToiletFurniture1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
+  <CanHaveFriend>k__BackingField: 1
+  <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: 10f7b7abaf62afb448e90fc392142696, type: 3}
   - {fileID: 21300000, guid: 10e03ef6dfd8ca847a08b819c00dca81, type: 3}

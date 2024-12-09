@@ -62,7 +62,7 @@ public class GenProManager : MonoBehaviour
     [SerializeField] private bool debugPrint;
     
     [Header("Public Infos")]
-    [HideInInspector] public ItemLocation[] friendPositions = new ItemLocation[3];
+    public ItemLocation[] friendPositions = new ItemLocation[3];
     public List<ItemLocation> keyItems = new List<ItemLocation>();
     
     [Header("Private Infos")]
@@ -450,7 +450,8 @@ public class GenProManager : MonoBehaviour
 
             if (locationValidated)
             {
-                friendPositions[friendCount] = new ItemLocation(ItemType.Friend, location, 0);
+                AddKeyItem(location, ItemType.Friend, friendCount);
+                //friendPositions[friendCount] = new ItemLocation(ItemType.Friend, location, 0);
                 mansionMap[location.x, location.y].hasFriend = true;
                 friendCount++;
             }

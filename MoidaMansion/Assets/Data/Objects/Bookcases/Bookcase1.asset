@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Bookcase1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
+  <CanHaveFriend>k__BackingField: 1
+  <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: c164580d876e5e44e900a0b64c825b10, type: 3}
   - {fileID: 21300000, guid: 87466798d3f3aa64e8b4adbff5b1af60, type: 3}
