@@ -11,6 +11,46 @@ public enum LockType
     Secret
 }
 
+public enum ItemType
+{
+    Friend,
+    Key,
+    Code,
+    SecretPassage
+}
+
+public enum HintType
+{
+    Ghost,
+    Fairy,
+    Position
+}
+
+public struct ItemLocation
+{
+    public ItemLocation(ItemType itemType, Vector2Int location, int itemIndex)
+    {
+        this.itemType = itemType;
+        roomCoord = location;
+        this.itemIndex = itemIndex;
+    }
+    public ItemType itemType;
+    public Vector2Int roomCoord;
+    public int itemIndex;
+}
+
+public struct Hint
+{
+    public Hint(HintType hintType, ItemLocation location)
+    {
+        this.hintType = hintType;
+        itemLocation = location;
+    }
+    
+    public HintType hintType;
+    public ItemLocation itemLocation;
+}
+
 
 public class GenProManager : MonoBehaviour
 {
@@ -21,13 +61,15 @@ public class GenProManager : MonoBehaviour
     
     [Header("Public Infos")]
     [HideInInspector] public Vector2Int[] friendPositions = new Vector2Int[3];
+    [HideInInspector] public List<ItemLocation> keyItems = new List<ItemLocation>();
     
     [Header("Private Infos")]
     private Room[,] mansionMap = new Room[4, 3];
     private Vector2Int currentPos;
     private LockType[] lockTypes = new LockType[2];
     private Room[] lockedRooms = new Room[4];
-
+    private Hint[] hints = new Hint[2];
+    
     [Header("References")] 
     [SerializeField] private GraphicsGenProManager graphicsGenProManager;
     [SerializeField] private GameObject roomPrefabDebug;
@@ -189,6 +231,16 @@ public class GenProManager : MonoBehaviour
     {
         return mansionMap[currentPos.x, currentPos.y];
     }
+
+    /// <summary>
+    /// Returns the current hint to display
+    /// </summary>
+    /// <param name="friendIndex"> Either 0 or 1 </param>
+    public Hint GetNextKey(int friendIndex)
+    {
+        return hints[friendIndex];
+    }
+    
 
     #endregion
     
@@ -442,14 +494,20 @@ public class GenProManager : MonoBehaviour
                     {
                         case LockType.Code :
                             mansionMap[roomPos.x, roomPos.y].hasFullCode = true;
+                            keyItems.Add(new ItemLocation(ItemType.Code, new Vector2Int(roomPos.x, roomPos.y), 1));
+                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
                             break;
                             
                         case LockType.Key :
                             mansionMap[roomPos.x, roomPos.y].hasKey = true;
+                            keyItems.Add(new ItemLocation(ItemType.Key, new Vector2Int(roomPos.x, roomPos.y), 1));
+                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
                             break;
                             
                         case LockType.Secret :
                             mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
+                            keyItems.Add(new ItemLocation(ItemType.SecretPassage, new Vector2Int(roomPos.x, roomPos.y), 1));
+                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
                             break;
                     }
                         
@@ -469,14 +527,20 @@ public class GenProManager : MonoBehaviour
                     {
                         case LockType.Code :
                             mansionMap[roomPos.x, roomPos.y].hasFullCode = true;
+                            keyItems.Add(new ItemLocation(ItemType.Code, new Vector2Int(roomPos.x, roomPos.y), 1));
+                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
                             break;
                         
                         case LockType.Key :
                             mansionMap[roomPos.x, roomPos.y].hasKey = true;
+                            keyItems.Add(new ItemLocation(ItemType.Key, new Vector2Int(roomPos.x, roomPos.y), 1));
+                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
                             break;
                         
                         case LockType.Secret :
                             mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
+                            keyItems.Add(new ItemLocation(ItemType.SecretPassage, new Vector2Int(roomPos.x, roomPos.y), 1));
+                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
                             break;
                     }
                     
