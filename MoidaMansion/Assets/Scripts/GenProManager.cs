@@ -69,6 +69,8 @@ public class GenProManager : MonoBehaviour
     [Header("Private Infos")]
     private Room[,] mansionMap = new Room[4, 3];
     private Vector2Int currentPos;
+    private List<Vector2Int> bannedPositions;
+    private List<int> bannedInts;
     private LockType[] lockTypes = new LockType[2];
     private Room[] lockedRooms = new Room[4];
     private Hint[] hints = new Hint[2];
@@ -88,6 +90,8 @@ public class GenProManager : MonoBehaviour
             Instance = this;
         else 
             Destroy(gameObject);
+
+        codeLockedLocation = new Vector2Int(-1, -1);
         
         GenerateMansion();
         
@@ -542,7 +546,7 @@ public class GenProManager : MonoBehaviour
                             
                         case LockType.Secret :
                             mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
-                            AddKeyItem(roomPos, ItemType.SecretPassage);
+                            AddKeyItem(lockedRooms[i * 2 + 1].coord, ItemType.SecretPassage);
                             break;
                     }
                         
@@ -572,7 +576,7 @@ public class GenProManager : MonoBehaviour
                         
                         case LockType.Secret :
                             mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
-                            AddKeyItem(roomPos, ItemType.SecretPassage);
+                            AddKeyItem(lockedRooms[i * 2 + 1].coord, ItemType.SecretPassage);
                             break;
                     }
                     
@@ -721,12 +725,21 @@ public class GenProManager : MonoBehaviour
         
         
         // Objets plus classiques
-        for (int i = 0; i < room.RoomObjects.Count; i++)
+        int debugCounter = 0;
+        while (true)
         {
-            if (!room.RoomObjects[i].CanBeSearched) continue;
-
-            keyItems.Add(new ItemLocation(itemType, itemPos, i));
+            debugCounter++;
+            if (debugCounter > 100)
+                break;
+            
+            int pickedIndex = Random.Range(0, room.RoomObjects.Count);
+            
+            if (!room.RoomObjects[pickedIndex].CanBeSearched) continue;
+            if (room.RoomObjects[pickedIndex].CanHaveFriend) continue;
+            
+            keyItems.Add(new ItemLocation(itemType, itemPos, pickedIndex));
             hints[keyItems.Count - 1] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+
             return;
         }
 
@@ -746,6 +759,7 @@ public class GenProManager : MonoBehaviour
             for (int i = 0; i < room.RoomObjects.Count; i++)
             {
                 if (!room.RoomObjects[i].CanBeSearched) continue;
+                if (room.RoomObjects[i].CanHaveFriend) continue;
                 if (room.RoomType == RoomType.Entrance) continue;
                 found = true;
                 
@@ -756,13 +770,18 @@ public class GenProManager : MonoBehaviour
             if (found) break;
         }
             
-        for (int i = 0; i < room.RoomObjects.Count; i++)
-        {
-            if (!room.RoomObjects[i].CanBeSearched) continue;
 
-            keyItems.Add(new ItemLocation(itemType, itemPos, i));
+        while (true)
+        {
+            int pickedIndex = Random.Range(0, room.RoomObjects.Count);
+            
+            if (!room.RoomObjects[pickedIndex].CanBeSearched) continue;
+            if (room.RoomObjects[pickedIndex].CanHaveFriend) continue;
+            
+            keyItems.Add(new ItemLocation(itemType, itemPos, pickedIndex));
             hints[keyItems.Count - 1] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
-            return;
+
+            break;
         }
     }
 

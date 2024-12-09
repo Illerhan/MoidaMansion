@@ -223,6 +223,23 @@ public class PlayerController : MonoBehaviour
                 break;
             
             case ItemType.SecretPassage :
+                if (_currentRoom.isSecretLocked)
+                {
+                    if (_currentRoom.isLockedLeft)
+                    {
+                        _currentRoom.isLockedLeft = false;
+                        GenProManager.Instance.GetRoom(_position + new Vector2Int(-1, 0)).isLockedRight = false;
+                    }
+                    else
+                    {
+                        GenProManager.Instance.GetRoom(_position + new Vector2Int(1, 0)).isLockedLeft = false;
+                        _currentRoom.isLockedRight = false;
+                    }
+                    
+                    _currentRoom.isSecretLocked = false;
+                    
+                    roomDisplayManager.DisplayRoom();
+                }
                 Debug.Log("J'ai trouvé un passage secret !");
                 break;
         }
