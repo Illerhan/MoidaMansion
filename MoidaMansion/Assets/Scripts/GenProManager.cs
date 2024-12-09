@@ -93,6 +93,8 @@ public class GenProManager : MonoBehaviour
         graphicsGenProManager.GenerateRoomTypes(mansionMap);
         graphicsGenProManager.GenerateRoomDoors(mansionMap);
         graphicsGenProManager.GenerateStairs(mansionMap);
+
+        GenerateItems();
     }
     
     
@@ -290,13 +292,6 @@ public class GenProManager : MonoBehaviour
         GenerateStairs();
 
         GenerateLockedDoors(4);
-        
-        GenerateFriends();
-        ChooseLocks();
-        GenerateKeys();
-        
-        if(debugPrint)
-            DebugDisplayMap();
     }
 
     private void GenerateDoorConnections()
@@ -410,6 +405,16 @@ public class GenProManager : MonoBehaviour
             
             lockedPathCount++;
         }
+    }
+
+    private void GenerateItems()
+    {
+        GenerateFriends();
+        ChooseLocks();
+        GenerateKeys();
+        
+        if(debugPrint)
+            DebugDisplayMap();
     }
 
     private void GenerateFriends()
