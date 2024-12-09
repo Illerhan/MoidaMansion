@@ -163,7 +163,31 @@ public class PlayerController : MonoBehaviour
         
         searchProgressBar.DisplayProgress(0);
         isChased = true;
-        Debug.Log("C'est fouillé");
+
+        ItemType foundItem = GenProManager.Instance.VerifySearch(_position, currentInspectIndex);
+
+        switch (foundItem)
+        {
+            case ItemType.None :
+                Debug.LogError("Rien trouvé");
+                break;
+            
+            case ItemType.Friend :
+                Debug.Log("J'ai trouvé un ami !");
+                break;
+            
+            case ItemType.Key :
+                Debug.Log("J'ai trouvé une clée !");
+                break;
+            
+            case ItemType.Code :
+                Debug.Log("J'ai trouvé un code !");
+                break;
+            
+            case ItemType.SecretPassage :
+                Debug.Log("J'ai trouvé un passage secret !");
+                break;
+        }
     }
 
     // void inspectItem(itemToInspect)

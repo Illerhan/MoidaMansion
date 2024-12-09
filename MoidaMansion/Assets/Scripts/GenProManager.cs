@@ -261,7 +261,14 @@ public class GenProManager : MonoBehaviour
             foundKeyItemsIndexes.Add(i);
             return keyItems[i].itemType;
         }
-        
+        for (int i = 0; i < friendPositions.Length; i++)
+        {
+            if (roomPos != friendPositions[i].roomCoord) continue;
+            if (itemIndex != friendPositions[i].itemIndex) continue;
+            
+            
+            return friendPositions[i].itemType;
+        }
         
 
         return ItemType.None;
@@ -699,6 +706,8 @@ public class GenProManager : MonoBehaviour
                 {
                     if (!room.RoomObjects[i].CanHaveFriend) continue;
                     found = true;
+                    
+                    mansionMap[itemPos.x, itemPos.y].roomSo = room;
                     break;
                 }
 
@@ -708,7 +717,7 @@ public class GenProManager : MonoBehaviour
             for (int i = 0; i < room.RoomObjects.Count; i++)
             {
                 if (!room.RoomObjects[i].CanHaveFriend) continue;
-
+                
                 friendPositions[friendIndex] = new ItemLocation(itemType, itemPos, i);
                 return;
             }
@@ -742,6 +751,8 @@ public class GenProManager : MonoBehaviour
                 if (!room.RoomObjects[i].CanBeSearched) continue;
                 if (room.RoomType == RoomType.Entrance) continue;
                 found = true;
+                
+                mansionMap[itemPos.x, itemPos.y].roomSo = room;
                 break;
             }
 
