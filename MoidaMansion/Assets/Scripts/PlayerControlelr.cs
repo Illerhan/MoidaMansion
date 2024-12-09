@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private List<SpriteRenderer> inspectedSpriteRenderers;
     private bool isInspecting;
     private Coroutine currentCoroutine;
-    private bool isChased;
+    public bool isChased;
     private int roomSwitchCount = 0;
 
 
@@ -153,7 +153,6 @@ public class PlayerController : MonoBehaviour
     {
         int currentCounter = 0;
         searchProgressBar.DisplayProgress(0);
-        
         
         while (true)
         {
