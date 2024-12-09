@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc703a97320bb7045877a74c066218eb, type: 3}
-  m_Name: LeftDeskPillowCut
+  m_Name: RightPan1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
+  <CanHaveFriend>k__BackingField: 0
+  <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
-  - {fileID: 21300000, guid: a406715bcacc4e443884819ef4af97f4, type: 3}
+  - {fileID: 21300000, guid: ffa50f2b6244d11469b12fd21fbed3ab, type: 3}

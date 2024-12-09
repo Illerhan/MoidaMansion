@@ -10,13 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc703a97320bb7045877a74c066218eb, type: 3}
-  m_Name: LeftMirrorHandleFurniture1
+  m_Name: LeftDesk1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
-  <CanHaveFriend>k__BackingField: 0
-  <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
-  - {fileID: 21300000, guid: a05afa06246567349ad568e8ea2fb1a2, type: 3}
-  - {fileID: 21300000, guid: eb9f70e0425722148b2069bc9e451553, type: 3}
-  - {fileID: 21300000, guid: ea53c47106a664b42a12a3ef30f55097, type: 3}
-  - {fileID: 21300000, guid: 2870093b35b7a1144a6ca8ebaa1703e7, type: 3}
+  - {fileID: 21300000, guid: a406715bcacc4e443884819ef4af97f4, type: 3}

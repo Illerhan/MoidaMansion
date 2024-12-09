@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: RoomBackground4
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 0
+  <CanHaveFriend>k__BackingField: 0
+  <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: 86ee3f53392782046841ba0066c91dea, type: 3}
   - {fileID: 21300000, guid: 1a8d6010a040c3e4fb7d65cd0c110c45, type: 3}
   - {fileID: 21300000, guid: cd0b0cfd45b2af24a8ac8d96fde61340, type: 3}
-  - {fileID: 21300000, guid: 6446559a65e51b9469ff952252579785, type: 3}
+  - {fileID: 21300000, guid: f75a74261726e9344891684a25bfa2de, type: 3}
   - {fileID: 21300000, guid: fb97f2cc4a6a95641a54683a067d16a5, type: 3}
+  - {fileID: 21300000, guid: 6446559a65e51b9469ff952252579785, type: 3}
   - {fileID: 21300000, guid: de78b533dfa829b45a7aef202c502425, type: 3}
