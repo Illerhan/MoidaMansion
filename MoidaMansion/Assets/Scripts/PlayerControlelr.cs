@@ -223,6 +223,8 @@ public class PlayerController : MonoBehaviour
                     GenProManager.Instance.codeLockedLocation = new Vector2Int(-1, -1);
                 }
                 
+                GenProManager.Instance.foundFriendsIndexes.Add(GenProManager.Instance.foundFriendsIndexes.Count);
+                roomDisplayManager.DisplayRoom();
                 inventoryManager.FoundFriend();
                 break;
             

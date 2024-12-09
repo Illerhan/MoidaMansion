@@ -74,7 +74,8 @@ public class GenProManager : MonoBehaviour
     private LockType[] lockTypes = new LockType[2];
     private Room[] lockedRooms = new Room[4];
     private Hint[] hints = new Hint[2];
-    private List<int> foundKeyItemsIndexes = new List<int>();
+    public List<int> foundKeyItemsIndexes = new List<int>();
+    public List<int> foundFriendsIndexes = new List<int>();
     
     [Header("References")] 
     [SerializeField] private GraphicsGenProManager graphicsGenProManager;
