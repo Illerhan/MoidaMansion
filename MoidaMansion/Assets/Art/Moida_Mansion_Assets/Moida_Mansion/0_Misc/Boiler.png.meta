@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 5a1f3dbb45a11d24c8d2ec93689e28bb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8578205390000648917
+    second: Boiler_0
+  - first:
+      213: -3657817846227722316
+    second: Boiler_1
+  - first:
+      213: -3205842400752901240
+    second: Boiler_2
+  - first:
+      213: 3058904693358688450
+    second: Boiler_3
+  - first:
+      213: 3958638387952825544
+    second: Boiler_4
+  - first:
+      213: -6860601583181923966
+    second: Boiler_5
+  - first:
+      213: 615168510339789605
+    second: Boiler_6
+  - first:
+      213: -3039215020489270798
+    second: Boiler_7
+  - first:
+      213: -4140731993284355884
+    second: Boiler_8
+  - first:
+      213: 4578506221953786380
+    second: Boiler_9
+  - first:
+      213: 5839083610745580399
+    second: Boiler_10
+  - first:
+      213: -4097624283915272473
+    second: Boiler_11
+  - first:
+      213: 3530925620109734609
+    second: Boiler_12
+  - first:
+      213: -7571176333521977936
+    second: Boiler_13
+  - first:
+      213: 935970587171504234
+    second: Boiler_14
+  - first:
+      213: -1419399221868917824
+    second: Boiler_15
+  - first:
+      213: -4821268647823884610
+    second: Boiler_16
+  - first:
+      213: -311135131065834142
+    second: Boiler_17
+  - first:
+      213: -254440221431851101
+    second: Boiler_18
+  - first:
+      213: -7459112889079474574
+    second: Boiler_19
+  - first:
+      213: 3950369389581979296
+    second: Boiler_20
+  - first:
+      213: 5322987957093700203
+    second: Boiler_21
+  - first:
+      213: -3285969306064822907
+    second: Boiler_22
+  - first:
+      213: -6235470247912208324
+    second: Boiler_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boiler_0
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 331
+        width: 88
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d274595a58eb0770800000000000000
+      internalID: 8578205390000648917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_1
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 354
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf138e7c02dc3dc0800000000000000
+      internalID: -3657817846227722316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_2
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 376
+        width: 45
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883ec31625f8283d0800000000000000
+      internalID: -3205842400752901240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_3
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 358
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c87b61ac99637a20800000000000000
+      internalID: 3058904693358688450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_4
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 276
+        width: 7
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c4372cd3a8efe630800000000000000
+      internalID: 3958638387952825544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_5
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 312
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28975f8853f3ac0a0800000000000000
+      internalID: -6860601583181923966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_6
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 286
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5233fc73084898800800000000000000
+      internalID: 615168510339789605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 312
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f994b39a0a82d5d0800000000000000
+      internalID: -3039215020489270798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_8
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 276
+        width: 6
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8d03ec03a2986c0800000000000000
+      internalID: -4140731993284355884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_9
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 232
+        width: 7
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02a871a62f1a8f30800000000000000
+      internalID: 4578506221953786380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 238
+        width: 7
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6bab407b97980150800000000000000
+      internalID: 5839083610745580399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_11
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 239
+        width: 6
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee37368c605227c0800000000000000
+      internalID: -4097624283915272473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_12
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 196
+        width: 7
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d277f2d42e500130800000000000000
+      internalID: 3530925620109734609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_13
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 200
+        width: 7
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bdf39c0d37cde690800000000000000
+      internalID: -7571176333521977936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_14
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 154
+        width: 7
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6042904a4c3dfc00800000000000000
+      internalID: 935970587171504234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_15
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 195
+        width: 6
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb89029de74d4ce0800000000000000
+      internalID: -1419399221868917824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_16
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 116
+        width: 8
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebebabf75b9671db0800000000000000
+      internalID: -4821268647823884610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_17
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 154
+        width: 7
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2652dab2f30aeabf0800000000000000
+      internalID: -311135131065834142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_18
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 115
+        width: 9
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a79bf877fb087cf0800000000000000
+      internalID: -254440221431851101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_19
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 154
+        width: 6
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27651e2f858eb7890800000000000000
+      internalID: -7459112889079474574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_20
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 115
+        width: 6
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae4c95a70882d630800000000000000
+      internalID: 3950369389581979296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_21
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 96
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b629046385d0fd940800000000000000
+      internalID: 5322987957093700203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 79
+        width: 107
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d5b217354e562d0800000000000000
+      internalID: -3285969306064822907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boiler_23
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 98
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c380da1b8d82779a0800000000000000
+      internalID: -6235470247912208324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boiler_0: 8578205390000648917
+      Boiler_1: -3657817846227722316
+      Boiler_10: 5839083610745580399
+      Boiler_11: -4097624283915272473
+      Boiler_12: 3530925620109734609
+      Boiler_13: -7571176333521977936
+      Boiler_14: 935970587171504234
+      Boiler_15: -1419399221868917824
+      Boiler_16: -4821268647823884610
+      Boiler_17: -311135131065834142
+      Boiler_18: -254440221431851101
+      Boiler_19: -7459112889079474574
+      Boiler_2: -3205842400752901240
+      Boiler_20: 3950369389581979296
+      Boiler_21: 5322987957093700203
+      Boiler_22: -3285969306064822907
+      Boiler_23: -6235470247912208324
+      Boiler_3: 3058904693358688450
+      Boiler_4: 3958638387952825544
+      Boiler_5: -6860601583181923966
+      Boiler_6: 615168510339789605
+      Boiler_7: -3039215020489270798
+      Boiler_8: -4140731993284355884
+      Boiler_9: 4578506221953786380
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
