@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeftMirrorHandleFurniture1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
-  <CanHaveFriend>k__BackingField: 0
+  <CanHaveFriend>k__BackingField: 1
   <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: a05afa06246567349ad568e8ea2fb1a2, type: 3}
