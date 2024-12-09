@@ -4633,7 +4633,7 @@ MonoBehaviour:
   roomDisplayManager: {fileID: 336534272}
   searchProgressBar: {fileID: 265634256}
   minimap: {fileID: 1850753379}
-  monsta: {fileID: 0}
+  monsta: {fileID: 1891024979}
   isChased: 0
 --- !u!114 &1840993187
 MonoBehaviour:
@@ -5120,6 +5120,8 @@ MonoBehaviour:
     itemIndex: 0
   keyItems: []
   codeLockedLocation: {x: 0, y: 0}
+  foundKeyItemsIndexes: 
+  foundFriendsIndexes: 
   graphicsGenProManager: {fileID: 1935087238}
   roomPrefabDebug: {fileID: 0}
   pathPrefabDebug: {fileID: 0}
