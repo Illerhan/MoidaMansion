@@ -70,6 +70,17 @@ public class PlayerController : MonoBehaviour
 
     public void InspectItem()
     {
+        bool hasSearchableObjects = false;
+        for (int i = 0; i < _currentRoom.roomSo.RoomObjects.Count; i++)
+        {
+            if (_currentRoom.roomSo.RoomObjects[i].CanBeSearched)
+            {
+                hasSearchableObjects = true;
+            }
+        }
+
+        if (!hasSearchableObjects) return;
+        
         if (isInspecting)
         {
             for(int i = 0; i < inspectedSpriteRenderers.Count; i++){
