@@ -530,20 +530,17 @@ public class GenProManager : MonoBehaviour
                     {
                         case LockType.Code :
                             mansionMap[roomPos.x, roomPos.y].hasFullCode = true;
-                            keyItems.Add(new ItemLocation(ItemType.Code, new Vector2Int(roomPos.x, roomPos.y), 1));
-                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+                            AddKeyItem(roomPos, ItemType.Code);
                             break;
                             
                         case LockType.Key :
                             mansionMap[roomPos.x, roomPos.y].hasKey = true;
-                            keyItems.Add(new ItemLocation(ItemType.Key, new Vector2Int(roomPos.x, roomPos.y), 1));
-                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+                            AddKeyItem(roomPos, ItemType.Key);
                             break;
                             
                         case LockType.Secret :
                             mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
-                            keyItems.Add(new ItemLocation(ItemType.SecretPassage, new Vector2Int(roomPos.x, roomPos.y), 1));
-                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+                            AddKeyItem(roomPos, ItemType.SecretPassage);
                             break;
                     }
                         
@@ -563,20 +560,17 @@ public class GenProManager : MonoBehaviour
                     {
                         case LockType.Code :
                             mansionMap[roomPos.x, roomPos.y].hasFullCode = true;
-                            keyItems.Add(new ItemLocation(ItemType.Code, new Vector2Int(roomPos.x, roomPos.y), 1));
-                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+                            AddKeyItem(roomPos, ItemType.Code);
                             break;
                         
                         case LockType.Key :
                             mansionMap[roomPos.x, roomPos.y].hasKey = true;
-                            keyItems.Add(new ItemLocation(ItemType.Key, new Vector2Int(roomPos.x, roomPos.y), 1));
-                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+                            AddKeyItem(roomPos, ItemType.Key);
                             break;
                         
                         case LockType.Secret :
                             mansionMap[roomPos.x, roomPos.y].hasSecretPath = true;
-                            keyItems.Add(new ItemLocation(ItemType.SecretPassage, new Vector2Int(roomPos.x, roomPos.y), 1));
-                            hints[i] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+                            AddKeyItem(roomPos, ItemType.SecretPassage);
                             break;
                     }
                     
@@ -729,7 +723,8 @@ public class GenProManager : MonoBehaviour
         {
             if (!room.RoomObjects[i].CanBeSearched) continue;
 
-            friendPositions[friendIndex] = new ItemLocation(itemType, itemPos, i);
+            keyItems.Add(new ItemLocation(itemType, itemPos, i));
+            hints[keyItems.Count - 1] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
             return;
         }
 
@@ -763,7 +758,8 @@ public class GenProManager : MonoBehaviour
         {
             if (!room.RoomObjects[i].CanBeSearched) continue;
 
-            friendPositions[friendIndex] = new ItemLocation(itemType, itemPos, i);
+            keyItems.Add(new ItemLocation(itemType, itemPos, i));
+            hints[keyItems.Count - 1] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
             return;
         }
     }

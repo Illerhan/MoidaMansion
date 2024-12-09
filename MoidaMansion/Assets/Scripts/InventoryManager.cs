@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     private Dictionary<String, bool> foundFriends = new Dictionary<string, bool>();
     private int _code = 0;
     private bool _key = false;
+    private int friendCount = 0;
     public GameObject Cal;
     public GameObject Ace;
     public GameObject Bek;
@@ -22,27 +23,32 @@ public class InventoryManager : MonoBehaviour
     
     
     // Call this function to add friend to inventory and display it.
-    public void FoundingFriend(String name)
+    public void FoundFriend()
     {
         foundFriends[name] = true;
-        switch (name)
+        switch (friendCount)
         {
-            case "Ace":
+            case 0:
                 Ace.SetActive(true);
+                foundFriends["Ace"] = true;
                 break;
-            case "Dot":
+            case 1:
                 Dot.SetActive(true);
+                foundFriends["Dot"] = true;
                 break;
-            case "Cal":
+            case 2:
                 Cal.SetActive(true);
+                foundFriends["Cal"] = true;
                 break;
-            case "Bek":
+            case 3:
                 Bek.SetActive(true);
+                foundFriends["Bek"] = true;
                 break;
             default:
                 break;
         }
         
+        friendCount++;
     }
 
     bool HasFullCode()
@@ -63,12 +69,27 @@ public class InventoryManager : MonoBehaviour
             Code3.SetActive(true);
     }
 
-    void displayKey()
+    public void FoundFullCode()
     {
+        _code = 3;
+        Code1.SetActive(true);
+        Code2.SetActive(true);
+        Code3.SetActive(true);
+    }
+    
+    public void FoundKey()
+    {
+        _key = true;
         Key.SetActive(true);
     }
 
-    bool HasKey()
+    public void UseKey()
+    {
+        _key = false;
+        Key.SetActive(false);
+    }
+    
+    public bool HasKey()
     {
         return _key;
     }
@@ -87,7 +108,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            FoundingFriend("Ace");
+            FoundFriend();
         }
     }
 }

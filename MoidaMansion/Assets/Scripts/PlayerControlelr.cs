@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
             _position += new Vector2Int(0, -1);
         if (_currentRoom.connectedUp)
             _position += new Vector2Int(0, 1);
-        Debug.Log("New position = " + _position);
         
         // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
@@ -45,7 +44,7 @@ public class PlayerController : MonoBehaviour
         
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
-        
+        currentInspectIndex = 0;
         minimap.EnterRoom(_position);
         if (isChased)
         {
@@ -63,10 +62,33 @@ public class PlayerController : MonoBehaviour
             {
                 _position += new Vector2Int(direction, 0);
             }
+            else if (_currentRoom.isLockedRight)
+            {
+                if (_currentRoom.isKeyLocked && inventoryManager.HasKey())
+                {
+                    _currentRoom.isKeyLocked = false;
+                    _currentRoom.isLockedRight = false;
+                    GenProManager.Instance.GetRoom(_position + new Vector2Int(1, 0)).isKeyLocked = false;
+                    GenProManager.Instance.GetRoom(_position + new Vector2Int(1, 0)).isLockedLeft = false;
+                    inventoryManager.UseKey();
+                }
+            }
         }
-        else if(_position.x > 0 && _currentRoom.connectedLeft && !_currentRoom.isLockedLeft)
+        else if (_position.x > 0 && _currentRoom.connectedLeft && !_currentRoom.isLockedLeft)
+        {
             _position += new Vector2Int(direction, 0);
-        Debug.Log("New position = " + _position);
+        }
+        else if (_currentRoom.isLockedLeft)
+        {
+            if (_currentRoom.isKeyLocked && inventoryManager.HasKey())
+            {
+                _currentRoom.isKeyLocked = false;
+                _currentRoom.isLockedLeft = false;
+                GenProManager.Instance.GetRoom(_position + new Vector2Int(-1, 0)).isKeyLocked = false;
+                GenProManager.Instance.GetRoom(_position + new Vector2Int(-1, 0)).isLockedRight = false;
+                inventoryManager.UseKey();
+            }
+        }
         
         // Si le joueur était en train de fouiller
         if(currentCoroutine != null)
@@ -78,7 +100,7 @@ public class PlayerController : MonoBehaviour
         
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
-        
+        currentInspectIndex = 0;
         minimap.EnterRoom(_position);
     }
 
@@ -173,15 +195,15 @@ public class PlayerController : MonoBehaviour
                 break;
             
             case ItemType.Friend :
-                Debug.Log("J'ai trouvé un ami !");
+                inventoryManager.FoundFriend();
                 break;
             
             case ItemType.Key :
-                Debug.Log("J'ai trouvé une clée !");
+                inventoryManager.FoundKey();
                 break;
             
             case ItemType.Code :
-                Debug.Log("J'ai trouvé un code !");
+                inventoryManager.FoundFullCode();
                 break;
             
             case ItemType.SecretPassage :

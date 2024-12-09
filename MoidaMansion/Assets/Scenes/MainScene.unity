@@ -4348,7 +4348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e11336e9437814386d1a55d458b59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryManager: {fileID: 0}
+  inventoryManager: {fileID: 1578455700}
   roomDisplayManager: {fileID: 336534272}
   searchProgressBar: {fileID: 265634256}
   minimap: {fileID: 1850753379}
@@ -4789,6 +4789,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95017aa1e037bf948b9b2b6e2fcb7a0d, type: 2}
   - {fileID: 11400000, guid: 0b033d071b26e0a4ea4a09e1e6bc1072, type: 2}
   - {fileID: 11400000, guid: 94a2f65c51647984d828e6593a88409f, type: 2}
+  bannedIndexes: 
   entranceSo: {fileID: 11400000, guid: 451457b398c3b9241bcce265684de2a3, type: 2}
 --- !u!114 &1935087239
 MonoBehaviour:
