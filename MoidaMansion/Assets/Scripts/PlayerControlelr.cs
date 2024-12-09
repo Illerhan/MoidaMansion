@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private RoomDisplayManager roomDisplayManager;
     [SerializeField] private ProgressBar searchProgressBar;
+    [SerializeField] private Minimap minimap;
     
     Vector2Int _position = new (0, 0);
     private Room _currentRoom;
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
         
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
+        
+        minimap.EnterRoom(_position);
     }
 
     public void SwitchLevel()
@@ -40,6 +43,8 @@ public class PlayerController : MonoBehaviour
         
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
+        
+        minimap.EnterRoom(_position);
     }
     
     public void SwitchRoom(int direction)
@@ -65,6 +70,8 @@ public class PlayerController : MonoBehaviour
         
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
+        
+        minimap.EnterRoom(_position);
     }
 
 

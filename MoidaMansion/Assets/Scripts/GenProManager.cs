@@ -16,7 +16,8 @@ public enum ItemType
     Friend,
     Key,
     Code,
-    SecretPassage
+    SecretPassage,
+    None
 }
 
 public enum HintType
@@ -26,6 +27,7 @@ public enum HintType
     Position
 }
 
+[Serializable]
 public struct ItemLocation
 {
     public ItemLocation(ItemType itemType, Vector2Int location, int itemIndex)
@@ -60,8 +62,8 @@ public class GenProManager : MonoBehaviour
     [SerializeField] private bool debugPrint;
     
     [Header("Public Infos")]
-    [HideInInspector] public Vector2Int[] friendPositions = new Vector2Int[3];
-    [HideInInspector] public List<ItemLocation> keyItems = new List<ItemLocation>();
+    [HideInInspector] public ItemLocation[] friendPositions = new ItemLocation[3];
+    public List<ItemLocation> keyItems = new List<ItemLocation>();
     
     [Header("Private Infos")]
     private Room[,] mansionMap = new Room[4, 3];
@@ -69,6 +71,7 @@ public class GenProManager : MonoBehaviour
     private LockType[] lockTypes = new LockType[2];
     private Room[] lockedRooms = new Room[4];
     private Hint[] hints = new Hint[2];
+    private List<int> foundKeyItemsIndexes = new List<int>();
     
     [Header("References")] 
     [SerializeField] private GraphicsGenProManager graphicsGenProManager;
@@ -236,11 +239,30 @@ public class GenProManager : MonoBehaviour
     /// Returns the current hint to display
     /// </summary>
     /// <param name="friendIndex"> Either 0 or 1 </param>
-    public Hint GetNextKey(int friendIndex)
+    public Hint GetNextHint(int friendIndex)
     {
         return hints[friendIndex];
     }
-    
+
+    /// <summary>
+    /// Verify at the end of the search if something was at the searched location
+    /// </summary>
+    public ItemType VerifySearch(Vector2Int roomPos, int itemIndex)
+    {
+        for (int i = 0; i < keyItems.Count; i++)
+        {
+            if (roomPos != keyItems[i].roomCoord) continue;
+            if (itemIndex != keyItems[i].itemIndex) continue;
+            if (foundKeyItemsIndexes.Contains(i)) continue;
+
+            foundKeyItemsIndexes.Add(i);
+            return keyItems[i].itemType;
+        }
+        
+        
+
+        return ItemType.None;
+    }
 
     #endregion
     
@@ -411,7 +433,7 @@ public class GenProManager : MonoBehaviour
 
             for (int i = 0; i < friendCount; i++)
             {
-                List<Room> path = GetPath(location, friendPositions[i]);
+                List<Room> path = GetPath(location, friendPositions[i].roomCoord);
 
                 if (path.Count != 0)
                 {
@@ -422,7 +444,7 @@ public class GenProManager : MonoBehaviour
 
             if (locationValidated)
             {
-                friendPositions[friendCount] = location;
+                friendPositions[friendCount] = new ItemLocation(ItemType.Friend, location, 0);
                 mansionMap[location.x, location.y].hasFriend = true;
                 friendCount++;
             }

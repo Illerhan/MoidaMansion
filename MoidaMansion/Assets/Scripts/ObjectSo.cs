@@ -5,5 +5,6 @@ using UnityEngine;
 public class ObjectSo : ScriptableObject
 {
     [field: SerializeField] public bool CanBeSearched { get; private set; }
+    [field: SerializeField] public bool CanHaveFriend { get; private set; }
     [field: SerializeField] public List<Sprite> RoomSprites { get; private set; } = new();
 }
