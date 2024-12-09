@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RightFurniture1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
-  <CanHaveFriend>k__BackingField: 0
+  <CanHaveFriend>k__BackingField: 1
   <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: 96ae7667f18d1714db3663ca1f89de11, type: 3}
