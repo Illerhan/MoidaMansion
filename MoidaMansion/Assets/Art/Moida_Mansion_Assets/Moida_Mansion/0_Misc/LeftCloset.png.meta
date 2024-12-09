@@ -1,0 +1,1105 @@
+fileFormatVersion: 2
+guid: d1681adbcf6c6f84b86ce000e763033a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5193341829338720645
+    second: LeftCloset_0
+  - first:
+      213: -1098105594839779716
+    second: LeftCloset_1
+  - first:
+      213: -4287999878077193566
+    second: LeftCloset_2
+  - first:
+      213: -4388597288611582972
+    second: LeftCloset_3
+  - first:
+      213: -6432392781500458540
+    second: LeftCloset_4
+  - first:
+      213: 3500618870337807710
+    second: LeftCloset_5
+  - first:
+      213: 5489453505342986652
+    second: LeftCloset_6
+  - first:
+      213: 3847126067321187602
+    second: LeftCloset_7
+  - first:
+      213: 9066889820292208728
+    second: LeftCloset_8
+  - first:
+      213: 7469380059670181654
+    second: LeftCloset_9
+  - first:
+      213: -4893655224850992906
+    second: LeftCloset_10
+  - first:
+      213: -8461233491506798305
+    second: LeftCloset_11
+  - first:
+      213: -3875990164518688415
+    second: LeftCloset_12
+  - first:
+      213: -4473873507113123288
+    second: LeftCloset_13
+  - first:
+      213: 3311728747036750710
+    second: LeftCloset_14
+  - first:
+      213: 6661992821894139967
+    second: LeftCloset_15
+  - first:
+      213: -6076506062401692173
+    second: LeftCloset_16
+  - first:
+      213: 6520685842381856398
+    second: LeftCloset_17
+  - first:
+      213: 928418579643179147
+    second: LeftCloset_18
+  - first:
+      213: -3663099719706212910
+    second: LeftCloset_19
+  - first:
+      213: -7586535555950493490
+    second: LeftCloset_20
+  - first:
+      213: 7286084231660876078
+    second: LeftCloset_21
+  - first:
+      213: -888644863298116237
+    second: LeftCloset_22
+  - first:
+      213: 2688441310213311352
+    second: LeftCloset_23
+  - first:
+      213: 6141388744592696977
+    second: LeftCloset_24
+  - first:
+      213: -3889835660940344574
+    second: LeftCloset_25
+  - first:
+      213: -4279109734965251662
+    second: LeftCloset_26
+  - first:
+      213: -2071027544191103077
+    second: LeftCloset_27
+  - first:
+      213: -2177909290524166541
+    second: LeftCloset_28
+  - first:
+      213: 700321129955613832
+    second: LeftCloset_29
+  - first:
+      213: 7582970052091360201
+    second: LeftCloset_30
+  - first:
+      213: 7380153126638243711
+    second: LeftCloset_31
+  - first:
+      213: 5485630016523572846
+    second: LeftCloset_32
+  - first:
+      213: -8480202938667831357
+    second: LeftCloset_33
+  - first:
+      213: 1410146224790688993
+    second: LeftCloset_34
+  - first:
+      213: 6532733037850082976
+    second: LeftCloset_35
+  - first:
+      213: 4046482383545849051
+    second: LeftCloset_36
+  - first:
+      213: 7234177366603226417
+    second: LeftCloset_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LeftCloset_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 317
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58969e6d0e4721840800000000000000
+      internalID: 5193341829338720645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 353
+        width: 46
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76b4bd87ceb2c0f0800000000000000
+      internalID: -1098105594839779716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 316
+        width: 7
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a26a4664d6fd74c0800000000000000
+      internalID: -4287999878077193566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 354
+        width: 36
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c601e84029813c0800000000000000
+      internalID: -4388597288611582972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 354
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9d0e278dc8bb6a0800000000000000
+      internalID: -6432392781500458540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_5
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 354
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e55a384c052b49030800000000000000
+      internalID: 3500618870337807710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_6
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 315
+        width: 16
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c99ddf4f0e47e2c40800000000000000
+      internalID: 5489453505342986652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_7
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 331
+        width: 9
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d23d876ccb36530800000000000000
+      internalID: 3847126067321187602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 276
+        width: 8
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8585f1cc04014dd70800000000000000
+      internalID: 9066889820292208728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_9
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 276
+        width: 6
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 617f60df69198a760800000000000000
+      internalID: 7469380059670181654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_10
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 275
+        width: 17
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0b58d208e361cb0800000000000000
+      internalID: -4893655224850992906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_11
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 276
+        width: 7
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f11691118f8a39a80800000000000000
+      internalID: -8461233491506798305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_12
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 314
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 169a4f23b77b53ac0800000000000000
+      internalID: -3875990164518688415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_13
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 238
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 822cd76bfbb99e1c0800000000000000
+      internalID: -4473873507113123288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_14
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 232
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6733397cfbf95fd20800000000000000
+      internalID: 3311728747036750710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_15
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 238
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f30d33dbc27247c50800000000000000
+      internalID: 6661992821894139967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_16
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 232
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fd1a035ee9ebaba0800000000000000
+      internalID: -6076506062401692173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_17
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 232
+        width: 7
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ed61fb9312e7a50800000000000000
+      internalID: 6520685842381856398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 186
+        width: 18
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b80218a77c762ec00800000000000000
+      internalID: 928418579643179147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_19
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 190
+        width: 27
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d5041e763e0a2dc0800000000000000
+      internalID: -3663099719706212910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_20
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 191
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec043b76b1637b690800000000000000
+      internalID: -7586535555950493490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_21
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 196
+        width: 9
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21b8bf510f5d1560800000000000000
+      internalID: 7286084231660876078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_22
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 191
+        width: 26
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375e3af7436eaa3f0800000000000000
+      internalID: -888644863298116237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_23
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 190
+        width: 59
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b00cea0234f4520800000000000000
+      internalID: 2688441310213311352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_24
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 191
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 196a70556889a3550800000000000000
+      internalID: 6141388744592696977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_25
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 116
+        width: 25
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 203010b5317840ac0800000000000000
+      internalID: -3889835660940344574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_26
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 196
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b1fa742e5c8d94c0800000000000000
+      internalID: -4279109734965251662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_27
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 196
+        width: 7
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9f807cdb6b3243e0800000000000000
+      internalID: -2071027544191103077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_28
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 146
+        width: 7
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376b8411a0386c1e0800000000000000
+      internalID: -2177909290524166541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_29
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 111
+        width: 7
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88c54b37b5a08b900800000000000000
+      internalID: 700321129955613832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_30
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 100
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c3b459061f1c3960800000000000000
+      internalID: 7582970052091360201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_31
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 99
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7fc24dba229b6660800000000000000
+      internalID: 7380153126638243711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_32
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 97
+        width: 10
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e669b189f6fd02c40800000000000000
+      internalID: 5485630016523572846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_33
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 110
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfea797b54405a80800000000000000
+      internalID: -8480202938667831357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_34
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 96
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e4d10a2588d19310800000000000000
+      internalID: 1410146224790688993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_35
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 97
+        width: 75
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae3385061ee8aa50800000000000000
+      internalID: 6532733037850082976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_36
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 97
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd45025e94ef72830800000000000000
+      internalID: 4046482383545849051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftCloset_37
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 98
+        width: 54
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d5e829cf5f46460800000000000000
+      internalID: 7234177366603226417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LeftCloset_0: 5193341829338720645
+      LeftCloset_1: -1098105594839779716
+      LeftCloset_10: -4893655224850992906
+      LeftCloset_11: -8461233491506798305
+      LeftCloset_12: -3875990164518688415
+      LeftCloset_13: -4473873507113123288
+      LeftCloset_14: 3311728747036750710
+      LeftCloset_15: 6661992821894139967
+      LeftCloset_16: -6076506062401692173
+      LeftCloset_17: 6520685842381856398
+      LeftCloset_18: 928418579643179147
+      LeftCloset_19: -3663099719706212910
+      LeftCloset_2: -4287999878077193566
+      LeftCloset_20: -7586535555950493490
+      LeftCloset_21: 7286084231660876078
+      LeftCloset_22: -888644863298116237
+      LeftCloset_23: 2688441310213311352
+      LeftCloset_24: 6141388744592696977
+      LeftCloset_25: -3889835660940344574
+      LeftCloset_26: -4279109734965251662
+      LeftCloset_27: -2071027544191103077
+      LeftCloset_28: -2177909290524166541
+      LeftCloset_29: 700321129955613832
+      LeftCloset_3: -4388597288611582972
+      LeftCloset_30: 7582970052091360201
+      LeftCloset_31: 7380153126638243711
+      LeftCloset_32: 5485630016523572846
+      LeftCloset_33: -8480202938667831357
+      LeftCloset_34: 1410146224790688993
+      LeftCloset_35: 6532733037850082976
+      LeftCloset_36: 4046482383545849051
+      LeftCloset_37: 7234177366603226417
+      LeftCloset_4: -6432392781500458540
+      LeftCloset_5: 3500618870337807710
+      LeftCloset_6: 5489453505342986652
+      LeftCloset_7: 3847126067321187602
+      LeftCloset_8: 9066889820292208728
+      LeftCloset_9: 7469380059670181654
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
