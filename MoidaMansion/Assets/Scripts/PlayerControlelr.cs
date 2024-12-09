@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private RoomDisplayManager roomDisplayManager;
     [SerializeField] private ProgressBar searchProgressBar;
     [SerializeField] private Minimap minimap;
+    [SerializeField] private Monsta monsta;
     
     Vector2Int _position = new (0, 0);
     private Room _currentRoom;
@@ -29,6 +31,11 @@ public class PlayerController : MonoBehaviour
         roomDisplayManager.DisplayRoom();
         
         minimap.EnterRoom(_position);
+    }
+
+    public Room GetCurrentRoom()
+    {
+        return _currentRoom;
     }
 
     public void SwitchLevel()
@@ -97,14 +104,19 @@ public class PlayerController : MonoBehaviour
         // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
-        
+        monsta.UpdatePosition();
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
         currentInspectIndex = 0;
         minimap.EnterRoom(_position);
+        if (roomSwitchCount >= 2)
+        {
+            isChased = false;
+            roomSwitchCount = 0;
+        }
+        roomSwitchCount++;
     }
-
-
+    
     public void InspectItem()
     {
         bool hasSearchableObjects = false;

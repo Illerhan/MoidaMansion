@@ -4538,6 +4538,7 @@ MonoBehaviour:
   roomDisplayManager: {fileID: 336534272}
   searchProgressBar: {fileID: 265634256}
   minimap: {fileID: 1850753379}
+  monsta: {fileID: 0}
   isChased: 0
 --- !u!114 &1840993187
 MonoBehaviour:
@@ -4845,7 +4846,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1840993185}
-  _monstaSprite: {fileID: 0}
+  _monstaSprite:
+  - {fileID: 903758810}
+  - {fileID: 1014343771}
+  - {fileID: 422768466}
+  - {fileID: 183105672}
+  - {fileID: 252761681}
+  - {fileID: 311881353}
 --- !u!1 &1892392576
 GameObject:
   m_ObjectHideFlags: 0

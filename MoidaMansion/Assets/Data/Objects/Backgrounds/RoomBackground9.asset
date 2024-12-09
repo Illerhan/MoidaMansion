@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc703a97320bb7045877a74c066218eb, type: 3}
-  m_Name: RoomBackground3
+  m_Name: RoomBackground9
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 0
   <CanHaveFriend>k__BackingField: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1a8d6010a040c3e4fb7d65cd0c110c45, type: 3}
   - {fileID: 21300000, guid: cd0b0cfd45b2af24a8ac8d96fde61340, type: 3}
   - {fileID: 21300000, guid: f75a74261726e9344891684a25bfa2de, type: 3}
+  - {fileID: 21300000, guid: 6175fa04e8f93d24eafef409ec52783b, type: 3}
+  - {fileID: 21300000, guid: fb97f2cc4a6a95641a54683a067d16a5, type: 3}
   - {fileID: 21300000, guid: 6446559a65e51b9469ff952252579785, type: 3}
-  - {fileID: 21300000, guid: 728b5e015b50e1544b682a2553662527, type: 3}
   - {fileID: 21300000, guid: b2762d77ec3610c458fbe1df04cbe903, type: 3}
-  - {fileID: 21300000, guid: 85704e54c754f7648aa8d45c413d7a39, type: 3}

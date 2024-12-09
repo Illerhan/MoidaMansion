@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: WindowTopLeft2
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
+  <CanHaveFriend>k__BackingField: 0
+  <CanHaveMonsta>k__BackingField: 1
+  <MonstaSprite>k__BackingField: 3
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: 0e0387422862c9e47afe24f6c7e81d4b, type: 3}
   - {fileID: 21300000, guid: de4afc41a8dbdb94481524aa14b3681b, type: 3}

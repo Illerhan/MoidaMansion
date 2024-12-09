@@ -7,5 +7,7 @@ public class ObjectSo : ScriptableObject
     [field: SerializeField] public bool CanBeSearched { get; private set; }
     [field: SerializeField] public bool CanHaveFriend { get; private set; }
     [field: SerializeField] public bool CanHaveMonsta { get; private set; }
+    
+    [field: SerializeField] public int MonstaSprite { get; private set; }
     [field: SerializeField] public List<Sprite> RoomSprites { get; private set; } = new();
 }
