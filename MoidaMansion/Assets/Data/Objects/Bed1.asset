@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc703a97320bb7045877a74c066218eb, type: 3}
-  m_Name: RoomBackground5
+  m_Name: Bed1
   m_EditorClassIdentifier: 
-  <CanBeSearched>k__BackingField: 0
+  <CanBeSearched>k__BackingField: 1
   <CanHaveFriend>k__BackingField: 0
   <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
-  - {fileID: 21300000, guid: 86ee3f53392782046841ba0066c91dea, type: 3}
-  - {fileID: 21300000, guid: 1a8d6010a040c3e4fb7d65cd0c110c45, type: 3}
-  - {fileID: 21300000, guid: 728b5e015b50e1544b682a2553662527, type: 3}
-  - {fileID: 21300000, guid: b2762d77ec3610c458fbe1df04cbe903, type: 3}
-  - {fileID: 21300000, guid: 85704e54c754f7648aa8d45c413d7a39, type: 3}
+  - {fileID: 21300000, guid: cc90000649739b341b9f58b1e1b58728, type: 3}

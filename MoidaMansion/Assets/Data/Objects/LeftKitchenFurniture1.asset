@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeftKitchenFurniture1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
-  <CanHaveFriend>k__BackingField: 0
+  <CanHaveFriend>k__BackingField: 1
   <CanHaveMonsta>k__BackingField: 0
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: eb9f70e0425722148b2069bc9e451553, type: 3}

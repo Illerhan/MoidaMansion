@@ -14,4 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomType>k__BackingField: 3
   <RoomObjects>k__BackingField:
-  - {fileID: 11400000, guid: 30a490c3606bc6448a89722d7426685f, type: 2}
+  - {fileID: 11400000, guid: 078204a5409455a4cbfea15799c41d62, type: 2}
+  - {fileID: 11400000, guid: 1d7d1e32f3105464682527c977b72bc1, type: 2}
+  - {fileID: 11400000, guid: e4e004dc840a39b4f91d3848816a8b23, type: 2}
+  - {fileID: 11400000, guid: f5930bfd355d15046b93f769ab5c3a92, type: 2}
+  - {fileID: 11400000, guid: 15f9b85a5fa017346b44dfcb683dab50, type: 2}
+  - {fileID: 11400000, guid: ec7bd376066c7314f885eff92bc3c28b, type: 2}
+  - {fileID: 11400000, guid: d776acdb99ff15147a7da404c2161e06, type: 2}
+  - {fileID: 11400000, guid: 8f828aa89d2b88145ac03d1464ee3f3d, type: 2}
