@@ -60,6 +60,7 @@ public class RoomDisplayManager : MonoBehaviour
             {
                 if (Room.isLockedLeft && Room.isSecretLocked)
                 {
+                    objectSoIndex++;
                     continue;
                 }
                 
@@ -77,6 +78,7 @@ public class RoomDisplayManager : MonoBehaviour
             {
                 if (Room.isLockedRight && Room.isSecretLocked)
                 {
+                    objectSoIndex++;
                     continue;
                 }
                 
