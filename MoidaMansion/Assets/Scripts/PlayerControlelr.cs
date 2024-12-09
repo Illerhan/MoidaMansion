@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private List<SpriteRenderer> inspectedSpriteRenderers;
     private bool isInspecting;
     private Coroutine currentCoroutine;
+    private bool isChased;
+    private int roomSwitchCount = 0;
 
 
     private void Start()
@@ -45,6 +47,12 @@ public class PlayerController : MonoBehaviour
         roomDisplayManager.DisplayRoom();
         
         minimap.EnterRoom(_position);
+        if (isChased)
+        {
+            roomSwitchCount += 1;
+            if (roomSwitchCount <= 2)
+                isChased = false;
+        }
     }
     
     public void SwitchRoom(int direction)
@@ -154,6 +162,7 @@ public class PlayerController : MonoBehaviour
         }
         
         searchProgressBar.DisplayProgress(0);
+        isChased = true;
         Debug.Log("C'est fouillé");
     }
 
