@@ -58,6 +58,11 @@ public class RoomDisplayManager : MonoBehaviour
             }
             else if (objectSoIndex == Room.roomSo.RoomObjects.Count)
             {
+                if (Room.isLockedLeft && Room.isSecretLocked)
+                {
+                    continue;
+                }
+                
                 spriteRenderer.sprite = Room.leftDoor.RoomSprites[spriteIndex];
                 spriteRenderer.gameObject.SetActive(true);
                 spriteIndex++;
@@ -70,6 +75,11 @@ public class RoomDisplayManager : MonoBehaviour
             }
             else if (objectSoIndex == Room.roomSo.RoomObjects.Count + 1)
             {
+                if (Room.isLockedRight && Room.isSecretLocked)
+                {
+                    continue;
+                }
+                
                 spriteRenderer.sprite = Room.rightDoor.RoomSprites[spriteIndex];
                 spriteRenderer.gameObject.SetActive(true);
                 spriteIndex++;
