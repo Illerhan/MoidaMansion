@@ -666,9 +666,94 @@ public class GenProManager : MonoBehaviour
 
     #region Others
 
-    private void AddKeyItem(Vector2Int itemPos, ItemType itemType)
+    private void AddKeyItem(Vector2Int itemPos, ItemType itemType, int friendIndex = 0)
     {
+        RoomSo room = mansionMap[itemPos.x, itemPos.y].roomSo;
+
+        // Friend Spawn
+        if (itemType == ItemType.Friend)
+        {
+            for (int i = 0; i < room.RoomObjects.Count; i++)
+            {
+                if (!room.RoomObjects[i].CanHaveFriend) continue;
+
+                friendPositions[friendIndex] = new ItemLocation(itemType, itemPos, i);
+                return;
+            }
+
+            int antiCrashCounter = 0;
+            while (true)
+            {
+                antiCrashCounter++;
+                if (antiCrashCounter > 2000)
+                {
+                    Debug.LogError("Je trouve pas d'objets où spawn des amis");
+                    return;
+                };
+                
+                room = GraphicsGenProManager.Instance.possibleRooms[Random.Range(0, GraphicsGenProManager.Instance.possibleRooms.Count)];
+                bool found = false;
+                
+                for (int i = 0; i < room.RoomObjects.Count; i++)
+                {
+                    if (!room.RoomObjects[i].CanHaveFriend) continue;
+                    found = true;
+                    break;
+                }
+
+                if (found) break;
+            }
+            
+            for (int i = 0; i < room.RoomObjects.Count; i++)
+            {
+                if (!room.RoomObjects[i].CanHaveFriend) continue;
+
+                friendPositions[friendIndex] = new ItemLocation(itemType, itemPos, i);
+                return;
+            }
+        }
         
+        
+        // Objets plus classiques
+        for (int i = 0; i < room.RoomObjects.Count; i++)
+        {
+            if (!room.RoomObjects[i].CanBeSearched) continue;
+
+            friendPositions[friendIndex] = new ItemLocation(itemType, itemPos, i);
+            return;
+        }
+
+        int antiCrashCounter2 = 0;
+        while (true)
+        {
+            antiCrashCounter2++;
+            if (antiCrashCounter2 > 2000)
+            {
+                Debug.LogError("Je trouve pas d'objets où spawn des objects");
+                return;
+            };
+                
+            room = GraphicsGenProManager.Instance.possibleRooms[Random.Range(0, GraphicsGenProManager.Instance.possibleRooms.Count)];
+            bool found = false;
+                
+            for (int i = 0; i < room.RoomObjects.Count; i++)
+            {
+                if (!room.RoomObjects[i].CanBeSearched) continue;
+                if (room.RoomType == RoomType.Entrance) continue;
+                found = true;
+                break;
+            }
+
+            if (found) break;
+        }
+            
+        for (int i = 0; i < room.RoomObjects.Count; i++)
+        {
+            if (!room.RoomObjects[i].CanBeSearched) continue;
+
+            friendPositions[friendIndex] = new ItemLocation(itemType, itemPos, i);
+            return;
+        }
     }
 
     #endregion

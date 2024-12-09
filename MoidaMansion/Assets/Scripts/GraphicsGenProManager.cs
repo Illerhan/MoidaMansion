@@ -8,7 +8,7 @@ public class GraphicsGenProManager : MonoBehaviour
 
     [Header("Parameters")] 
     [SerializeField] private DoorListSo doorList;
-    [SerializeField] private List<RoomSo> possibleRooms;
+    public List<RoomSo> possibleRooms;
     [SerializeField] private RoomSo entranceSo;
     
     private void Awake()
