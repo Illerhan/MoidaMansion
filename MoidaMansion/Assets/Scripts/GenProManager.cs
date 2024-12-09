@@ -89,6 +89,7 @@ public class GenProManager : MonoBehaviour
             Destroy(gameObject);
         
         GenerateMansion();
+        
         graphicsGenProManager.GenerateRoomTypes(mansionMap);
         graphicsGenProManager.GenerateRoomDoors(mansionMap);
         graphicsGenProManager.GenerateStairs(mansionMap);
@@ -289,8 +290,8 @@ public class GenProManager : MonoBehaviour
         GenerateStairs();
 
         GenerateLockedDoors(4);
-        GenerateFriends();
         
+        GenerateFriends();
         ChooseLocks();
         GenerateKeys();
         
@@ -655,5 +656,15 @@ public class GenProManager : MonoBehaviour
         return path;
     }
     
+    #endregion
+
+
+    #region Others
+
+    private void AddKeyItem(Vector2Int itemPos, ItemType itemType)
+    {
+        
+    }
+
     #endregion
 }
