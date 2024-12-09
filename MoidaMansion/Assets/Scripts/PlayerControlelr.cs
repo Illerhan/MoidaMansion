@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         if (direction > 0)
         {
-            if (_position.x < 3 && _currentRoom.connectedRight && !_currentRoom.isLockedRight)
+            if (_position.x < 3 && _currentRoom.connectedRight && (!_currentRoom.isLockedRight || _currentRoom.isCodeLocked))
             {
                 _position += new Vector2Int(direction, 0);
             }
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if (_position.x > 0 && _currentRoom.connectedLeft && !_currentRoom.isLockedLeft)
+        else if (_position.x > 0 && _currentRoom.connectedLeft && (!_currentRoom.isLockedLeft || _currentRoom.isCodeLocked))
         {
             _position += new Vector2Int(direction, 0);
         }

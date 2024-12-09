@@ -64,6 +64,7 @@ public class GenProManager : MonoBehaviour
     [Header("Public Infos")]
     public ItemLocation[] friendPositions = new ItemLocation[3];
     public List<ItemLocation> keyItems = new List<ItemLocation>();
+    public Vector2Int codeLockedLocation = new Vector2Int(-1, -1);
     
     [Header("Private Infos")]
     private Room[,] mansionMap = new Room[4, 3];
@@ -484,6 +485,7 @@ public class GenProManager : MonoBehaviour
                             lockTypes[i] = LockType.Code;
                             lockedRooms[i * 2].isCodeLocked = true;
                             lockedRooms[i * 2 + 1].isCodeLocked = true;
+                            codeLockedLocation = friendPositions[i + 1].roomCoord;
                             break;
                         case 1 :
                             lockTypes[i] = LockType.Key;

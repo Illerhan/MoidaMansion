@@ -10,6 +10,9 @@ public class RoomDisplayManager : MonoBehaviour
     [Header("RemovableItems")] 
     [SerializeField] private SpriteRenderer leftKeyLock;
     [SerializeField] private SpriteRenderer rightKeyLock;
+    [SerializeField] private SpriteRenderer code1;
+    [SerializeField] private SpriteRenderer code2;
+    [SerializeField] private SpriteRenderer code3;
 
     private void Start()
     {
@@ -98,7 +101,42 @@ public class RoomDisplayManager : MonoBehaviour
 
     private void ActualiseRemovableItems()
     {
-        leftKeyLock.enabled = Room.isLockedLeft;
-        rightKeyLock.enabled = Room.isLockedRight;
+        leftKeyLock.enabled = false;
+        rightKeyLock.enabled = false;
+        code1.enabled = false;
+        code2.enabled = false;
+        code3.enabled = false;
+        
+        if (Room.isKeyLocked)
+        {
+            leftKeyLock.enabled = Room.isLockedLeft;
+            rightKeyLock.enabled = Room.isLockedRight;
+        }
+        else if (Room.hasSecretPath)
+        {
+            
+        }
+
+        if (Room.coord == GenProManager.Instance.codeLockedLocation)
+        {
+            ObjectSo lockedObject = null;
+            
+            for (int i = 0; i < GenProManager.Instance.friendPositions.Length; i++)
+            {
+                if(GenProManager.Instance.friendPositions[i].roomCoord == Room.coord)
+                {
+                    lockedObject = Room.roomSo.RoomObjects[GenProManager.Instance.friendPositions[i].itemIndex];
+                }
+            }
+
+            if (lockedObject.name == "LeftCloset1")
+            {
+                code3.enabled = true;
+            } 
+            else if (lockedObject.name == "ToiletFurniture1")
+            {
+                code3.enabled = true;
+            }
+        } 
     }
 }
