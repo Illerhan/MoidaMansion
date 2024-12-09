@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: WindowedMiddleRightDoor1
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 0
+  <CanHaveFriend>k__BackingField: 0
+  <CanHaveMonsta>k__BackingField: 1
+  <MonstaSprite>k__BackingField: 1
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: 12bbbe16deda1c8458aa355ac89c28fa, type: 3}
   - {fileID: 21300000, guid: 09b1f2119cf7d9842ab0417d38fa15b5, type: 3}
