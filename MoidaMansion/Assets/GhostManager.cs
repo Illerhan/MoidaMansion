@@ -51,6 +51,7 @@ public class GhostManager : MonoBehaviour
             if (antiCrashCounter > 1000)
             {
                 Debug.LogError("Can't Spawn ghost");
+                break;
             }
             
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));

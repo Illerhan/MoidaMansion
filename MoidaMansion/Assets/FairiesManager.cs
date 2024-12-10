@@ -58,6 +58,7 @@ public class FairiesManager : MonoBehaviour
             if (antiCrashCounter > 2000)
             {
                 Debug.LogError("Ne peut pas faitre apparaitre toutes les fées, softlock");
+                break;
             }
             
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
