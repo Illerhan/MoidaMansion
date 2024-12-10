@@ -83,16 +83,17 @@ public class PlayerController : MonoBehaviour
         if (noControl) return;
         
         searchProgressBar.DisplayProgress(0);
-        
-        if (_currentRoom.connectedDown)
-            _position += new Vector2Int(0, -1);
-        if (_currentRoom.connectedUp)
-            _position += new Vector2Int(0, 1);
         if (isChased && monsta.GetSelectedMonsta().gameObject.name == "Monster_5")
         {
             monsta.HideMonsta();
             monsta.MonstaAttack();
+            return;
         }
+        if (_currentRoom.connectedDown)
+            _position += new Vector2Int(0, -1);
+        if (_currentRoom.connectedUp)
+            _position += new Vector2Int(0, 1);
+        
         
         // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
@@ -122,11 +123,13 @@ public class PlayerController : MonoBehaviour
         {
             if (_position.x < 3 && _currentRoom.connectedRight && (!_currentRoom.isLockedRight || _currentRoom.isCodeLocked))
             {
-                _position += new Vector2Int(direction, 0);
                 if (isChased && monsta.GetSelectedMonsta().gameObject.name == "Monster_2")
                 {
                     monsta.MonstaAttack();
+                    return;
                 }
+                _position += new Vector2Int(direction, 0);
+                
             }
             else if (_currentRoom.isLockedRight)
             {
@@ -142,11 +145,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (_position.x > 0 && _currentRoom.connectedLeft && (!_currentRoom.isLockedLeft || _currentRoom.isCodeLocked))
         {
-            _position += new Vector2Int(direction, 0);
             if (isChased && monsta.GetSelectedMonsta().gameObject.name == "Monster_3")
             {
                 monsta.MonstaAttack();
+                return;
             }
+            _position += new Vector2Int(direction, 0);
+            
         }
         else if (_currentRoom.isLockedLeft)
         {

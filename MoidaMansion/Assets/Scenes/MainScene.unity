@@ -6510,7 +6510,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 1578455700}
   roomDisplayManager: {fileID: 336534272}
   searchProgressBar: {fileID: 265634256}
-  uiManager: {fileID: 1840993191}
+  uiManager: {fileID: 0}
   minimap: {fileID: 1850753379}
   monsta: {fileID: 1891024979}
   currentInspectIndex: 0
