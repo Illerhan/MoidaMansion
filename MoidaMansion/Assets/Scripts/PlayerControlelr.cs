@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Coroutine currentCoroutine;
     public bool isChased;
     private int roomSwitchCount = 0;
+    public bool noControl = false;
 
 
     private void Start()
@@ -41,8 +42,21 @@ public class PlayerController : MonoBehaviour
         return _currentRoom;
     }
 
+    public void StopControl()
+    {
+        noControl = true;
+    }
+
+    public void GiveControl()
+    {
+        noControl = false;
+    }
+    
+    
     public void SwitchLevel()
     {
+        if (noControl) return;
+        
         if (_currentRoom.connectedDown)
             _position += new Vector2Int(0, -1);
         if (_currentRoom.connectedUp)
@@ -67,6 +81,8 @@ public class PlayerController : MonoBehaviour
     
     public void SwitchRoom(int direction)
     {
+        if (noControl) return;
+        
         if (direction > 0)
         {
             if (_position.x < 3 && _currentRoom.connectedRight && (!_currentRoom.isLockedRight || _currentRoom.isCodeLocked))
@@ -132,6 +148,8 @@ public class PlayerController : MonoBehaviour
     
     public void InspectItem()
     {
+        if (noControl) return;
+        
         isSearchingFairy = false;
         bool hasSearchableObjects = false;
         for (int i = 0; i < _currentRoom.roomSo.RoomObjects.Count; i++)
