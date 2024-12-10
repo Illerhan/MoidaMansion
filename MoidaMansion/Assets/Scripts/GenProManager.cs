@@ -67,7 +67,7 @@ public class GenProManager : MonoBehaviour
     public Vector2Int codeLockedLocation = new Vector2Int(-1, -1);
     
     [Header("Private Infos")]
-    private Room[,] mansionMap = new Room[4, 3];
+    public Room[,] mansionMap = new Room[4, 3];
     private Vector2Int currentPos;
     private List<Vector2Int> bannedPositions;
     private List<int> bannedInts;
@@ -272,7 +272,6 @@ public class GenProManager : MonoBehaviour
         {
             if (roomPos != friendPositions[i].roomCoord) continue;
             if (itemIndex != friendPositions[i].itemIndex) continue;
-            
             
             return friendPositions[i].itemType;
         }

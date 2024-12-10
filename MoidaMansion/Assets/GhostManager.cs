@@ -8,11 +8,15 @@ public class GhostManager : MonoBehaviour
     public Vector2Int wantedPos;
     public Vector2Int startPos;
     public List<Room> ghostPath;
+    public List<Vector2Int> validatedPos = new List<Vector2Int>();
 
     [Header("References")] 
     [SerializeField] private SpriteRenderer[] leftUpPath;
     [SerializeField] private SpriteRenderer[] rightUpPath;
     [SerializeField] private SpriteRenderer[] leftRightPath;
+    [SerializeField] private SpriteRenderer[] startLeftPath;
+    [SerializeField] private SpriteRenderer[] startRightPath;
+    [SerializeField] private SpriteRenderer[] startUpPath;
     
     
     public void SetupGhost(Vector2Int playerPos, Vector2Int keyPos)
@@ -29,12 +33,103 @@ public class GhostManager : MonoBehaviour
             break;
         }
 
+        validatedPos.Add(startPos);
         wantedPos = keyPos;
     }
 
-    public void VerifyGhost()
+    public void VerifyGhost(Vector2Int currentRoomCoord)
     {
+        if (!validatedPos.Contains(currentRoomCoord)) return;
+
+        Room comingFromRoom = null;
+        Room currentRoom = GenProManager.Instance.mansionMap[currentRoomCoord.x, currentRoomCoord.y];
+        Room nextRoom = null;
+
+        for (int i = 0; i < ghostPath.Count; i++)
+        {
+            if (ghostPath[i] == currentRoom)
+            {
+                if (i != 0)
+                {
+                    comingFromRoom = ghostPath[i - 1];
+                }
+                else if (i != ghostPath.Count - 1)
+                {
+                    nextRoom = ghostPath[i + 1];
+                }
+            }
+        }
         
+        if (comingFromRoom == null)
+        {
+            Vector2Int dirExit = nextRoom.coord - currentRoom.coord;
+            dirExit.y = Mathf.Abs(dirExit.y);
+            
+            if (dirExit == new Vector2Int(1, 0))
+            {
+                StartCoroutine(PlayGhostPath(startRightPath, false));
+            }
+            else if (dirExit == new Vector2Int(-1, 0))
+            {
+                StartCoroutine(PlayGhostPath(startLeftPath, false));
+            }
+            else if (dirExit == new Vector2Int(0, 1))
+            {
+                StartCoroutine(PlayGhostPath(startUpPath, false));
+            }
+        } 
+        else if (nextRoom == null)
+        {
+            Vector2Int dirEnter = currentRoom.coord - comingFromRoom.coord;
+            dirEnter.y = Mathf.Abs(dirEnter.y);
+            
+            if (dirEnter == new Vector2Int(1, 0))
+            {
+                StartCoroutine(PlayGhostPath(startLeftPath, true));
+            }
+            else if (dirEnter == new Vector2Int(-1, 0))
+            {
+                StartCoroutine(PlayGhostPath(startRightPath, true));
+            }
+            else if (dirEnter == new Vector2Int(0, 1))
+            {
+                StartCoroutine(PlayGhostPath(startUpPath, true));
+            }
+        }
+        else
+        {
+            Vector2Int dirEnter = currentRoom.coord - comingFromRoom.coord;
+            Vector2Int dirExit = nextRoom.coord - currentRoom.coord;
+
+            dirEnter.y = Mathf.Abs(dirEnter.y);
+            dirExit.y = Mathf.Abs(dirExit.y);
+
+            if (dirEnter == new Vector2Int(1, 0) && dirExit == new Vector2Int(1, 0))
+            {
+                StartCoroutine(PlayGhostPath(leftRightPath, false));
+            }
+            else if (dirEnter == new Vector2Int(-1, 0) && dirExit == new Vector2Int(-1, 0))
+            {
+                StartCoroutine(PlayGhostPath(leftRightPath, true));
+            }
+            else if (dirEnter == new Vector2Int(1, 0) && dirExit == new Vector2Int(0, 1))
+            {
+                StartCoroutine(PlayGhostPath(leftUpPath, false));
+            }
+            else if (dirEnter == new Vector2Int(0, 1) && dirExit == new Vector2Int(-1, 0))
+            {
+                StartCoroutine(PlayGhostPath(leftUpPath, true));
+            }
+            else if (dirEnter == new Vector2Int(-1, 0) && dirExit == new Vector2Int(0, 1))
+            {
+                StartCoroutine(PlayGhostPath(rightUpPath, false));
+            }
+            else if (dirEnter == new Vector2Int(0, 1) && dirExit == new Vector2Int(1, 0))
+            {
+                StartCoroutine(PlayGhostPath(rightUpPath, true));
+            }
+        }
+
     }
 
     private IEnumerator PlayGhostPath(SpriteRenderer[] path, bool reverse)
