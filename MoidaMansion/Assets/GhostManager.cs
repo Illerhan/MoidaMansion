@@ -41,9 +41,17 @@ public class GhostManager : MonoBehaviour
     {
         ghostActive = true;
         this.objIndex = objIndex;
+
+        int antiCrashCounter = 0;
         
         while (true)
         {
+            antiCrashCounter++;
+            if (antiCrashCounter > 1000)
+            {
+                Debug.LogError("Can't Spawn ghost");
+            }
+            
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
             List<Room> path = GenProManager.Instance.GetPath(pickedPos, playerPos);
 
@@ -51,7 +59,7 @@ public class GhostManager : MonoBehaviour
             
             ghostPath = GenProManager.Instance.GetPath(pickedPos, keyPos);
             
-            if (ghostPath.Count <= 2) continue;
+            if (ghostPath.Count <= 1) continue;
             
             startPos = pickedPos;
             break;
