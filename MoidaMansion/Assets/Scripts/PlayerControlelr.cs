@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private RoomDisplayManager roomDisplayManager;
     [SerializeField] private ProgressBar searchProgressBar;
+    [SerializeField] private UIManager uiManager;
     [SerializeField] private Minimap minimap;
     [SerializeField] private Monsta monsta;
     
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public bool isChased;
     private int roomSwitchCount = 0;
     public bool noControl = false;
+    
 
 
     private void Start()
@@ -363,12 +365,14 @@ public class PlayerController : MonoBehaviour
         if (isSearchingFairy)
         {
             inventoryManager.FoundCodePart();
+            StartCoroutine(uiManager.DisplayTextCoroutine("Found a code part", null, 2f));
             GenProManager.Instance.fairiesManager.PickFairy();
             yield break;
         }
 
         if (isSearchingButton)
         {
+            StartCoroutine(uiManager.DisplayTextCoroutine("Activated button", null, 2f));
             GenProManager.Instance.buttonsManager.ActivateButton(_position);
             yield break;
         }
@@ -379,7 +383,7 @@ public class PlayerController : MonoBehaviour
         switch (foundItem)
         {
             case ItemType.None :
-                Debug.LogError("Rien trouvé");
+                StartCoroutine(uiManager.DisplayTextCoroutine("Found Nothing", null, 2f));
                 break;
             
             case ItemType.Friend :
@@ -407,14 +411,17 @@ public class PlayerController : MonoBehaviour
                 break;
             
             case ItemType.Key :
+                StartCoroutine(uiManager.DisplayTextCoroutine("Found a key", null, 2f));
                 inventoryManager.FoundKey();
                 break;
             
             case ItemType.Code :
+                StartCoroutine(uiManager.DisplayTextCoroutine("Found a code", null, 2f));
                 inventoryManager.FoundFullCode();
                 break;
             
             case ItemType.SecretPassage :
+                StartCoroutine(uiManager.DisplayTextCoroutine("Found a secret passage", null, 2f));
                 if (_currentRoom.isSecretLocked)
                 {
                     if (_currentRoom.isLockedLeft)

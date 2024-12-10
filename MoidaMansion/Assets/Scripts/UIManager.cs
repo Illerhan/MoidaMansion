@@ -43,7 +43,23 @@ public class UIManager : MonoBehaviour
         upStairs.SetActive(up);
         downStairs.SetActive(down);
     }
-    
+
+
+    public IEnumerator DisplayTextCoroutine(string newText, string endText, float duration)
+    {
+        if (endText == null)
+        {
+            endText = mainText.text;
+        }
+        
+        DisplayText(newText);
+        playerController.StopControl();
+        
+        yield return new WaitForSeconds(duration);
+        
+        playerController.GiveControl();
+        DisplayText(endText);
+    }
 
     public void DisplayText(string text)
     {
@@ -66,8 +82,6 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(DisplayRescueTextCoroutine(roomName, friendName, GenProManager.Instance.GetNextHint()));
     }
-    
-    
     
     private IEnumerator DisplayRescueTextCoroutine(string roomName, string friendName, Hint hint)
     {

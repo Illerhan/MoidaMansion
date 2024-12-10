@@ -2564,7 +2564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nw Texte
+  m_text: Nw Texteeeeee
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35f63f372bdc0904eb943449c958aa6f, type: 2}
   m_sharedMaterial: {fileID: 304525085954015451, guid: 35f63f372bdc0904eb943449c958aa6f, type: 2}
@@ -2591,8 +2591,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6505,6 +6505,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 1578455700}
   roomDisplayManager: {fileID: 336534272}
   searchProgressBar: {fileID: 265634256}
+  uiManager: {fileID: 1840993191}
   minimap: {fileID: 1850753379}
   monsta: {fileID: 1891024979}
   currentInspectIndex: 0
@@ -7156,6 +7157,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   validatedPos: []
   ghostActive: 0
+  playerController: {fileID: 0}
   leftUpPath:
   - {fileID: 84281634}
   - {fileID: 1741035233}

@@ -14,8 +14,9 @@ public class GhostManager : MonoBehaviour
     [Header("Private Infos")]
     private Coroutine currentCoroutine;
     private int objIndex;
-    
+
     [Header("References")] 
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private SpriteRenderer[] leftUpPath;
     [SerializeField] private SpriteRenderer[] rightUpPath;
     [SerializeField] private SpriteRenderer[] leftRightPath;
@@ -116,6 +117,7 @@ public class GhostManager : MonoBehaviour
         else if (nextRoom == null)
         {
             ghostActive = false;
+            playerController.StopControl();
             
             Vector2Int dirEnter = currentRoom.coord - comingFromRoom.coord;
             dirEnter.y = Mathf.Abs(dirEnter.y);
@@ -242,5 +244,7 @@ public class GhostManager : MonoBehaviour
             
             yield return new WaitForSeconds(0.1f);
         }
+        
+        playerController.GiveControl();
     }
 }
