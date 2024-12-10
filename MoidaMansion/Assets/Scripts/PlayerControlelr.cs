@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,16 +26,25 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        // We setup the variables
-        _currentRoom = GenProManager.Instance.GetCurrentRoom();
-        _position = _currentRoom.coord;
+    }
 
-        inspectedSpriteRenderers = new List<SpriteRenderer>();
+    private bool doOnce = false;
+    private void Update()
+    {
+        if (!doOnce)
+        {
+            doOnce = true;
+            // We setup the variables
+            _currentRoom = GenProManager.Instance.GetCurrentRoom();
+            _position = _currentRoom.coord;
+
+            inspectedSpriteRenderers = new List<SpriteRenderer>();
             
-        roomDisplayManager.Room = _currentRoom;
-        roomDisplayManager.DisplayRoom();
+            roomDisplayManager.Room = _currentRoom;
+            roomDisplayManager.DisplayRoom();
         
-        minimap.EnterRoom(_position);
+            minimap.EnterRoom(_position);
+        }
     }
 
     public Room GetCurrentRoom()
