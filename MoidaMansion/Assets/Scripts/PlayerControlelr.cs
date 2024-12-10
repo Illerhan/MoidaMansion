@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
         currentInspectIndex = 0;
+        monsta.UpdatePosition();
         minimap.EnterRoom(_position);
         if (isChased)
         {

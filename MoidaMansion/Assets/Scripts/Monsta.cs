@@ -62,8 +62,10 @@ public class Monsta : MonoBehaviour
         _currentRoom = _playerController.GetCurrentRoom();
         _currentRoomSo = _currentRoom.roomSo;
         _objectSos = _currentRoomSo.RoomObjects;
-        if(_currentRoomSo.RoomType == RoomType.Storage)
+        if (_currentRoomSo.RoomType == RoomType.Void)
+        {
             return;
+        }
         foreach (var objectSo in _objectSos)
         {
             if (objectSo.CanHaveMonsta)
