@@ -221,7 +221,6 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        Debug.Log(roomDisplayManager.packedSpriteRenderers[currentInspectIndex].Count);
         if(currentInspectIndex < roomDisplayManager.packedSpriteRenderers.Count)
             inspectedSpriteRenderers = roomDisplayManager.packedSpriteRenderers[currentInspectIndex];
         

@@ -6468,6 +6468,17 @@ MonoBehaviour:
   startUpPath:
   - {fileID: 464228639}
   - {fileID: 1397112736}
+  everySteps:
+  - {fileID: 84281634}
+  - {fileID: 1741035233}
+  - {fileID: 606706962}
+  - {fileID: 36692966}
+  - {fileID: 506433960}
+  - {fileID: 2088237947}
+  - {fileID: 999532145}
+  - {fileID: 99827180}
+  - {fileID: 464228639}
+  - {fileID: 1397112736}
 --- !u!1 &2007109408
 GameObject:
   m_ObjectHideFlags: 0

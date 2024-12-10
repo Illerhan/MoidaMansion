@@ -9,7 +9,11 @@ public class GhostManager : MonoBehaviour
     public Vector2Int startPos;
     public List<Room> ghostPath;
     public List<Vector2Int> validatedPos = new List<Vector2Int>();
+    public bool ghostActive;
 
+    [Header("Private Infos")]
+    private Coroutine currentCoroutine;
+    
     [Header("References")] 
     [SerializeField] private SpriteRenderer[] leftUpPath;
     [SerializeField] private SpriteRenderer[] rightUpPath;
@@ -17,10 +21,25 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private SpriteRenderer[] startLeftPath;
     [SerializeField] private SpriteRenderer[] startRightPath;
     [SerializeField] private SpriteRenderer[] startUpPath;
+    [SerializeField] private SpriteRenderer[] everySteps;
+    
+    
+    private bool doOnce = false;
+    private void Update()
+    {
+        if (!doOnce)
+        {
+            doOnce = true;
+            SetupGhost(GenProManager.Instance.GetCurrentRoom().coord, GenProManager.Instance.keyItems[0].roomCoord);
+        }
+    }
+
     
     
     public void SetupGhost(Vector2Int playerPos, Vector2Int keyPos)
     {
+        ghostActive = true;
+        
         while (true)
         {
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
@@ -39,6 +58,15 @@ public class GhostManager : MonoBehaviour
 
     public void VerifyGhost(Vector2Int currentRoomCoord)
     {
+        if (!ghostActive) return;
+        
+        for (int i = 0; i < everySteps.Length; i++)
+        {
+            everySteps[i].enabled = false;
+            if(currentCoroutine != null)
+                StopCoroutine(currentCoroutine);
+        }
+        
         if (!validatedPos.Contains(currentRoomCoord)) return;
 
         Room comingFromRoom = null;
@@ -67,35 +95,37 @@ public class GhostManager : MonoBehaviour
             
             if (dirExit == new Vector2Int(1, 0))
             {
-                StartCoroutine(PlayGhostPath(startRightPath, false));
+                currentCoroutine = StartCoroutine(PlayGhostPath(startRightPath, false));
             }
             else if (dirExit == new Vector2Int(-1, 0))
             {
-                StartCoroutine(PlayGhostPath(startLeftPath, false));
+                currentCoroutine = StartCoroutine(PlayGhostPath(startLeftPath, false));
             }
             else if (dirExit == new Vector2Int(0, 1))
             {
-                StartCoroutine(PlayGhostPath(startUpPath, false));
+                currentCoroutine = StartCoroutine(PlayGhostPath(startUpPath, false));
             }
             
             validatedPos.Add(nextRoom.coord);
         } 
         else if (nextRoom == null)
         {
+            ghostActive = false;
+            
             Vector2Int dirEnter = currentRoom.coord - comingFromRoom.coord;
             dirEnter.y = Mathf.Abs(dirEnter.y);
             
             if (dirEnter == new Vector2Int(1, 0))
             {
-                StartCoroutine(PlayGhostPath(startLeftPath, true));
+                currentCoroutine = StartCoroutine(PlayGhostPath(startLeftPath, true));
             }
             else if (dirEnter == new Vector2Int(-1, 0))
             {
-                StartCoroutine(PlayGhostPath(startRightPath, true));
+                currentCoroutine = StartCoroutine(PlayGhostPath(startRightPath, true));
             }
             else if (dirEnter == new Vector2Int(0, 1))
             {
-                StartCoroutine(PlayGhostPath(startUpPath, true));
+                currentCoroutine = StartCoroutine(PlayGhostPath(startUpPath, true));
             }
         }
         else
@@ -108,27 +138,27 @@ public class GhostManager : MonoBehaviour
 
             if (dirEnter == new Vector2Int(1, 0) && dirExit == new Vector2Int(1, 0))
             {
-                StartCoroutine(PlayGhostPath(leftRightPath, false));
+                currentCoroutine = StartCoroutine(PlayGhostPath(leftRightPath, false));
             }
             else if (dirEnter == new Vector2Int(-1, 0) && dirExit == new Vector2Int(-1, 0))
             {
-                StartCoroutine(PlayGhostPath(leftRightPath, true));
+                currentCoroutine = StartCoroutine(PlayGhostPath(leftRightPath, true));
             }
             else if (dirEnter == new Vector2Int(1, 0) && dirExit == new Vector2Int(0, 1))
             {
-                StartCoroutine(PlayGhostPath(leftUpPath, false));
+                currentCoroutine = StartCoroutine(PlayGhostPath(leftUpPath, false));
             }
             else if (dirEnter == new Vector2Int(0, 1) && dirExit == new Vector2Int(-1, 0))
             {
-                StartCoroutine(PlayGhostPath(leftUpPath, true));
+                currentCoroutine = StartCoroutine(PlayGhostPath(leftUpPath, true));
             }
             else if (dirEnter == new Vector2Int(-1, 0) && dirExit == new Vector2Int(0, 1))
             {
-                StartCoroutine(PlayGhostPath(rightUpPath, false));
+                currentCoroutine = StartCoroutine(PlayGhostPath(rightUpPath, false));
             }
             else if (dirEnter == new Vector2Int(0, 1) && dirExit == new Vector2Int(1, 0))
             {
-                StartCoroutine(PlayGhostPath(rightUpPath, true));
+                currentCoroutine = StartCoroutine(PlayGhostPath(rightUpPath, true));
             }
             
             validatedPos.Add(nextRoom.coord);
