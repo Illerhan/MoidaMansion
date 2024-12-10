@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
             _position += new Vector2Int(0, -1);
         if (_currentRoom.connectedUp)
             _position += new Vector2Int(0, 1);
+        if (isChased && monsta.getSelectedMonsta().gameObject.name == "Monster_5")
+        {
+            monsta.MonstaAttack();
+        }
         
         // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
