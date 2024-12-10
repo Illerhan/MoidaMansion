@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class Monsta : MonoBehaviour
@@ -113,5 +115,13 @@ public class Monsta : MonoBehaviour
        _monstaBlood.SetActive(true);
        _monstaHand.SetActive(true);
        _playerController.StopControl();
+       
+       StartCoroutine(RestartGameCoroutine());
+    }
+    
+    private IEnumerator RestartGameCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

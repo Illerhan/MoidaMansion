@@ -89,8 +89,11 @@ public class PlayerController : MonoBehaviour
         if (canGetOut)
         {
             // Get out
+            UIManager.Instance.ShowEndScreen();
             return;
         }
+        
+        uiManager.moveNumber++;
         
         searchProgressBar.DisplayProgress(0);
         if (isChased && monsta.GetSelectedMonsta().gameObject.name == "Monster_5")
@@ -126,6 +129,8 @@ public class PlayerController : MonoBehaviour
     public void SwitchRoom(int direction)
     {
         if (noControl) return;
+
+        uiManager.moveNumber++;
         
         searchProgressBar.DisplayProgress(0);
         

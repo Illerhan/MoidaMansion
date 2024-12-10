@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -14,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI mainText;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private RoomDisplayManager roomDisplayManager;
+    [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private GhostManager ghostManager;
     [SerializeField] private FairiesManager fairiesManager;
     [SerializeField] private GameObject MiniMap;
@@ -28,6 +30,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject titleScene;
     private Coroutine _titleScreenCoroutine;
+    public int moveNumber = 0;
     
     private void Awake()
     {
@@ -101,6 +104,44 @@ public class UIManager : MonoBehaviour
     }
     
     
+    public void ShowEndScreen()
+    {
+        _titleScreenCoroutine = StartCoroutine(ShowEndScreenCoroutine());
+    }
+    
+    private IEnumerator ShowEndScreenCoroutine()
+    {
+        playerController.StopControl();
+        roomDisplayManager.HideRoom();
+        MiniMap.SetActive(false);
+        leftArrow.SetActive(false);
+        rightArrow.SetActive(false);
+        upStairs.SetActive(false);
+        downStairs.SetActive(false);
+        titleScene.SetActive(true);
+        HideText();
+        yield return new WaitForSeconds(2f);
+        DisplayText("You escaped!");
+        yield return new WaitForSeconds(7.5f);
+        DisplayText("Rescued   " + inventoryManager.friendCount + "/4");
+        yield return new WaitForSeconds(3.5f);
+        DisplayText("Moves      " + moveNumber);
+        yield return new WaitForSeconds(3.5f);
+        DisplayText("Searches   " + playerController.searchCount);
+        yield return new WaitForSeconds(3.5f);
+        DisplayText("Congrats!");
+        foreach (Button button in buttons)
+        {
+            button.onClick.AddListener(RestartGame);
+        }
+    }
+    
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    
     public void ShowMoveHud(bool left, bool right, bool up, bool down)
     {
         leftArrow.SetActive(left);
@@ -164,6 +205,7 @@ public class UIManager : MonoBehaviour
         {
             playerController.GiveControl();
             DisplayText(roomName);
+            yield break;
         }
 
         switch (hint.hintType)
@@ -228,14 +270,14 @@ public class UIManager : MonoBehaviour
         {
             foreach (var spriteRenderer in spriteRenderersToFlicker)
             {
-                spriteRenderer.enabled = false;
+                spriteRenderer.gameObject.SetActive(false);
             }
             
             yield return new WaitForSeconds(0.25f);
             
             foreach (var spriteRenderer in spriteRenderersToFlicker)
             {
-                spriteRenderer.enabled = true;
+                spriteRenderer.gameObject.SetActive(true);
             }
             
             yield return new WaitForSeconds(0.25f);
@@ -243,7 +285,7 @@ public class UIManager : MonoBehaviour
         
         foreach (var spriteRenderer in spriteRenderersToFlicker)
         {
-            spriteRenderer.enabled = false;
+            spriteRenderer.gameObject.SetActive(true);
         }
 
         roomDisplayManager.DisplayRoom();
