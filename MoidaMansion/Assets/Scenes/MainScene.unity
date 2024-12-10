@@ -6003,6 +6003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainText: {fileID: 520953233}
+  playerController: {fileID: 1840993186}
 --- !u!1 &1850753377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6394,6 +6395,17 @@ MonoBehaviour:
   codeLockedLocation: {x: 0, y: 0}
   foundKeyItemsIndexes: 
   foundFriendsIndexes: 
+  hints:
+  - hintType: 0
+    itemLocation:
+      itemType: 0
+      roomCoord: {x: 0, y: 0}
+      itemIndex: 0
+  - hintType: 0
+    itemLocation:
+      itemType: 0
+      roomCoord: {x: 0, y: 0}
+      itemIndex: 0
   graphicsGenProManager: {fileID: 1935087238}
   fairiesManager: {fileID: 1935087240}
   ghostManager: {fileID: 1935087241}

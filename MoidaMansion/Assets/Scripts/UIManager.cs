@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,10 @@ public class UIManager : MonoBehaviour
 
     [Header("References")] 
     [SerializeField] private TextMeshProUGUI mainText;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private RoomDisplayManager roomDisplayManager;
+    [SerializeField] private GhostManager ghostManager;
+    [SerializeField] private FairiesManager fairiesManager;
     
     private void Awake()
     {
@@ -44,11 +49,27 @@ public class UIManager : MonoBehaviour
     
     private IEnumerator DisplayRescueTextCoroutine(string roomName, string friendName, Hint hint)
     {
+        playerController.StopControl();
+        
         DisplayText("Rescued " + friendName + "!");
         yield return new WaitForSeconds(2f);
         DisplayText("\"thank you!\"");
         yield return new WaitForSeconds(2f);
-        DisplayText(roomName);
+
+        switch (hint.hintType)
+        {
+            case HintType.Ghost :
+                StartCoroutine(DisplayGhostHintCoroutine(roomName, hint));
+                break;
+            
+            case HintType.Fairy :
+                StartCoroutine(DisplayFairiesHintCoroutine(roomName));
+                break;
+            
+            case HintType.Position :
+                StartCoroutine(DisplayPositionHintCoroutine(hint, roomName));
+                break;
+        }
     }
     
     private IEnumerator DisplayLargeTextCoroutine(string text)
@@ -60,18 +81,51 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private IEnumerator DisplayGhostHintCoroutine()
+    private IEnumerator DisplayGhostHintCoroutine(string roomName, Hint hint)
     {
-        yield return new WaitForSeconds(2f);
+        DisplayText("\"Follow ghost for hint\"");
+
+        ghostManager.SetupGhost(GenProManager.Instance.GetCurrentRoom().coord, hint.itemLocation.roomCoord, hint.itemLocation.itemIndex);
+        
+        yield return new WaitForSeconds(5f);
+        
+        playerController.GiveControl();
+        DisplayText(roomName);
     }
 
-    private IEnumerator DisplayFairiesHintCoroutine()
+    private IEnumerator DisplayFairiesHintCoroutine(string roomName)
     {
-        yield return new WaitForSeconds(2f);
+        DisplayText("\"Search fairies for hint\"");
+        
+        fairiesManager.SetupFairies(GenProManager.Instance.GetCurrentRoom().coord);
+        
+        yield return new WaitForSeconds(5f);
+        
+        playerController.GiveControl();
+        DisplayText(roomName);
     }
 
-    private IEnumerator DisplayPositionHintCoroutine(Hint hint)
+    private IEnumerator DisplayPositionHintCoroutine(Hint hint, string roomName)
     {
-        yield return new WaitForSeconds(2f);
+        DisplayText("\"Search this !\"");
+
+        List<SpriteRenderer> spriteRenderersToFlicker = new List<SpriteRenderer>();
+        
+        roomDisplayManager.HideRoom();
+
+        for (int i = 0; i < 10; i++)
+        {
+            
+            yield return new WaitForSeconds(0.2f);
+            
+            yield return new WaitForSeconds(0.2f);
+        }
+        
+        yield return new WaitForSeconds(5f);
+
+        roomDisplayManager.DisplayRoom();
+        
+        playerController.GiveControl();
+        DisplayText(roomName);
     }
 }

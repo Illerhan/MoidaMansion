@@ -27,6 +27,50 @@ public class RoomDisplayManager : MonoBehaviour
         DisplayRoom();
     }
 
+    public void HideRoom()
+    {
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.gameObject.SetActive(false);
+        }
+    }
+
+    public List<SpriteRenderer> GetSpriteRenderersToFlicker(Room selectedRoom, int index)
+    {
+        List<SpriteRenderer> spriteRenderersToFlicker = new List<SpriteRenderer>();
+        int objectSoIndex = 0;
+        int spriteIndex = 0;
+        
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.gameObject.SetActive(false);
+        }
+        
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        {
+            if (objectSoIndex == index)
+            {
+                spriteRenderersToFlicker.Add(spriteRenderer);
+                spriteRenderer.sprite = selectedRoom.roomSo.RoomObjects[objectSoIndex].RoomSprites[spriteIndex];
+                spriteRenderer.gameObject.SetActive(true);
+                spriteIndex++;
+                
+                if (spriteIndex >= selectedRoom.roomSo.RoomObjects[objectSoIndex].RoomSprites.Count)
+                {
+                    spriteIndex = 0;
+                    objectSoIndex++;
+                }
+            }
+            else
+            {
+                spriteRenderer.gameObject.SetActive(false);
+                objectSoIndex++;
+            } 
+        }
+
+        return spriteRenderersToFlicker;
+    }
+    
     public void DisplayRoom()
     {
         int objectSoIndex = 0;
