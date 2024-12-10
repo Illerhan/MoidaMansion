@@ -68,6 +68,7 @@ public class GenProManager : MonoBehaviour
     public Vector2Int codeLockedLocation = new Vector2Int(-1, -1);
     public List<int> foundKeyItemsIndexes = new List<int>();
     public List<int> foundFriendsIndexes = new List<int>();
+    public List<Vector2Int> foundFriendsPositions = new List<Vector2Int>();
     public Room[,] mansionMap = new Room[4, 3];
     
     [Header("Private Infos")]

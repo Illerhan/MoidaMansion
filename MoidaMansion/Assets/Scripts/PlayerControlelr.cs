@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -429,8 +430,16 @@ public class PlayerController : MonoBehaviour
                     inventoryManager.UseCode();
                     GenProManager.Instance.codeLockedLocation = new Vector2Int(-1, -1);
                 }
+
+                for (int i = 0; i < GenProManager.Instance.friendPositions.Length; i++)
+                {
+                    if (GenProManager.Instance.friendPositions[i].roomCoord == _position)
+                    {
+                        GenProManager.Instance.foundFriendsIndexes.Add(i);
+                        GenProManager.Instance.foundFriendsPositions.Add(_position);
+                    }
+                }
                 
-                GenProManager.Instance.foundFriendsIndexes.Add(GenProManager.Instance.foundFriendsIndexes.Count);
                 roomDisplayManager.DisplayRoom();
                 UIManager.Instance.DisplayRescueText(_currentRoom.roomSo.RoomName, inventoryManager.friendCount switch
                 {
