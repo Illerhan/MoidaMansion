@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -19,6 +20,12 @@ public class UIManager : MonoBehaviour
 
     public void DisplayText(string text)
     {
+        if (text.Length > 13)
+        {
+            StartCoroutine(DisplayLargeTextCoroutine(text));
+            return;
+        }
+        
         mainText.enabled = true;
         mainText.text = text;
     }
@@ -40,5 +47,14 @@ public class UIManager : MonoBehaviour
         DisplayText("\"thank you!\"");
         yield return new WaitForSeconds(2f);
         DisplayText(roomName);
+    }
+    
+    private IEnumerator DisplayLargeTextCoroutine(string text)
+    {
+        for (int i = 0; i < text.Length - 12; i++)
+        {
+            DisplayText(text[new Range(i, i+13)]);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }
