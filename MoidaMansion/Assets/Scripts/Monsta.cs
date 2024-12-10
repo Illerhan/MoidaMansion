@@ -108,14 +108,16 @@ public class Monsta : MonoBehaviour
 
     public void MonstaAttack()
     { 
+        GenProManager.Instance.buttonsManager.HideButtons();
+        _playerController.roomDisplayManager.HideRoom();
+        
         _playerController.isChased = false;
-        roomSpriteRenderer.SetActive(false);
+        //roomSpriteRenderer.SetActive(false);
         HideMonsta();
         _Minimap.SetActive(false);
         _selectedMonsta.SetActive(false);
        _monstaBlood.SetActive(true);
        _monstaHand.SetActive(true);
        _playerController.StopControl();
-       
     }
 }

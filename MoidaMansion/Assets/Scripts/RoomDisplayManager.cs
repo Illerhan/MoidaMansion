@@ -33,6 +33,15 @@ public class RoomDisplayManager : MonoBehaviour
         {
             spriteRenderer.gameObject.SetActive(false);
         }
+
+        leftKeyLock.enabled = false;
+        rightKeyLock.enabled = false;
+        code1.enabled = false;
+        code2.enabled = false;
+        code3.enabled = false;
+        noise1.enabled = false;
+        noise2.enabled = false;
+        noise3.enabled = false;
     }
 
     public List<SpriteRenderer> GetSpriteRenderersToFlicker(Room selectedRoom, int index)

@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InventoryManager inventoryManager;
-    [SerializeField] private RoomDisplayManager roomDisplayManager;
+    public RoomDisplayManager roomDisplayManager;
     [SerializeField] private ProgressBar searchProgressBar;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private Minimap minimap;

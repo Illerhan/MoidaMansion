@@ -81,4 +81,12 @@ public class ButtonsManager : MonoBehaviour
             activatedButtons[i] = true;
         }
     }
+
+    public void HideButtons()
+    {
+        for (int i = 0; i < buttonPositions.Length; i++)
+        {
+            buttonSpriteRenderers[i].enabled = false;
+        }
+    }
 }

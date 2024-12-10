@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1805030355798933707, guid: a9a1d8189e25f694c9e90d66c8e9ecb9, type: 3}
   m_PrefabInstance: {fileID: 399311007}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 434543325}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1dfdea58eca2374cb529168eb059b7b, type: 3}
@@ -2258,6 +2258,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &434543325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054714514253836505, guid: a9a1d8189e25f694c9e90d66c8e9ecb9, type: 3}
+  m_PrefabInstance: {fileID: 399311007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &447354385
 GameObject:
   m_ObjectHideFlags: 0
@@ -6923,8 +6928,8 @@ MonoBehaviour:
   - {fileID: 311881353}
   _monstaHand: {fileID: 2007109408}
   _monstaBlood: {fileID: 1073354665}
-  _Minimap: {fileID: 0}
-  roomSpriteRenderer: {fileID: 0}
+  _Minimap: {fileID: 1850753377}
+  roomSpriteRenderer: {fileID: 434543325}
 --- !u!1 &1892392576
 GameObject:
   m_ObjectHideFlags: 0
