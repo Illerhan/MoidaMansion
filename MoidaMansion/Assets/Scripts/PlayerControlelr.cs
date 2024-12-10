@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
         currentInspectIndex = 0;
+        monsta.UpdatePosition();
         minimap.EnterRoom(_position);
         if (isChased)
         {
@@ -107,6 +108,7 @@ public class PlayerController : MonoBehaviour
         // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
+        monsta.HideMonsta();
         monsta.UpdatePosition();
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
@@ -264,6 +266,10 @@ public class PlayerController : MonoBehaviour
         }
         
         searchProgressBar.DisplayProgress(0);
+        if (isChased)
+        {
+            monsta.MonstaAttack();
+        }
         isChased = true;
 
         if (isSearchingFairy)
@@ -323,12 +329,7 @@ public class PlayerController : MonoBehaviour
                     _currentRoom.isSecretLocked = false;
                     
                     roomDisplayManager.DisplayRoom();
-                }
-
-                if (isChased)
-                {
-                    monsta.MonstaAttack();
-                }
+                } 
                 Debug.Log("J'ai trouvé un passage secret !");
                 break;
         }

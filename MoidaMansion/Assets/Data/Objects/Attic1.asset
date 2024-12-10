@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanBeSearched>k__BackingField: 1
   <CanHaveFriend>k__BackingField: 0
-  <CanHaveMonsta>k__BackingField: 0
+  <CanHaveMonsta>k__BackingField: 1
+  <MonstaSprite>k__BackingField: 5
   <RoomSprites>k__BackingField:
   - {fileID: 21300000, guid: 3d69ca3a689710c48bed4cf7cf3656fe, type: 3}

@@ -41,41 +41,31 @@ public class Monsta : MonoBehaviour
             UpdatePosition();
         if (!_playerController.isChased)
         {
-            StopCoroutine(MonstaCoroutine());
             _selectedMonsta?.SetActive(false);
-            return;
         }
-
-        if(!_isRunning)
-            _coroutine  = StartCoroutine(MonstaCoroutine());
-            
+        if(!_selectedMonsta.activeSelf && _playerController.isChased)
+            ShowMonsta();
     }
-    
-    public IEnumerator MonstaCoroutine()
+
+    public void ShowMonsta()
     {
-        _isRunning = true;
         _selectedMonsta.SetActive(true);
-        while (true)
-        {
-            _selectedMonsta.SetActive(false);
-            
-            yield return new WaitForSeconds(0.4f);
-
-            _selectedMonsta.SetActive(true);
-
-            yield return new WaitForSeconds(0.4f);
-        }
-
+    }
+    public void HideMonsta()
+    {
+        _selectedMonsta.SetActive(false);
     }
 
     public void UpdatePosition()
     {
         _possibleMonsta.Clear();
-        if(_selectedMonsta)
-            _selectedMonsta?.SetActive(false);
         _currentRoom = _playerController.GetCurrentRoom();
         _currentRoomSo = _currentRoom.roomSo;
         _objectSos = _currentRoomSo.RoomObjects;
+        if (_currentRoomSo.RoomType == RoomType.Void)
+        {
+            return;
+        }
         foreach (var objectSo in _objectSos)
         {
             if (objectSo.CanHaveMonsta)
@@ -110,7 +100,6 @@ public class Monsta : MonoBehaviour
 
     public void MonstaAttack()
     {
-       StopCoroutine(MonstaCoroutine());
        _selectedMonsta.SetActive(false);
        _monstaBlood.SetActive(true);
        _monstaHand.SetActive(true);
