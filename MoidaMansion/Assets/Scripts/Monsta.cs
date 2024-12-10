@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.Android;
 using Random = UnityEngine.Random;
 
 public class Monsta : MonoBehaviour
@@ -16,10 +17,12 @@ public class Monsta : MonoBehaviour
     private GameObject _selectedMonsta;
     [SerializeField] private GameObject _monstaHand;
     [SerializeField] private GameObject _monstaBlood;
+    [SerializeField] private GameObject _Minimap;
     private bool _isRunning;
     private RoomSo _currentRoomSo;
     private Room _currentRoom;
     private PlayerController _playerController;
+    [SerializeField] private GameObject roomSpriteRenderer;
     private List<ObjectSo> _objectSos;
     
 
@@ -98,15 +101,21 @@ public class Monsta : MonoBehaviour
         _selectedMonsta = _possibleMonsta[Random.Range(0, _possibleMonsta.Count - 1)];
     }
 
-    public GameObject getSelectedMonsta()
+    public GameObject GetSelectedMonsta()
     {
         return _selectedMonsta;
     }
 
     public void MonstaAttack()
-    {
-       _selectedMonsta.SetActive(false);
+    { 
+        _playerController.isChased = false;
+        roomSpriteRenderer.SetActive(false);
+        HideMonsta();
+        _Minimap.SetActive(false);
+        _selectedMonsta.SetActive(false);
        _monstaBlood.SetActive(true);
        _monstaHand.SetActive(true);
+       _playerController.StopControl();
+       
     }
 }

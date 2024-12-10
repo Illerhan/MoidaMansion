@@ -14,6 +14,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RoomDisplayManager roomDisplayManager;
     [SerializeField] private GhostManager ghostManager;
     [SerializeField] private FairiesManager fairiesManager;
+    [SerializeField] private GameObject leftArrow;
+    [SerializeField] private GameObject rightArrow;
+    [SerializeField] private GameObject upStairs;
+    [SerializeField] private GameObject downStairs;
     
     private void Awake()
     {
@@ -22,6 +26,24 @@ public class UIManager : MonoBehaviour
         else 
             Destroy(gameObject);
     }
+
+    private void Start()
+    {
+        leftArrow.SetActive(false);
+        rightArrow.SetActive(false);
+        upStairs.SetActive(false);
+        downStairs.SetActive(false);
+    }
+    
+    
+    public void ShowMoveHud(bool left, bool right, bool up, bool down)
+    {
+        leftArrow.SetActive(left);
+        rightArrow.SetActive(right);
+        upStairs.SetActive(up);
+        downStairs.SetActive(down);
+    }
+    
 
     public void DisplayText(string text)
     {

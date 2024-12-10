@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -71,8 +72,9 @@ public class PlayerController : MonoBehaviour
             _position += new Vector2Int(0, -1);
         if (_currentRoom.connectedUp)
             _position += new Vector2Int(0, 1);
-        if (isChased && monsta.getSelectedMonsta().gameObject.name == "Monster_5")
+        if (isChased && monsta.GetSelectedMonsta().gameObject.name == "Monster_5")
         {
+            monsta.HideMonsta();
             monsta.MonstaAttack();
         }
         
@@ -102,7 +104,7 @@ public class PlayerController : MonoBehaviour
             if (_position.x < 3 && _currentRoom.connectedRight && (!_currentRoom.isLockedRight || _currentRoom.isCodeLocked))
             {
                 _position += new Vector2Int(direction, 0);
-                if (isChased && monsta.getSelectedMonsta().gameObject.name == "Monster_2")
+                if (isChased && monsta.GetSelectedMonsta().gameObject.name == "Monster_2")
                 {
                     monsta.MonstaAttack();
                 }
@@ -122,7 +124,7 @@ public class PlayerController : MonoBehaviour
         else if (_position.x > 0 && _currentRoom.connectedLeft && (!_currentRoom.isLockedLeft || _currentRoom.isCodeLocked))
         {
             _position += new Vector2Int(direction, 0);
-            if (isChased && monsta.getSelectedMonsta().gameObject.name == "Monster_3")
+            if (isChased && monsta.GetSelectedMonsta().gameObject.name == "Monster_3")
             {
                 monsta.MonstaAttack();
             }
@@ -308,7 +310,9 @@ public class PlayerController : MonoBehaviour
         searchProgressBar.DisplayProgress(0);
         if (isChased)
         {
+            monsta.HideMonsta();
             monsta.MonstaAttack();
+            yield break;
         }
         isChased = true;
 
