@@ -160,6 +160,12 @@ public class UIManager : MonoBehaviour
         DisplayText("\"thank you!\"");
         yield return new WaitForSeconds(2f);
 
+        if (GenProManager.Instance.currentHintIndex > 1)
+        {
+            playerController.GiveControl();
+            DisplayText(roomName);
+        }
+
         switch (hint.hintType)
         {
             case HintType.Ghost :

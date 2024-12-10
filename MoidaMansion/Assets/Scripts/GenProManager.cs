@@ -79,7 +79,7 @@ public class GenProManager : MonoBehaviour
     private Room[] lockedRooms = new Room[4];
     public Hint[] hints = new Hint[2];
     private int bannedHintType = -1;
-    private int currentHintIndex = -1;
+    public int currentHintIndex = -1;
     
     [Header("References")] 
     [SerializeField] private GraphicsGenProManager graphicsGenProManager;
@@ -259,6 +259,8 @@ public class GenProManager : MonoBehaviour
     public Hint GetNextHint()
     {
         currentHintIndex++;
+        if (currentHintIndex > 1) return new Hint();
+        
         return hints[currentHintIndex];
     }
 
