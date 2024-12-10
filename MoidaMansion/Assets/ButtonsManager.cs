@@ -15,6 +15,7 @@ public class ButtonsManager : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private SpriteRenderer[] buttonSpriteRenderers;
+    [SerializeField] private InventoryManager inventoryManager;
 
 
     private void Start()
@@ -77,8 +78,21 @@ public class ButtonsManager : MonoBehaviour
         for (int i = 0; i < buttonPositions.Length; i++)
         {
             if (buttonPositions[i] != roomPos) continue;
-
             activatedButtons[i] = true;
+        }
+
+        bool allActivated = true;
+        for (int i = 0; i < activatedButtons.Length; i++)
+        {
+            if (!activatedButtons[i])
+            {
+                allActivated = false;
+            }
+        }
+
+        if (allActivated)
+        {
+            inventoryManager.AddDot();
         }
     }
 
