@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dac485049584704e8a809082bcd36b3, type: 3}
   m_Name: Boiler1
   m_EditorClassIdentifier: 
+  <RoomName>k__BackingField: BOILER
   <RoomType>k__BackingField: 10
   <RoomObjects>k__BackingField:
   - {fileID: 11400000, guid: 2d6ff3dc19c5d3146a57d2ef13c0a3b8, type: 2}

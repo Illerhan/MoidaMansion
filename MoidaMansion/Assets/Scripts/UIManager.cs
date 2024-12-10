@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -23,9 +22,8 @@ public class UIManager : MonoBehaviour
         mainText.text = text;
     }
 
-    public void Hide()
+    public void HideText()
     {
         mainText.enabled = false;
     }
-
 }
