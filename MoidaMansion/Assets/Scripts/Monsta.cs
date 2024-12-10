@@ -110,7 +110,6 @@ public class Monsta : MonoBehaviour
     { 
         GenProManager.Instance.buttonsManager.HideButtons();
         _playerController.roomDisplayManager.HideRoom();
-        
         _playerController.isChased = false;
         //roomSpriteRenderer.SetActive(false);
         HideMonsta();
