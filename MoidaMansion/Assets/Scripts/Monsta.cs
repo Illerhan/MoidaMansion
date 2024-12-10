@@ -34,7 +34,7 @@ public class Monsta : MonoBehaviour
 
     void Start()
     {
-        UpdatePosition();
+        //UpdatePosition();
     }
 
     // Update is called once per frame

@@ -21,11 +21,7 @@ public class RoomDisplayManager : MonoBehaviour
     [SerializeField] private SpriteRenderer noise1;
     [SerializeField] private SpriteRenderer noise2;
     [SerializeField] private SpriteRenderer noise3;
-
-    private void Start()
-    {
-        DisplayRoom();
-    }
+    
 
     public void HideRoom()
     {
@@ -192,6 +188,8 @@ public class RoomDisplayManager : MonoBehaviour
         {
             StopCoroutine(noiseCoroutine);
         }
+
+        if (Room == null) return;
         
         if (Room.isKeyLocked)
         {

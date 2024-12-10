@@ -543,7 +543,7 @@ public class GenProManager : MonoBehaviour
                     List<Room> pathToPrevious = GetPath(previousKeyPos, roomPos);
                     List<Room> pathToUnlockedLock = GetPath(lockedRooms[0].coord, roomPos);
 
-                    if (pathToPrevious.Count != 0) continue;
+                    if (pathToPrevious.Count > 1) continue;
                     if (pathToUnlockedLock.Count == 0) continue;
 
                     switch (lockTypes[i])
