@@ -267,8 +267,6 @@ public class PlayerController : MonoBehaviour
         searchProgressBar.DisplayProgress(0);
         isChased = true;
 
-        currentInspectIndex = 0;
-
         if (isSearchingFairy)
         {
             inventoryManager.FoundCodePart();
@@ -335,6 +333,8 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("J'ai trouvé un passage secret !");
                 break;
         }
+        
+        currentInspectIndex = 0;
     }
 
     // void inspectItem(itemToInspect)

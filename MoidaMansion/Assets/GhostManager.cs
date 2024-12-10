@@ -77,6 +77,8 @@ public class GhostManager : MonoBehaviour
             {
                 StartCoroutine(PlayGhostPath(startUpPath, false));
             }
+            
+            validatedPos.Add(nextRoom.coord);
         } 
         else if (nextRoom == null)
         {
@@ -128,6 +130,8 @@ public class GhostManager : MonoBehaviour
             {
                 StartCoroutine(PlayGhostPath(rightUpPath, true));
             }
+            
+            validatedPos.Add(nextRoom.coord);
         }
 
     }
