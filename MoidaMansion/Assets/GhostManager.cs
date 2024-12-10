@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,5 +35,10 @@ public class GhostManager : MonoBehaviour
     public void VerifyGhost()
     {
         
+    }
+
+    private IEnumerator PlayGhostPath(SpriteRenderer[] path, bool reverse)
+    {
+        yield return new WaitForSeconds(1);
     }
 }

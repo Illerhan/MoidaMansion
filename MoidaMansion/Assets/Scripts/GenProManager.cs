@@ -281,6 +281,12 @@ public class GenProManager : MonoBehaviour
         return ItemType.None;
     }
 
+    public ObjectSo GetCrossedRoom(bool left)
+    {
+        Room room = GetCurrentRoom();
+        return left ? room.leftDoor : room.rightDoor;
+    }
+
     #endregion
     
     
