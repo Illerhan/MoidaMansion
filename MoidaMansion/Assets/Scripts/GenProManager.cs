@@ -756,9 +756,14 @@ public class GenProManager : MonoBehaviour
             
             // to avoid having the sames hints types
             int hintTypeIndex = Random.Range(0, 3);
-            while (hintTypeIndex == bannedHintType)
+            while (true)
             {
                 hintTypeIndex = Random.Range(0, 3);
+
+                if (bannedHintType == hintTypeIndex) continue; 
+                if (lockTypes[keyItems.Count] == LockType.Secret && hintTypeIndex == 1) continue;
+
+                break;
             }
             bannedHintType = hintTypeIndex;
             
@@ -824,9 +829,14 @@ public class GenProManager : MonoBehaviour
 
             // to avoid having the sames hints types
             int hintTypeIndex = Random.Range(0, 3);
-            while (hintTypeIndex == bannedHintType)
+            while (true)
             {
                 hintTypeIndex = Random.Range(0, 3);
+
+                if (bannedHintType == hintTypeIndex) continue; 
+                if (lockTypes[keyItems.Count] == LockType.Secret && hintTypeIndex == 1) continue;
+
+                break;
             }
             bannedHintType = hintTypeIndex;
             

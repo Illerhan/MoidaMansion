@@ -46,6 +46,10 @@ public class FairiesManager : MonoBehaviour
         fairiesPositions = new Vector2Int[3];
         pickedFairies = new bool[3];
 
+        bannedPositions = new List<Vector2Int>();
+        
+        
+
         while (currentFiaryCounter < 3)
         {
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
