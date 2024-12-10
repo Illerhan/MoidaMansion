@@ -33,7 +33,6 @@ public class GhostManager : MonoBehaviour
             SetupGhost(GenProManager.Instance.GetCurrentRoom().coord, GenProManager.Instance.keyItems[0].roomCoord);
         }
     }
-
     
     
     public void SetupGhost(Vector2Int playerPos, Vector2Int keyPos)
@@ -45,9 +44,12 @@ public class GhostManager : MonoBehaviour
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
             List<Room> path = GenProManager.Instance.GetPath(pickedPos, playerPos);
 
-            if (path.Count == 0 || path.Count == 1) continue;
+            if (path.Count <= 1) continue;
             
-            ghostPath = path;
+            ghostPath = GenProManager.Instance.GetPath(pickedPos, keyPos);
+            
+            if (ghostPath.Count <= 2) continue;
+            
             startPos = pickedPos;
             break;
         }
@@ -56,6 +58,7 @@ public class GhostManager : MonoBehaviour
         wantedPos = keyPos;
     }
 
+    
     public void VerifyGhost(Vector2Int currentRoomCoord)
     {
         if (!ghostActive) return;
@@ -81,7 +84,7 @@ public class GhostManager : MonoBehaviour
                 {
                     comingFromRoom = ghostPath[i - 1];
                 }
-                else if (i != ghostPath.Count - 1)
+                if (i != ghostPath.Count - 1)
                 {
                     nextRoom = ghostPath[i + 1];
                 }
@@ -168,6 +171,54 @@ public class GhostManager : MonoBehaviour
 
     private IEnumerator PlayGhostPath(SpriteRenderer[] path, bool reverse)
     {
-        yield return new WaitForSeconds(1);
+        if (reverse)
+        {
+            for (int i = path.Length - 1; i >= 0; i--)
+            {
+                path[i].enabled = true;
+            
+                yield return new WaitForSeconds(0.5f);
+            
+                path[i].enabled = false;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < path.Length; i++)
+            {
+                path[i].enabled = true;
+            
+                yield return new WaitForSeconds(0.5f);
+            
+                path[i].enabled = false;
+            }
+        }
+
+        if (!ghostActive)
+        {
+            StartCoroutine(EndGhostCoroutine());
+        }
+    }
+
+    private IEnumerator EndGhostCoroutine()
+    {
+        Room room = GenProManager.Instance.GetCurrentRoom();
+        
+        for (int i = 0; i < 10; i++)
+        {
+            int pickedIndex = Random.Range(0, GenProManager.Instance.roomDisplayManager.packedSpriteRenderers.Count);
+
+            for (int j = 0; j < GenProManager.Instance.roomDisplayManager.packedSpriteRenderers[pickedIndex].Count; j++)
+            {
+                GenProManager.Instance.roomDisplayManager.packedSpriteRenderers[pickedIndex][j].enabled = false;
+            }
+            
+            yield return new WaitForSeconds(0.2f);
+            
+            for (int j = 0; j < GenProManager.Instance.roomDisplayManager.packedSpriteRenderers[pickedIndex].Count; j++)
+            {
+                GenProManager.Instance.roomDisplayManager.packedSpriteRenderers[pickedIndex][j].enabled = true;
+            } 
+        }
     }
 }

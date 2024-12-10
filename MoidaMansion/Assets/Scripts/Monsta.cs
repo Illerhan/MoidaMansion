@@ -95,7 +95,7 @@ public class Monsta : MonoBehaviour
                 }
             }
         }
-        _selectedMonsta = _possibleMonsta[Random.Range(0, _possibleMonsta.Count - 1)];
+        //_selectedMonsta = _possibleMonsta[Random.Range(0, _possibleMonsta.Count - 1)];
     }
 
     public GameObject getSelectedMonsta()
