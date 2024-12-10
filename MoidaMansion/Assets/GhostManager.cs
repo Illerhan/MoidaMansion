@@ -25,7 +25,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private SpriteRenderer[] everySteps;
     
     
-    private bool doOnce = false;
+    /*private bool doOnce = false;
     private void Update()
     {
         if (!doOnce)
@@ -33,7 +33,7 @@ public class GhostManager : MonoBehaviour
             doOnce = true;
             SetupGhost(GenProManager.Instance.GetCurrentRoom().coord, GenProManager.Instance.keyItems[0].roomCoord, GenProManager.Instance.keyItems[0].itemIndex);
         }
-    }
+    }*/
     
     
     public void SetupGhost(Vector2Int playerPos, Vector2Int keyPos, int objIndex)
@@ -223,6 +223,7 @@ public class GhostManager : MonoBehaviour
             } 
         }
 
+        yield return new WaitForSeconds(0.1f);
         List<SpriteRenderer> sprites = GenProManager.Instance.roomDisplayManager.packedSpriteRenderers[objIndex];
         
         for (int i = 0; i < 10; i++)
@@ -232,12 +233,14 @@ public class GhostManager : MonoBehaviour
                 sprites[j].enabled = false;
             }
             
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             
             for (int j = 0; j <sprites.Count; j++)
             {
                 sprites[j].enabled = true;
             } 
+            
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
