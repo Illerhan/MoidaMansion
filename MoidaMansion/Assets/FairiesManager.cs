@@ -51,7 +51,7 @@ public class FairiesManager : MonoBehaviour
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
             List<Room> path = GenProManager.Instance.GetPath(pickedPos, playerPos);
 
-            if(bannedPositions.Contains(pickedPos))
+            if (bannedPositions.Contains(pickedPos)) continue;
             if (path.Count == 0 || path.Count == 1) continue;
             
             bannedPositions.Add(pickedPos);
