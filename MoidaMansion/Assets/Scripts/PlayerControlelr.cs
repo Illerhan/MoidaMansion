@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             inspectedSpriteRenderers = new List<SpriteRenderer>();
             
             roomDisplayManager.Room = _currentRoom;
-            roomDisplayManager.DisplayRoom();
+            // roomDisplayManager.DisplayRoom();
         
             minimap.EnterRoom(_position);
         }

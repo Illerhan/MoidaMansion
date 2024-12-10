@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,10 +16,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RoomDisplayManager roomDisplayManager;
     [SerializeField] private GhostManager ghostManager;
     [SerializeField] private FairiesManager fairiesManager;
+    [SerializeField] private GameObject MiniMap;
+    [SerializeField] private Button[] buttons;
     [SerializeField] private GameObject leftArrow;
     [SerializeField] private GameObject rightArrow;
     [SerializeField] private GameObject upStairs;
     [SerializeField] private GameObject downStairs;
+
+    [Header("Title Screen")]
+    [SerializeField] private GameObject atlas;
+
+    [SerializeField] private GameObject titleScene;
+    private Coroutine _titleScreenCoroutine;
     
     private void Awake()
     {
@@ -33,6 +43,61 @@ public class UIManager : MonoBehaviour
         rightArrow.SetActive(false);
         upStairs.SetActive(false);
         downStairs.SetActive(false);
+        MiniMap.SetActive(false);
+        roomDisplayManager.HideRoom();
+        playerController.StopControl();
+        
+        ShowTitleScreen();
+    }
+    
+    
+    public void ShowTitleScreen()
+    {
+        _titleScreenCoroutine = StartCoroutine(ShowTitleScreenCoroutine());
+    }
+    
+    private IEnumerator ShowTitleScreenCoroutine()
+    {
+        atlas.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        atlas.SetActive(false);
+        foreach (Button button in buttons)
+        {
+            button.onClick.AddListener(StartGame);
+        }
+        yield return new WaitForSeconds(0.5f);
+        DisplayText(Random.Range(0, 2) == 0 ? "welcome to" : "beware of");
+        yield return new WaitForSeconds(2f);
+        titleScene.SetActive(true);
+        DisplayText("Moida Mansion");
+        yield return new WaitForSeconds(3.5f);
+        DisplayText("by");
+        yield return new WaitForSeconds(1f);
+        DisplayText("Lucas Pope");
+        yield return new WaitForSeconds(3.5f);
+        DisplayText("(C) 3909 LLC");
+        yield return new WaitForSeconds(3.5f);
+        DisplayText("1.0.8");
+        yield return new WaitForSeconds(1f);
+        while (true)
+        {
+            DisplayText("Rescue your friends!    Rescue your ");
+            yield return new WaitForSeconds(12f);
+        }
+    }
+    
+    private void StartGame()
+    {
+        StopCoroutine(_titleScreenCoroutine);
+        titleScene.SetActive(false);
+        playerController.GiveControl();
+        MiniMap.SetActive(true);
+        roomDisplayManager.DisplayRoom();
+        
+        foreach (Button button in buttons)
+        {
+            button.onClick.RemoveListener(StartGame);
+        }
     }
     
     
