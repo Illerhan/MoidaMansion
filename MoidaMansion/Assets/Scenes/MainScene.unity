@@ -5478,7 +5478,7 @@ MonoBehaviour:
   foundKeyItemsIndexes: 
   foundFriendsIndexes: 
   graphicsGenProManager: {fileID: 1935087238}
-  fairiesManager: {fileID: 0}
+  fairiesManager: {fileID: 1935087240}
   roomPrefabDebug: {fileID: 0}
   pathPrefabDebug: {fileID: 0}
   keyPrefabDebug: {fileID: 0}

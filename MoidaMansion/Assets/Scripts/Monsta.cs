@@ -2,16 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Monsta : MonoBehaviour
 {
     public GameObject _player;
     private Coroutine _coroutine;
     public List<GameObject> _monstaSprite = new List<GameObject>();
+    private List<GameObject> _possibleMonsta = new List<GameObject>();
+    private int MonstaIndex;
     private GameObject _selectedMonsta;
     private bool isRunning;
-    private RoomSo _currentRoom;
+    private RoomSo _currentRoomSo;
+    private Room _currentRoom;
     private PlayerController _playerController;
     private List<ObjectSo> _objectSos;
     
@@ -24,25 +29,18 @@ public class Monsta : MonoBehaviour
 
     void Start()
     {
-        
-        _currentRoom = _playerController.GetCurrentRoom().roomSo;
-        _objectSos = _currentRoom.RoomObjects;
-        foreach (var objectSo in _objectSos)
-        {
-            if (objectSo.CanHaveMonsta)
-            {
-                _selectedMonsta = _monstaSprite[objectSo.MonstaSprite];
-            }
-        }
+        UpdatePosition();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!_selectedMonsta)
+            UpdatePosition();
         if (!_playerController.isChased)
         {
             StopCoroutine(MonstaCoroutine());
-            _selectedMonsta.SetActive(false);
+            _selectedMonsta?.SetActive(false);
             return;
         }
 
@@ -54,43 +52,58 @@ public class Monsta : MonoBehaviour
     public IEnumerator MonstaCoroutine()
     {
         isRunning = true;
-        int currentCounter = 0;
         _selectedMonsta.SetActive(true);
         while (true)
         {
-            if (currentCounter >= 13)
-            {
-                _selectedMonsta.SetActive(false);
-                isRunning = false;
-                yield break;
-            }
-
             _selectedMonsta.SetActive(false);
             
             yield return new WaitForSeconds(0.4f);
-            currentCounter++;
 
             _selectedMonsta.SetActive(true);
 
             yield return new WaitForSeconds(0.4f);
-            currentCounter++;
         }
 
     }
 
     public void UpdatePosition()
     {
-        _selectedMonsta.SetActive(false);
-        _currentRoom = _playerController.GetCurrentRoom().roomSo;
-        _objectSos = _currentRoom.RoomObjects;
+        _possibleMonsta.Clear();
+        if(_selectedMonsta)
+            _selectedMonsta?.SetActive(false);
+        _currentRoom = _playerController.GetCurrentRoom();
+        _currentRoomSo = _currentRoom.roomSo;
+        _objectSos = _currentRoomSo.RoomObjects;
         foreach (var objectSo in _objectSos)
         {
             if (objectSo.CanHaveMonsta)
             {
-                _selectedMonsta = _monstaSprite[objectSo.MonstaSprite];
-                _selectedMonsta.SetActive(true);
+                MonstaIndex = objectSo.MonstaSprite;
+                _possibleMonsta.Add(_monstaSprite[MonstaIndex]);
+            }
+
+            if (_currentRoom.connectedDown && _currentRoom.connectedLeft || _currentRoom.connectedDown && _currentRoom.connectedRight 
+                || _currentRoom.connectedUp && _currentRoom.connectedLeft || _currentRoom.connectedUp && _currentRoom.connectedRight
+                || _currentRoom.connectedRight && _currentRoom.connectedLeft)
+            {
+                if (_currentRoom.connectedRight && _currentRoom.rightDoor.CanHaveMonsta)
+                {
+                    MonstaIndex = _currentRoom.rightDoor.MonstaSprite;
+                    _possibleMonsta.Add(_monstaSprite[MonstaIndex]);
+                }
+                if (_currentRoom.connectedLeft && _currentRoom.leftDoor.CanHaveMonsta)
+                {
+                    MonstaIndex = _currentRoom.leftDoor.MonstaSprite;
+                    _possibleMonsta.Add(_monstaSprite[MonstaIndex]);
+                }
+                if (_currentRoom.connectedUp ||_currentRoom.connectedDown)
+                {
+                    MonstaIndex = _currentRoom.stairs.MonstaSprite;
+                    _possibleMonsta.Add(_monstaSprite[MonstaIndex]);
+                }
             }
         }
+        _selectedMonsta = _possibleMonsta[Random.Range(0, _possibleMonsta.Count - 1)];
     }
     
 }

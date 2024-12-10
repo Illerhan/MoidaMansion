@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         roomDisplayManager.DisplayRoom();
         currentInspectIndex = 0;
         minimap.EnterRoom(_position);
-        if (roomSwitchCount >= 2)
+        if (roomSwitchCount >= 3)
         {
             isChased = false;
             roomSwitchCount = 0;
