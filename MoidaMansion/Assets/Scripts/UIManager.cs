@@ -128,14 +128,17 @@ public class UIManager : MonoBehaviour
 
     public void DisplayText(string text)
     {
-        if (text.Length > 13)
+        if (text != null)
         {
-            StartCoroutine(DisplayLargeTextCoroutine(text));
-            return;
-        }
+            if (text.Length > 13)
+            {
+                StartCoroutine(DisplayLargeTextCoroutine(text));
+                return;
+            }
         
-        mainText.enabled = true;
-        mainText.text = text;
+            mainText.enabled = true;
+            mainText.text = text;
+        }
     }
 
     public void HideText()
