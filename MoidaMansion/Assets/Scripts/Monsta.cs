@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 using Random = UnityEngine.Random;
 
 public class Monsta : MonoBehaviour
