@@ -50,6 +50,8 @@ public class RoomDisplayManager : MonoBehaviour
         {
             if (objectSoIndex == index)
             {
+                Debug.Log(2);
+                
                 spriteRenderersToFlicker.Add(spriteRenderer);
                 spriteRenderer.sprite = selectedRoom.roomSo.RoomObjects[objectSoIndex].RoomSprites[spriteIndex];
                 spriteRenderer.gameObject.SetActive(true);
@@ -259,7 +261,7 @@ public class RoomDisplayManager : MonoBehaviour
                 }
                 else if (lockedObject.name == "LeftMirrorHandleFurniture1")
                 {
-                    noiseCoroutine = StartCoroutine(PlayNoiseLeft());
+                    noiseCoroutine = StartCoroutine(PlayNoiseBottom());
                 }
                 else if (lockedObject.name == "LeftCloset1")
                 {

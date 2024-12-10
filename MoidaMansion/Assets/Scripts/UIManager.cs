@@ -109,19 +109,32 @@ public class UIManager : MonoBehaviour
     {
         DisplayText("\"Search this !\"");
 
-        List<SpriteRenderer> spriteRenderersToFlicker = new List<SpriteRenderer>();
+        List<SpriteRenderer> spriteRenderersToFlicker = roomDisplayManager.GetSpriteRenderersToFlicker(GenProManager.Instance.mansionMap[hint.itemLocation.roomCoord.x, hint.itemLocation.roomCoord.y], 
+            hint.itemLocation.itemIndex);
         
-        roomDisplayManager.HideRoom();
+        //roomDisplayManager.HideRoom();
 
         for (int i = 0; i < 10; i++)
         {
+            foreach (var spriteRenderer in spriteRenderersToFlicker)
+            {
+                spriteRenderer.enabled = false;
+            }
             
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.25f);
             
-            yield return new WaitForSeconds(0.2f);
+            foreach (var spriteRenderer in spriteRenderersToFlicker)
+            {
+                spriteRenderer.enabled = true;
+            }
+            
+            yield return new WaitForSeconds(0.25f);
         }
         
-        yield return new WaitForSeconds(5f);
+        foreach (var spriteRenderer in spriteRenderersToFlicker)
+        {
+            spriteRenderer.enabled = false;
+        }
 
         roomDisplayManager.DisplayRoom();
         
