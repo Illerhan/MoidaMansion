@@ -13,6 +13,7 @@ public class GhostManager : MonoBehaviour
 
     [Header("Private Infos")]
     private Coroutine currentCoroutine;
+    private int objIndex;
     
     [Header("References")] 
     [SerializeField] private SpriteRenderer[] leftUpPath;
@@ -30,14 +31,15 @@ public class GhostManager : MonoBehaviour
         if (!doOnce)
         {
             doOnce = true;
-            SetupGhost(GenProManager.Instance.GetCurrentRoom().coord, GenProManager.Instance.keyItems[0].roomCoord);
+            SetupGhost(GenProManager.Instance.GetCurrentRoom().coord, GenProManager.Instance.keyItems[0].roomCoord, GenProManager.Instance.keyItems[0].itemIndex);
         }
     }
     
     
-    public void SetupGhost(Vector2Int playerPos, Vector2Int keyPos)
+    public void SetupGhost(Vector2Int playerPos, Vector2Int keyPos, int objIndex)
     {
         ghostActive = true;
+        this.objIndex = objIndex;
         
         while (true)
         {
@@ -218,6 +220,23 @@ public class GhostManager : MonoBehaviour
             for (int j = 0; j < GenProManager.Instance.roomDisplayManager.packedSpriteRenderers[pickedIndex].Count; j++)
             {
                 GenProManager.Instance.roomDisplayManager.packedSpriteRenderers[pickedIndex][j].enabled = true;
+            } 
+        }
+
+        List<SpriteRenderer> sprites = GenProManager.Instance.roomDisplayManager.packedSpriteRenderers[objIndex];
+        
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < sprites.Count; j++)
+            {
+                sprites[j].enabled = false;
+            }
+            
+            yield return new WaitForSeconds(0.2f);
+            
+            for (int j = 0; j <sprites.Count; j++)
+            {
+                sprites[j].enabled = true;
             } 
         }
     }
