@@ -136,6 +136,8 @@ public class PlayerController : MonoBehaviour
                 inspectedSpriteRenderers[i].gameObject.SetActive(true);
             }
             
+            inspectedSpriteRenderers.Clear();
+            
             currentInspectIndex++;
             if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
                 currentInspectIndex = 0;
@@ -143,7 +145,22 @@ public class PlayerController : MonoBehaviour
             while (!_currentRoom.roomSo.RoomObjects[currentInspectIndex].CanBeSearched)
             {
                 currentInspectIndex++;
-                if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
+                // Fairies search
+                if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count)
+                {
+                    if (GenProManager.Instance.fairiesManager.hasFairy)
+                    {
+                        inspectedSpriteRenderers.Clear();
+                        inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
+                        break;
+                    }
+                    else
+                    {
+                        currentInspectIndex++;
+                    }   
+                }
+                // Restart
+                if(currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
                     currentInspectIndex = 0;
             }
         }
@@ -152,15 +169,36 @@ public class PlayerController : MonoBehaviour
             currentInspectIndex = 0;
             isInspecting = true;
             
+            inspectedSpriteRenderers.Clear();
+            
             while (!_currentRoom.roomSo.RoomObjects[currentInspectIndex].CanBeSearched)
             {
                 currentInspectIndex++;
                 if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
-                    currentInspectIndex = 0;
+                {
+                    // Fairies search
+                    if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count)
+                    {
+                        if (GenProManager.Instance.fairiesManager.hasFairy)
+                        {
+                            inspectedSpriteRenderers.Clear();
+                            inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
+                            break;
+                        }
+                        else
+                        {
+                            currentInspectIndex++;
+                        }   
+                    }
+                    // Restart
+                    if(currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
+                        currentInspectIndex = 0;
+                }
             }
         }
         
-        inspectedSpriteRenderers = roomDisplayManager.packedSpriteRenderers[currentInspectIndex];
+        if(inspectedSpriteRenderers.Count == 0)
+            inspectedSpriteRenderers = roomDisplayManager.packedSpriteRenderers[currentInspectIndex];
         
         if(currentCoroutine != null)
             StopCoroutine(currentCoroutine);

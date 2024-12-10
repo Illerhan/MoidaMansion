@@ -34,6 +34,7 @@ public class RoomDisplayManager : MonoBehaviour
         
         ActualiseRemovableItems();
         UIManager.Instance.DisplayText(Room.roomSo.name);
+        GenProManager.Instance.fairiesManager.DisplayFairy(Room.coord);
 
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
