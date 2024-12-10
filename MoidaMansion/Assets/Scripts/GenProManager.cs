@@ -84,6 +84,7 @@ public class GenProManager : MonoBehaviour
     [SerializeField] private GraphicsGenProManager graphicsGenProManager;
     public FairiesManager fairiesManager;
     public GhostManager ghostManager;
+    public ButtonsManager buttonsManager;
     public RoomDisplayManager roomDisplayManager;
     [SerializeField] private GameObject roomPrefabDebug;
     [SerializeField] private GameObject pathPrefabDebug;

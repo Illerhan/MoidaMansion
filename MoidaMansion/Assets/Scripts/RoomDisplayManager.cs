@@ -50,8 +50,6 @@ public class RoomDisplayManager : MonoBehaviour
         {
             if (objectSoIndex == index)
             {
-                Debug.Log(2);
-                
                 spriteRenderersToFlicker.Add(spriteRenderer);
                 spriteRenderer.sprite = selectedRoom.roomSo.RoomObjects[objectSoIndex].RoomSprites[spriteIndex];
                 spriteRenderer.gameObject.SetActive(true);
@@ -84,6 +82,7 @@ public class RoomDisplayManager : MonoBehaviour
         UIManager.Instance.ShowMoveHud(Room.connectedLeft && !Room.isLockedLeft, Room.connectedRight && !Room.isLockedRight, Room.connectedUp, Room.connectedDown);
         GenProManager.Instance.fairiesManager.DisplayFairy(Room.coord);
         GenProManager.Instance.ghostManager.VerifyGhost(Room.coord);
+        GenProManager.Instance.buttonsManager.DisplayButton(Room.coord);
 
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {

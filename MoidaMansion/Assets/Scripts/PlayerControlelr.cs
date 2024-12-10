@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private List<SpriteRenderer> inspectedSpriteRenderers;
     private bool isInspecting;
     private bool isSearchingFairy;
+    private bool isSearchingButton;
     private Coroutine currentCoroutine;
     public bool isChased;
     private int roomSwitchCount = 0;
@@ -167,6 +168,8 @@ public class PlayerController : MonoBehaviour
         if (noControl) return;
         
         isSearchingFairy = false;
+        isSearchingButton = false;
+        
         bool hasSearchableObjects = false;
         for (int i = 0; i < _currentRoom.roomSo.RoomObjects.Count; i++)
         {
@@ -200,8 +203,21 @@ public class PlayerController : MonoBehaviour
                     currentInspectIndex++;
                 } 
             }
-            
-            if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 1)
+            if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
+            {
+                if (GenProManager.Instance.buttonsManager.hasButtonDisplayed)
+                {
+                    inspectedSpriteRenderers = new List<SpriteRenderer>();
+                    inspectedSpriteRenderers.Add(GenProManager.Instance.buttonsManager.GetRoomButton(_position));
+                    isSearchingButton = true;
+                }
+                else
+                {
+                    currentInspectIndex++;
+                }   
+            }
+            // Restart
+            if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 2)
                 currentInspectIndex = 0;
 
             if (currentInspectIndex < _currentRoom.roomSo.RoomObjects.Count)
@@ -224,9 +240,22 @@ public class PlayerController : MonoBehaviour
                             currentInspectIndex++;
                         }   
                     }
-                
+                    if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
+                    {
+                        if (GenProManager.Instance.buttonsManager.hasButtonDisplayed)
+                        {
+                            inspectedSpriteRenderers = new List<SpriteRenderer>();
+                            inspectedSpriteRenderers.Add(GenProManager.Instance.buttonsManager.GetRoomButton(_position));
+                            isSearchingButton = true;
+                            break;
+                        }
+                        else
+                        {
+                            currentInspectIndex++;
+                        }   
+                    }
                     // Restart
-                    if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 1)
+                    if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 2)
                         currentInspectIndex = 0;
                 }
             }
@@ -258,8 +287,22 @@ public class PlayerController : MonoBehaviour
                             currentInspectIndex++;
                         }   
                     }
+                    if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
+                    {
+                        if (GenProManager.Instance.buttonsManager.hasButtonDisplayed)
+                        {
+                            inspectedSpriteRenderers = new List<SpriteRenderer>();
+                            inspectedSpriteRenderers.Add(GenProManager.Instance.buttonsManager.GetRoomButton(_position));
+                            isSearchingButton = true;
+                            break;
+                        }
+                        else
+                        {
+                            currentInspectIndex++;
+                        }   
+                    }
                     // Restart
-                    if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 1)
+                    if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 2)
                         currentInspectIndex = 0;
                 }
             }
@@ -320,6 +363,12 @@ public class PlayerController : MonoBehaviour
         {
             inventoryManager.FoundCodePart();
             GenProManager.Instance.fairiesManager.PickFairy();
+            yield break;
+        }
+
+        if (isSearchingButton)
+        {
+            GenProManager.Instance.buttonsManager.ActivateButton(_position);
             yield break;
         }
         
