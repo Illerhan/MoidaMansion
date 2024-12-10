@@ -141,13 +141,13 @@ public class PlayerController : MonoBehaviour
             }
             
             currentInspectIndex++;
-            inspectedSpriteRenderers.Clear();
+            inspectedSpriteRenderers = new List<SpriteRenderer>();
 
             if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count)
             {
                 if (GenProManager.Instance.fairiesManager.hasFairy)
                 {
-                    inspectedSpriteRenderers.Clear();
+                    inspectedSpriteRenderers = new List<SpriteRenderer>();
                     inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
                     isSearchingFairy = true;
                 }
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
                 } 
             }
             
-            if(currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
+            if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 1)
                 currentInspectIndex = 0;
 
             if (currentInspectIndex < _currentRoom.roomSo.RoomObjects.Count)
@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (GenProManager.Instance.fairiesManager.hasFairy)
                         {
-                            inspectedSpriteRenderers.Clear();
+                            inspectedSpriteRenderers = new List<SpriteRenderer>();
                             inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
                             isSearchingFairy = true;
                             break;
@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
                     }
                 
                     // Restart
-                    if(currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
+                    if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 1)
                         currentInspectIndex = 0;
                 }
             }
@@ -191,8 +191,8 @@ public class PlayerController : MonoBehaviour
         {
             currentInspectIndex = 0;
             isInspecting = true;
-            
-            inspectedSpriteRenderers.Clear();
+
+            inspectedSpriteRenderers = new List<SpriteRenderer>();
             
             while (!_currentRoom.roomSo.RoomObjects[currentInspectIndex].CanBeSearched)
             {
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (GenProManager.Instance.fairiesManager.hasFairy)
                         {
-                            inspectedSpriteRenderers.Clear();
+                            inspectedSpriteRenderers = new List<SpriteRenderer>();
                             inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
                             isSearchingFairy = true;
                             break;
@@ -215,13 +215,14 @@ public class PlayerController : MonoBehaviour
                         }   
                     }
                     // Restart
-                    if(currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
+                    if(currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count + 1)
                         currentInspectIndex = 0;
                 }
             }
         }
         
-        if(inspectedSpriteRenderers.Count == 0)
+        Debug.Log(roomDisplayManager.packedSpriteRenderers[currentInspectIndex].Count);
+        if(currentInspectIndex < roomDisplayManager.packedSpriteRenderers.Count)
             inspectedSpriteRenderers = roomDisplayManager.packedSpriteRenderers[currentInspectIndex];
         
         if(currentCoroutine != null)

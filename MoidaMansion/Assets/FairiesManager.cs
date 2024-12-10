@@ -19,6 +19,7 @@ public class FairiesManager : MonoBehaviour
 
     private void Start()
     {
+        hasFairy = false;
         for (int i = 0; i < fairies.Length; i++)
         {
             fairies[i].enabled = false;
@@ -59,6 +60,8 @@ public class FairiesManager : MonoBehaviour
 
     public SpriteRenderer GetCurrentFairy()
     {
+        if (!isSetup) return null; 
+        
         for (int i = 0; i < 3; i++)
         {
             if (!fairies[i].enabled) continue;
