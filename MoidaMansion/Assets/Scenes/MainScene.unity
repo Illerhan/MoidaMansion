@@ -2392,8 +2392,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Nw Texte
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 25aa41aa2dd10bb4d84aac764e03a704, type: 2}
-  m_sharedMaterial: {fileID: 7745739593153388061, guid: 25aa41aa2dd10bb4d84aac764e03a704, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 14200d215d1114c4fa9792f70d11759b, type: 2}
+  m_sharedMaterial: {fileID: 6812146202216829801, guid: 14200d215d1114c4fa9792f70d11759b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5170,6 +5170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bd2618ad0d3cc4c948fe75a44c0f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendCount: 0
   Cal: {fileID: 1565547478}
   Ace: {fileID: 1252084963}
   Bek: {fileID: 1892392576}
@@ -5899,6 +5900,7 @@ MonoBehaviour:
   monsta: {fileID: 1891024979}
   currentInspectIndex: 0
   isChased: 0
+  noControl: 0
 --- !u!114 &1840993187
 MonoBehaviour:
   m_ObjectHideFlags: 0
