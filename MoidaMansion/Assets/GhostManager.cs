@@ -7,6 +7,11 @@ public class GhostManager : MonoBehaviour
     public Vector2Int wantedPos;
     public Vector2Int startPos;
     public List<Room> ghostPath;
+
+    [Header("References")] 
+    [SerializeField] private SpriteRenderer[] leftUpPath;
+    [SerializeField] private SpriteRenderer[] rightUpPath;
+    [SerializeField] private SpriteRenderer[] leftRightPath;
     
     
     public void SetupGhost(Vector2Int playerPos, Vector2Int keyPos)

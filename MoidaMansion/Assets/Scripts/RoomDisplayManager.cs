@@ -20,6 +20,7 @@ public class RoomDisplayManager : MonoBehaviour
     [SerializeField] private SpriteRenderer code3;
     [SerializeField] private SpriteRenderer noise1;
     [SerializeField] private SpriteRenderer noise2;
+    [SerializeField] private SpriteRenderer noise3;
 
     private void Start()
     {
@@ -177,6 +178,16 @@ public class RoomDisplayManager : MonoBehaviour
                 code2.enabled = true;
                 displayedCode = code2;
             }
+            else if (lockedObject.name == "LeftCloset1")
+            {
+                code3.enabled = true;
+                displayedCode = code3;
+            }
+            else if (lockedObject.name == "LeftKitchenFurniture1")
+            {
+                code2.enabled = true;
+                displayedCode = code2;
+            }
         } 
         
         // Noise
@@ -203,6 +214,14 @@ public class RoomDisplayManager : MonoBehaviour
                 else if (lockedObject.name == "LeftMirrorHandleFurniture1")
                 {
                     noiseCoroutine = StartCoroutine(PlayNoiseLeft());
+                }
+                else if (lockedObject.name == "LeftCloset1")
+                {
+                    noiseCoroutine = StartCoroutine(PlayNoiseLeft());
+                }
+                else if (lockedObject.name == "LeftKitchenFurniture1")
+                {
+                    noiseCoroutine = StartCoroutine(PlayNoiseBottom());
                 }
             }
         }
@@ -238,6 +257,22 @@ public class RoomDisplayManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         
             noise2.enabled = false;
+        }
+    }
+    
+    private IEnumerator PlayNoiseBottom()
+    {
+        while (true)
+        {
+            noise3.enabled = false;
+        
+            yield return new WaitForSeconds(Random.Range(0.4f, 2f));
+        
+            noise3.enabled = true;
+        
+            yield return new WaitForSeconds(0.1f);
+        
+            noise3.enabled = false;
         }
     }
 }
