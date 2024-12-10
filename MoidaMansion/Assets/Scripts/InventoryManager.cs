@@ -62,6 +62,12 @@ public class InventoryManager : MonoBehaviour
             Code3.SetActive(true);
     }
 
+    public void FoundCodePart()
+    {
+        _code++;
+        codeDisplay();
+    }
+    
     public void FoundFullCode()
     {
         _code = 3;

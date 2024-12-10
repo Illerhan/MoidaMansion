@@ -25,8 +25,18 @@ public class FairiesManager : MonoBehaviour
         }
     }
 
+    /*private bool doOnce = false;
+    private void Update()
+    {
+        if (!doOnce)
+        {
+            doOnce = true;
+            SetupFairies(GenProManager.Instance.GetCurrentRoom().coord);
+        }
+    }*/
 
-    public void SetupFairies(Vector2Int playerPos, Room[,] map)
+
+    public void SetupFairies(Vector2Int playerPos)
     {
         isSetup = true;
         
@@ -83,6 +93,7 @@ public class FairiesManager : MonoBehaviour
         {
             if (!fairies[i].enabled) continue;
 
+            pickedFairies[i] = true;
             fairies[i].enabled = false;
         }
     }

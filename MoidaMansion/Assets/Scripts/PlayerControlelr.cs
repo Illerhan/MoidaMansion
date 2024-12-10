@@ -13,9 +13,10 @@ public class PlayerController : MonoBehaviour
     
     Vector2Int _position = new (0, 0);
     private Room _currentRoom;
-    private int currentInspectIndex;
+    public int currentInspectIndex;
     private List<SpriteRenderer> inspectedSpriteRenderers;
     private bool isInspecting;
+    private bool isSearchingFairy;
     private Coroutine currentCoroutine;
     public bool isChased;
     private int roomSwitchCount = 0;
@@ -26,7 +27,9 @@ public class PlayerController : MonoBehaviour
         // We setup the variables
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
         _position = _currentRoom.coord;
-        
+
+        inspectedSpriteRenderers = new List<SpriteRenderer>();
+            
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
         
@@ -119,6 +122,7 @@ public class PlayerController : MonoBehaviour
     
     public void InspectItem()
     {
+        isSearchingFairy = false;
         bool hasSearchableObjects = false;
         for (int i = 0; i < _currentRoom.roomSo.RoomObjects.Count; i++)
         {
@@ -136,32 +140,51 @@ public class PlayerController : MonoBehaviour
                 inspectedSpriteRenderers[i].gameObject.SetActive(true);
             }
             
-            inspectedSpriteRenderers.Clear();
-            
             currentInspectIndex++;
-            if (currentInspectIndex >= _currentRoom.roomSo.RoomObjects.Count)
+            inspectedSpriteRenderers.Clear();
+
+            if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count)
+            {
+                if (GenProManager.Instance.fairiesManager.hasFairy)
+                {
+                    inspectedSpriteRenderers.Clear();
+                    inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
+                    isSearchingFairy = true;
+                }
+                else
+                {
+                    currentInspectIndex++;
+                } 
+            }
+            
+            if(currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
                 currentInspectIndex = 0;
 
-            while (!_currentRoom.roomSo.RoomObjects[currentInspectIndex].CanBeSearched)
+            if (currentInspectIndex < _currentRoom.roomSo.RoomObjects.Count)
             {
-                currentInspectIndex++;
-                // Fairies search
-                if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count)
+                while (!_currentRoom.roomSo.RoomObjects[currentInspectIndex].CanBeSearched)
                 {
-                    if (GenProManager.Instance.fairiesManager.hasFairy)
+                    currentInspectIndex++;
+                    // Fairies search
+                    if (currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count)
                     {
-                        inspectedSpriteRenderers.Clear();
-                        inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
-                        break;
+                        if (GenProManager.Instance.fairiesManager.hasFairy)
+                        {
+                            inspectedSpriteRenderers.Clear();
+                            inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
+                            isSearchingFairy = true;
+                            break;
+                        }
+                        else
+                        {
+                            currentInspectIndex++;
+                        }   
                     }
-                    else
-                    {
-                        currentInspectIndex++;
-                    }   
+                
+                    // Restart
+                    if(currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
+                        currentInspectIndex = 0;
                 }
-                // Restart
-                if(currentInspectIndex == _currentRoom.roomSo.RoomObjects.Count + 1)
-                    currentInspectIndex = 0;
             }
         }
         else
@@ -183,6 +206,7 @@ public class PlayerController : MonoBehaviour
                         {
                             inspectedSpriteRenderers.Clear();
                             inspectedSpriteRenderers.Add(GenProManager.Instance.fairiesManager.GetCurrentFairy());
+                            isSearchingFairy = true;
                             break;
                         }
                         else
@@ -242,8 +266,18 @@ public class PlayerController : MonoBehaviour
         searchProgressBar.DisplayProgress(0);
         isChased = true;
 
-        ItemType foundItem = GenProManager.Instance.VerifySearch(_position, currentInspectIndex);
+        currentInspectIndex = 0;
 
+        if (isSearchingFairy)
+        {
+            inventoryManager.FoundCodePart();
+            GenProManager.Instance.fairiesManager.PickFairy();
+            yield break;
+        }
+        
+
+        ItemType foundItem = GenProManager.Instance.VerifySearch(_position, currentInspectIndex);
+        
         switch (foundItem)
         {
             case ItemType.None :
