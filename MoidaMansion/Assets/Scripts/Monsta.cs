@@ -39,7 +39,7 @@ public class Monsta : MonoBehaviour
     {
         if(!_selectedMonsta)
             UpdatePosition();
-        if (!_playerController.isChased)
+        if (!_playerController.isChased && _selectedMonsta)
         {
             _selectedMonsta?.SetActive(false);
         }
