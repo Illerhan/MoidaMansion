@@ -39,15 +39,17 @@ public class InventoryManager : MonoBehaviour
                 Cal.SetActive(true);
                 foundFriends["Cal"] = true;
                 break;
-            case 3:
-                Dot.SetActive(true);
-                foundFriends["Dot"] = true;
-                break;
             default:
                 break;
         }
         
         friendCount++;
+    }
+
+    public void AddDot()
+    {
+        Dot.SetActive(true);
+        foundFriends["Dot"] = true;
     }
 
     // Used when picking up a code piece or full code to display

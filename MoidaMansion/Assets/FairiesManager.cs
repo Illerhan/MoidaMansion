@@ -9,6 +9,7 @@ public class FairiesManager : MonoBehaviour
     public Vector2Int[] fairiesPositions;
     public bool[] pickedFairies;
     public bool hasFairy;
+    public List<Vector2Int> bannedPositions = new List<Vector2Int>();
 
     [Header("Private infos")] 
     private bool isSetup;
@@ -50,8 +51,10 @@ public class FairiesManager : MonoBehaviour
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
             List<Room> path = GenProManager.Instance.GetPath(pickedPos, playerPos);
 
+            if (bannedPositions.Contains(pickedPos)) continue;
             if (path.Count == 0 || path.Count == 1) continue;
-
+            
+            bannedPositions.Add(pickedPos);
             fairiesPositions[currentFiaryCounter] = pickedPos;
             pickedFairies[currentFiaryCounter] = false;
             currentFiaryCounter++;
