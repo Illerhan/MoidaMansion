@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
     {
         if (noControl) return;
         
+        searchProgressBar.DisplayProgress(0);
+        
         if (_currentRoom.connectedDown)
             _position += new Vector2Int(0, -1);
         if (_currentRoom.connectedUp)
@@ -102,6 +104,8 @@ public class PlayerController : MonoBehaviour
     public void SwitchRoom(int direction)
     {
         if (noControl) return;
+        
+        searchProgressBar.DisplayProgress(0);
         
         if (direction > 0)
         {
@@ -324,6 +328,8 @@ public class PlayerController : MonoBehaviour
     {
         int currentCounter = 0;
         searchProgressBar.DisplayProgress(0);
+        
+        uiManager.HideText();
         
         while (true)
         {
