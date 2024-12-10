@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
         roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
         currentInspectIndex = 0;
+        monsta.HideMonsta();
         monsta.UpdatePosition();
         minimap.EnterRoom(_position);
         if (isChased)
@@ -149,9 +150,9 @@ public class PlayerController : MonoBehaviour
         // We actualise the variables
         GenProManager.Instance.ChangeCurrentRoom(_position);
         _currentRoom = GenProManager.Instance.GetCurrentRoom();
+        roomDisplayManager.Room = _currentRoom;
         monsta.HideMonsta();
         monsta.UpdatePosition();
-        roomDisplayManager.Room = _currentRoom;
         roomDisplayManager.DisplayRoom();
         currentInspectIndex = 0;
         minimap.EnterRoom(_position);
