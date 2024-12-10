@@ -131,6 +131,7 @@ public class RoomDisplayManager : MonoBehaviour
         displayedCode = null;
         noise1.enabled = false;
         noise2.enabled = false;
+        noise3.enabled = false;
 
         if (noiseCoroutine != null)
         {

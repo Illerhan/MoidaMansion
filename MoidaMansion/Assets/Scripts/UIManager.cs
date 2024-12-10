@@ -37,10 +37,12 @@ public class UIManager : MonoBehaviour
     
     public void DisplayRescueText(string roomName, string friendName)
     {
-        StartCoroutine(DisplayRescueTextCoroutine(roomName, friendName));
+        StartCoroutine(DisplayRescueTextCoroutine(roomName, friendName, GenProManager.Instance.GetNextHint()));
     }
     
-    private IEnumerator DisplayRescueTextCoroutine(string roomName, string friendName)
+    
+    
+    private IEnumerator DisplayRescueTextCoroutine(string roomName, string friendName, Hint hint)
     {
         DisplayText("Rescued " + friendName + "!");
         yield return new WaitForSeconds(2f);
@@ -56,5 +58,20 @@ public class UIManager : MonoBehaviour
             DisplayText(text[new Range(i, i+13)]);
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    private IEnumerator DisplayGhostHintCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+
+    private IEnumerator DisplayFairiesHintCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+
+    private IEnumerator DisplayPositionHintCoroutine(Hint hint)
+    {
+        yield return new WaitForSeconds(2f);
     }
 }

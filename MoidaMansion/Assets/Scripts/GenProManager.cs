@@ -41,6 +41,7 @@ public struct ItemLocation
     public int itemIndex;
 }
 
+[Serializable]
 public struct Hint
 {
     public Hint(HintType hintType, ItemLocation location)
@@ -65,17 +66,19 @@ public class GenProManager : MonoBehaviour
     public ItemLocation[] friendPositions = new ItemLocation[3];
     public List<ItemLocation> keyItems = new List<ItemLocation>();
     public Vector2Int codeLockedLocation = new Vector2Int(-1, -1);
+    public List<int> foundKeyItemsIndexes = new List<int>();
+    public List<int> foundFriendsIndexes = new List<int>();
+    public Room[,] mansionMap = new Room[4, 3];
     
     [Header("Private Infos")]
-    public Room[,] mansionMap = new Room[4, 3];
     private Vector2Int currentPos;
     private List<Vector2Int> bannedPositions;
     private List<int> bannedInts;
     private LockType[] lockTypes = new LockType[2];
     private Room[] lockedRooms = new Room[4];
-    private Hint[] hints = new Hint[2];
-    public List<int> foundKeyItemsIndexes = new List<int>();
-    public List<int> foundFriendsIndexes = new List<int>();
+    public Hint[] hints = new Hint[2];
+    private int bannedHintType = -1;
+    private int currentHintIndex = -1;
     
     [Header("References")] 
     [SerializeField] private GraphicsGenProManager graphicsGenProManager;
@@ -251,9 +254,10 @@ public class GenProManager : MonoBehaviour
     /// Returns the current hint to display
     /// </summary>
     /// <param name="friendIndex"> Either 0 or 1 </param>
-    public Hint GetNextHint(int friendIndex)
+    public Hint GetNextHint()
     {
-        return hints[friendIndex];
+        currentHintIndex++;
+        return hints[currentHintIndex];
     }
 
     /// <summary>
@@ -742,12 +746,35 @@ public class GenProManager : MonoBehaviour
                 break;
             
             int pickedIndex = Random.Range(0, room.RoomObjects.Count);
-            
+
+            if (room.RoomObjects.Count == 0) break;
             if (!room.RoomObjects[pickedIndex].CanBeSearched) continue;
             if (room.RoomObjects[pickedIndex].CanHaveFriend) continue;
             
+            // to avoid having the sames hints types
+            int hintTypeIndex = Random.Range(0, 3);
+            while (hintTypeIndex == bannedHintType)
+            {
+                hintTypeIndex = Random.Range(0, 3);
+            }
+            bannedHintType = hintTypeIndex;
+            
             keyItems.Add(new ItemLocation(itemType, itemPos, pickedIndex));
-            hints[keyItems.Count - 1] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+
+            switch (hintTypeIndex)
+            {
+                case 0:
+                    hints[keyItems.Count - 1] = new Hint(HintType.Ghost, keyItems[keyItems.Count - 1]);
+                    break;
+                
+                case 1 :
+                    hints[keyItems.Count - 1] = new Hint(HintType.Fairy, keyItems[keyItems.Count - 1]);
+                    break;
+                
+                case 2 :
+                    hints[keyItems.Count - 1] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+                    break;
+            }
 
             return;
         }
@@ -788,7 +815,29 @@ public class GenProManager : MonoBehaviour
             if (room.RoomObjects[pickedIndex].CanHaveFriend) continue;
             
             keyItems.Add(new ItemLocation(itemType, itemPos, pickedIndex));
-            hints[keyItems.Count - 1] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+
+            // to avoid having the sames hints types
+            int hintTypeIndex = Random.Range(0, 3);
+            while (hintTypeIndex == bannedHintType)
+            {
+                hintTypeIndex = Random.Range(0, 3);
+            }
+            bannedHintType = hintTypeIndex;
+            
+            switch (hintTypeIndex)
+            {
+                case 0:
+                    hints[keyItems.Count - 1] = new Hint(HintType.Ghost, keyItems[keyItems.Count - 1]);
+                    break;
+                
+                case 1 :
+                    hints[keyItems.Count - 1] = new Hint(HintType.Fairy, keyItems[keyItems.Count - 1]);
+                    break;
+                
+                case 2 :
+                    hints[keyItems.Count - 1] = new Hint(HintType.Position, keyItems[keyItems.Count - 1]);
+                    break;
+            }
 
             break;
         }
