@@ -47,11 +47,19 @@ public class FairiesManager : MonoBehaviour
         pickedFairies = new bool[3];
 
         bannedPositions = new List<Vector2Int>();
-        
+
+
+        int antiCrashCounter = 0;
         
 
         while (currentFiaryCounter < 3)
         {
+            antiCrashCounter++;
+            if (antiCrashCounter > 2000)
+            {
+                Debug.LogError("Ne peut pas faitre apparaitre toutes les fées, softlock");
+            }
+            
             Vector2Int pickedPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
             List<Room> path = GenProManager.Instance.GetPath(pickedPos, playerPos);
 
