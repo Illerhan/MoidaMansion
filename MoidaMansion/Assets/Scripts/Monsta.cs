@@ -98,6 +98,11 @@ public class Monsta : MonoBehaviour
         _selectedMonsta = _possibleMonsta[Random.Range(0, _possibleMonsta.Count - 1)];
     }
 
+    public GameObject getSelectedMonsta()
+    {
+        return _selectedMonsta;
+    }
+
     public void MonstaAttack()
     {
        _selectedMonsta.SetActive(false);

@@ -72,6 +72,10 @@ public class PlayerController : MonoBehaviour
             if (_position.x < 3 && _currentRoom.connectedRight && (!_currentRoom.isLockedRight || _currentRoom.isCodeLocked))
             {
                 _position += new Vector2Int(direction, 0);
+                if (isChased && monsta.getSelectedMonsta().gameObject.name == "Monster_2")
+                {
+                    monsta.MonstaAttack();
+                }
             }
             else if (_currentRoom.isLockedRight)
             {
@@ -88,6 +92,10 @@ public class PlayerController : MonoBehaviour
         else if (_position.x > 0 && _currentRoom.connectedLeft && (!_currentRoom.isLockedLeft || _currentRoom.isCodeLocked))
         {
             _position += new Vector2Int(direction, 0);
+            if (isChased && monsta.getSelectedMonsta().gameObject.name == "Monster_3")
+            {
+                monsta.MonstaAttack();
+            }
         }
         else if (_currentRoom.isLockedLeft)
         {
