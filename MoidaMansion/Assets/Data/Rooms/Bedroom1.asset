@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dac485049584704e8a809082bcd36b3, type: 3}
   m_Name: Bedroom1
   m_EditorClassIdentifier: 
+  <RoomName>k__BackingField: BEDROOM
   <RoomType>k__BackingField: 3
   <RoomObjects>k__BackingField:
   - {fileID: 11400000, guid: 078204a5409455a4cbfea15799c41d62, type: 2}

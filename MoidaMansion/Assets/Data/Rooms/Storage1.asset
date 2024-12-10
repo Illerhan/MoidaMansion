@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dac485049584704e8a809082bcd36b3, type: 3}
   m_Name: Storage1
   m_EditorClassIdentifier: 
+  <RoomName>k__BackingField: STORAGE
   <RoomType>k__BackingField: 6
   <RoomObjects>k__BackingField:
   - {fileID: 11400000, guid: 5f3fb20e6a38a5949aca3d51df6bc827, type: 2}

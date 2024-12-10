@@ -5349,7 +5349,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2d0ddd727eb44a843b3bcd4e02df6fc5, type: 2}
   - {fileID: 11400000, guid: e7d7b242d704997449cf72a80cd0b051, type: 2}
   - {fileID: 11400000, guid: e7d7b242d704997449cf72a80cd0b051, type: 2}
-  - {fileID: 11400000, guid: 6eff5cc8b894e944ea8c3dd7ec839291, type: 2}
+  - {fileID: 11400000, guid: b28cf076fc3c8e04e85d1fbb5be0a233, type: 2}
   - {fileID: 11400000, guid: 0c19abebb51f5324eb1f72d49e6a2dbd, type: 2}
   - {fileID: 11400000, guid: 8e6e044a88f709b41b1666b91d17a71d, type: 2}
   - {fileID: 11400000, guid: 0dbc27d07808b3c4886a69393558484d, type: 2}
@@ -5386,7 +5386,7 @@ MonoBehaviour:
   foundKeyItemsIndexes: 
   foundFriendsIndexes: 
   graphicsGenProManager: {fileID: 1935087238}
-  fairiesManager: {fileID: 1935087240}
+  fairiesManager: {fileID: 0}
   roomPrefabDebug: {fileID: 0}
   pathPrefabDebug: {fileID: 0}
   keyPrefabDebug: {fileID: 0}

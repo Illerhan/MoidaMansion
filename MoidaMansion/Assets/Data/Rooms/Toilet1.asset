@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dac485049584704e8a809082bcd36b3, type: 3}
   m_Name: Toilet1
   m_EditorClassIdentifier: 
+  <RoomName>k__BackingField: TOILET
   <RoomType>k__BackingField: 9
   <RoomObjects>k__BackingField:
   - {fileID: 11400000, guid: 339384fedfea02443a8cc0e471bc94e4, type: 2}
