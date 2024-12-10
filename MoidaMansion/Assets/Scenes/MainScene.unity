@@ -6227,7 +6227,7 @@ MonoBehaviour:
   - {fileID: 311881353}
   _monstaHand: {fileID: 2007109408}
   _monstaBlood: {fileID: 1073354665}
-  _HUD: {fileID: 1296149931}
+  _Minimap: {fileID: 1850753377}
   roomSpriteRenderer: {fileID: 434543325}
 --- !u!1 &1892392576
 GameObject:
