@@ -309,6 +309,14 @@ public class PlayerController : MonoBehaviour
                 
                 GenProManager.Instance.foundFriendsIndexes.Add(GenProManager.Instance.foundFriendsIndexes.Count);
                 roomDisplayManager.DisplayRoom();
+                UIManager.Instance.DisplayRescueText(_currentRoom.roomSo.RoomName, inventoryManager.friendCount switch
+                {
+                    0 => "Ace",
+                    1 => "Bek",
+                    2 => "Cal",
+                    3 => "Dot",
+                    _ => "LOL"
+                });
                 inventoryManager.FoundFriend();
                 break;
             
