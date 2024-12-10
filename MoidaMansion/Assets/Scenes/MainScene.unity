@@ -6394,6 +6394,8 @@ MonoBehaviour:
   foundFriendsIndexes: 
   graphicsGenProManager: {fileID: 1935087238}
   fairiesManager: {fileID: 1935087240}
+  ghostManager: {fileID: 1935087241}
+  roomDisplayManager: {fileID: 336534272}
   roomPrefabDebug: {fileID: 0}
   pathPrefabDebug: {fileID: 0}
   keyPrefabDebug: {fileID: 0}
@@ -6432,6 +6434,7 @@ MonoBehaviour:
   wantedPos: {x: 0, y: 0}
   startPos: {x: 0, y: 0}
   validatedPos: []
+  ghostActive: 0
   leftUpPath:
   - {fileID: 84281634}
   - {fileID: 1741035233}
