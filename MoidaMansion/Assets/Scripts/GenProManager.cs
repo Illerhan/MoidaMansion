@@ -620,7 +620,7 @@ public class GenProManager : MonoBehaviour
             if (currentRoom.coord == end)
                 return GetFinalPath(start, currentRoom);
 
-            if (currentRoom.coord.x > 0 && currentRoom.connectedLeft && !currentRoom.isLockedLeft)
+            if (currentRoom.coord.x > 0 && currentRoom.connectedLeft && (!currentRoom.isLockedLeft || currentRoom.isCodeLocked))
             {
                 if (!openList.Contains(mansionMap[currentRoom.coord.x - 1, currentRoom.coord.y]) &&
                     !closedList.Contains(mansionMap[currentRoom.coord.x - 1, currentRoom.coord.y]))
@@ -629,7 +629,7 @@ public class GenProManager : MonoBehaviour
                     mansionMap[currentRoom.coord.x - 1, currentRoom.coord.y].previous = currentRoom;
                 }
             }
-            if (currentRoom.coord.x < 3 && currentRoom.connectedRight && !currentRoom.isLockedRight)
+            if (currentRoom.coord.x < 3 && currentRoom.connectedRight && (!currentRoom.isLockedRight || currentRoom.isCodeLocked))
             {
                 if (!openList.Contains(mansionMap[currentRoom.coord.x + 1, currentRoom.coord.y]) &&
                     !closedList.Contains(mansionMap[currentRoom.coord.x + 1, currentRoom.coord.y]))
