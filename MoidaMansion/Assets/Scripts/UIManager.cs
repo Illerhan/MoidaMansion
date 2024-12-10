@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -25,5 +26,19 @@ public class UIManager : MonoBehaviour
     public void HideText()
     {
         mainText.enabled = false;
+    }
+    
+    public void DisplayRescueText(string roomName, string friendName)
+    {
+        StartCoroutine(DisplayRescueTextCoroutine(roomName, friendName));
+    }
+    
+    private IEnumerator DisplayRescueTextCoroutine(string roomName, string friendName)
+    {
+        DisplayText("Rescued " + friendName + "!");
+        yield return new WaitForSeconds(2f);
+        DisplayText("\"thank you!\"");
+        yield return new WaitForSeconds(2f);
+        DisplayText(roomName);
     }
 }

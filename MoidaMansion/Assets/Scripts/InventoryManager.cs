@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     private Dictionary<String, bool> foundFriends = new Dictionary<string, bool>();
     private int _code = 0;
     private bool _key = false;
-    private int friendCount = 0;
+    public int friendCount = 0;
     public GameObject Cal;
     public GameObject Ace;
     public GameObject Bek;
@@ -25,7 +25,6 @@ public class InventoryManager : MonoBehaviour
     // Call this function to add friend to inventory and display it.
     public void FoundFriend()
     {
-        foundFriends[name] = true;
         switch (friendCount)
         {
             case 0:
@@ -33,16 +32,16 @@ public class InventoryManager : MonoBehaviour
                 foundFriends["Ace"] = true;
                 break;
             case 1:
-                Dot.SetActive(true);
-                foundFriends["Dot"] = true;
+                Bek.SetActive(true);
+                foundFriends["Bek"] = true;
                 break;
             case 2:
                 Cal.SetActive(true);
                 foundFriends["Cal"] = true;
                 break;
             case 3:
-                Bek.SetActive(true);
-                foundFriends["Bek"] = true;
+                Dot.SetActive(true);
+                foundFriends["Dot"] = true;
                 break;
             default:
                 break;
