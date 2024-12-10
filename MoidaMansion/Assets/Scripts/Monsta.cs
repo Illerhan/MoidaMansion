@@ -12,9 +12,11 @@ public class Monsta : MonoBehaviour
     private Coroutine _coroutine;
     public List<GameObject> _monstaSprite = new List<GameObject>();
     private List<GameObject> _possibleMonsta = new List<GameObject>();
-    private int MonstaIndex;
+    private int _MonstaIndex;
     private GameObject _selectedMonsta;
-    private bool isRunning;
+    [SerializeField] private GameObject _monstaHand;
+    [SerializeField] private GameObject _monstaBlood;
+    private bool _isRunning;
     private RoomSo _currentRoomSo;
     private Room _currentRoom;
     private PlayerController _playerController;
@@ -44,14 +46,14 @@ public class Monsta : MonoBehaviour
             return;
         }
 
-        if(!isRunning)
+        if(!_isRunning)
             _coroutine  = StartCoroutine(MonstaCoroutine());
             
     }
     
     public IEnumerator MonstaCoroutine()
     {
-        isRunning = true;
+        _isRunning = true;
         _selectedMonsta.SetActive(true);
         while (true)
         {
@@ -78,8 +80,8 @@ public class Monsta : MonoBehaviour
         {
             if (objectSo.CanHaveMonsta)
             {
-                MonstaIndex = objectSo.MonstaSprite;
-                _possibleMonsta.Add(_monstaSprite[MonstaIndex]);
+                _MonstaIndex = objectSo.MonstaSprite;
+                _possibleMonsta.Add(_monstaSprite[_MonstaIndex]);
             }
 
             if (_currentRoom.connectedDown && _currentRoom.connectedLeft || _currentRoom.connectedDown && _currentRoom.connectedRight 
@@ -88,22 +90,29 @@ public class Monsta : MonoBehaviour
             {
                 if (_currentRoom.connectedRight && _currentRoom.rightDoor.CanHaveMonsta)
                 {
-                    MonstaIndex = _currentRoom.rightDoor.MonstaSprite;
-                    _possibleMonsta.Add(_monstaSprite[MonstaIndex]);
+                    _MonstaIndex = _currentRoom.rightDoor.MonstaSprite;
+                    _possibleMonsta.Add(_monstaSprite[_MonstaIndex]);
                 }
                 if (_currentRoom.connectedLeft && _currentRoom.leftDoor.CanHaveMonsta)
                 {
-                    MonstaIndex = _currentRoom.leftDoor.MonstaSprite;
-                    _possibleMonsta.Add(_monstaSprite[MonstaIndex]);
+                    _MonstaIndex = _currentRoom.leftDoor.MonstaSprite;
+                    _possibleMonsta.Add(_monstaSprite[_MonstaIndex]);
                 }
                 if (_currentRoom.connectedUp ||_currentRoom.connectedDown)
                 {
-                    MonstaIndex = _currentRoom.stairs.MonstaSprite;
-                    _possibleMonsta.Add(_monstaSprite[MonstaIndex]);
+                    _MonstaIndex = _currentRoom.stairs.MonstaSprite;
+                    _possibleMonsta.Add(_monstaSprite[_MonstaIndex]);
                 }
             }
         }
         _selectedMonsta = _possibleMonsta[Random.Range(0, _possibleMonsta.Count - 1)];
     }
-    
+
+    public void MonstaAttack()
+    {
+       StopCoroutine(MonstaCoroutine());
+       _selectedMonsta.SetActive(false);
+       _monstaBlood.SetActive(true);
+       _monstaHand.SetActive(true);
+    }
 }

@@ -326,6 +326,11 @@ public class PlayerController : MonoBehaviour
                     
                     roomDisplayManager.DisplayRoom();
                 }
+
+                if (isChased)
+                {
+                    monsta.MonstaAttack();
+                }
                 Debug.Log("J'ai trouvé un passage secret !");
                 break;
         }
