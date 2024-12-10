@@ -751,6 +751,8 @@ public class GenProManager : MonoBehaviour
             if (room.RoomObjects.Count == 0) break;
             if (!room.RoomObjects[pickedIndex].CanBeSearched) continue;
             if (room.RoomObjects[pickedIndex].CanHaveFriend) continue;
+            if (room.RoomType == RoomType.Entrance) continue;
+            if (room.RoomType == RoomType.Void) continue;
             
             // to avoid having the sames hints types
             int hintTypeIndex = Random.Range(0, 3);
@@ -780,6 +782,7 @@ public class GenProManager : MonoBehaviour
             return;
         }
 
+        
         int antiCrashCounter2 = 0;
         while (true)
         {
@@ -798,6 +801,8 @@ public class GenProManager : MonoBehaviour
                 if (!room.RoomObjects[i].CanBeSearched) continue;
                 if (room.RoomObjects[i].CanHaveFriend) continue;
                 if (room.RoomType == RoomType.Entrance) continue;
+                if (room.RoomType == RoomType.Void) continue;
+                
                 found = true;
                 
                 mansionMap[itemPos.x, itemPos.y].roomSo = room;

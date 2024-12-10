@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     public bool isChased;
     private int roomSwitchCount = 0;
     public bool noControl = false;
+
+    [Header("End Infos")] 
+    public int searchCount = 0;
     
 
 
@@ -81,6 +84,12 @@ public class PlayerController : MonoBehaviour
     public void SwitchLevel()
     {
         if (noControl) return;
+
+        if (canGetOut)
+        {
+            // Get out
+            return;
+        }
         
         searchProgressBar.DisplayProgress(0);
         if (isChased && monsta.GetSelectedMonsta().gameObject.name == "Monster_5")
@@ -383,6 +392,8 @@ public class PlayerController : MonoBehaviour
             yield break;
         }
         isChased = true;
+
+        searchCount += 1;
 
         if (isSearchingFairy)
         {
