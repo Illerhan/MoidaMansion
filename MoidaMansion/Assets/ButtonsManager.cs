@@ -37,6 +37,7 @@ public class ButtonsManager : MonoBehaviour
                 Vector2Int roomPos = new Vector2Int(Random.Range(0, 4), Random.Range(0, 3));
 
                 if (bannedPositions.Contains(roomPos)) continue;
+                if (GenProManager.Instance.mansionMap[roomPos.x, roomPos.y].roomSo.RoomType == RoomType.Void) continue;
                 
                 bannedPositions.Add(roomPos);
                 buttonPositions[i] = roomPos;

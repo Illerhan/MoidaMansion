@@ -53,6 +53,7 @@ public class FairiesManager : MonoBehaviour
 
             if (bannedPositions.Contains(pickedPos)) continue;
             if (path.Count == 0 || path.Count == 1) continue;
+            if (GenProManager.Instance.mansionMap[pickedPos.x, pickedPos.y].roomSo.RoomType == RoomType.Void) continue;
             
             bannedPositions.Add(pickedPos);
             fairiesPositions[currentFiaryCounter] = pickedPos;

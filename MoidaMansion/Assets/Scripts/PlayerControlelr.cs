@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool isInspecting;
     private bool isSearchingFairy;
     private bool isSearchingButton;
+    private bool canGetOut;
     private Coroutine currentCoroutine;
     public bool isChased;
     private int roomSwitchCount = 0;
@@ -48,6 +49,16 @@ public class PlayerController : MonoBehaviour
             roomDisplayManager.DisplayRoom();
         
             minimap.EnterRoom(_position);
+        }
+
+        // Dégueux mais c'est fait dans l'urgence
+        canGetOut = false;
+        if (GenProManager.Instance.GetCurrentRoom().roomSo.RoomType == RoomType.Entrance)
+        {
+            if (inventoryManager.friendCount >= 3)
+            {
+                canGetOut = true;
+            }
         }
     }
 
