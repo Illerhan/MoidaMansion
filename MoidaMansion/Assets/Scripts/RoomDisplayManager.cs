@@ -81,6 +81,7 @@ public class RoomDisplayManager : MonoBehaviour
         
         ActualiseRemovableItems();
         UIManager.Instance.DisplayText(Room.roomSo.RoomName);
+        UIManager.Instance.ShowMoveHud(Room.connectedLeft && !Room.isLockedLeft, Room.connectedRight && !Room.isLockedRight, Room.connectedUp, Room.connectedDown);
         GenProManager.Instance.fairiesManager.DisplayFairy(Room.coord);
         GenProManager.Instance.ghostManager.VerifyGhost(Room.coord);
 
